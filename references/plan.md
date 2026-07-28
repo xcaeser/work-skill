@@ -1,6 +1,6 @@
-# Brief
+# Plan
 
-Turn a task into an execution-ready contract without launching agents or changing files.
+Turn a task into a clear execution plan without launching agents or changing files.
 
 ## Method
 
@@ -18,7 +18,7 @@ Turn a task into an execution-ready contract without launching agents or changin
 Return:
 
 ```markdown
-## Work brief
+## Work plan
 
 **Mission:** <one concrete outcome>
 
@@ -31,10 +31,10 @@ Return:
 **Decisions and constraints**
 - <decision or boundary>
 
-**Crew**
+**Agents**
 - <call sign> — working on <assignment>; Goal: <goal>; Ownership: <scope>
 
-**Waves**
+**Order**
 1. <dependency-aware launch order>
 
 **Validation**
@@ -46,4 +46,4 @@ Return:
 **Ready:** Yes | No — <reason>
 ```
 
-Keep the brief proportional to the task and normally under 700 words. Do not create a goal, update a plan, spawn or steer agents, edit files, run destructive commands, or imply that proposed agents have launched.
+Keep the plan proportional to the task and normally under 700 words. Do not create a goal, update the live task plan, spawn or steer agents, edit files, run destructive commands, or imply that proposed agents have launched.

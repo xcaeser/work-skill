@@ -1,4 +1,4 @@
-# Doctor
+# Check
 
 Check whether the live Codex harness can honor Work's contracts. Diagnose only; do not change configuration or probe by launching work.
 
@@ -16,24 +16,24 @@ Inspect the tools and schemas actually exposed in the current task:
 
 Do not infer support from documentation, another tool, a model picker, or remembered behavior when the live schema is available. Never print secrets while inspecting configuration.
 
-## Verdicts
+## Results
 
-- **READY:** Boss can launch at least one Sol-low, goal-backed, context-isolated subagent.
-- **DEGRADED:** Core Boss works, but an optional control such as Luna or precise capacity reporting is unavailable.
-- **BLOCKED:** A required Boss contract is missing or no agent slot is available.
+- **Ready:** Run can launch at least one Sol-low, goal-backed, context-isolated subagent.
+- **Limited:** Run works, but an optional control such as Luna or precise capacity reporting is unavailable.
+- **Blocked:** A required Run capability is missing or no agent slot is available.
 
 Return:
 
 ```markdown
-## Work doctor
+## Work check
 
-**Verdict:** READY | DEGRADED | BLOCKED
+**Result:** Ready | Limited | Blocked
 
 | Capability | Required contract | Observed | Result |
 |---|---|---|---|
 | Sol executor | Sol, low, isolated context | <fact> | Pass/Fail |
 
-**Safe next action:** <one command or exact remediation>
+**Next action:** <one command or exact remediation>
 ```
 
 Do not install tools, edit config, create tasks, create goals, spawn agents, or claim a model is callable merely because it exists elsewhere in Codex.

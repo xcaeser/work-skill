@@ -17,7 +17,7 @@ Return:
 **Goal:** <objective or "No Work goal in this task">
 **State:** <active, complete, blocked, or unavailable>
 
-| Crew | State | Assignment | Last evidence or blocker |
+| Agent | State | Assignment | Last evidence or blocker |
 |---|---|---|---|
 | <call sign (`task_id`)> | <state> | <assignment> | <concise evidence> |
 
@@ -25,4 +25,4 @@ Return:
 **Next parent action:** <one concrete action or "None">
 ```
 
-Omit the crew table when no Work agents exist. Distinguish **unavailable** from **none** and **not yet verified** from **failed**.
+Omit the agent table when no Work agents exist. Distinguish **unavailable** from **none** and **not yet verified** from **failed**.

@@ -11,24 +11,26 @@ Render this compact menu:
 
 | Command | What it does |
 |---|---|
-| `$work boss <task>` | Execute a clear vision through lean, bounded agents |
-| `$work brief <task>` | Prepare the exact outcome, crew, waves, and proof before launch |
-| `$work audit <target>` | Independently challenge existing work with evidence |
-| `$work status` | Show the live Work goal, crew, blockers, and next action |
-| `$work doctor` | Check whether this Codex harness can honor Work's contracts |
+| `$work init [path]` | Set up a new project through a short guided flow |
+| `$work plan <task>` | Define the result, boundaries, agents, order, and proof |
+| `$work run <task>` | Complete a task through focused agents |
+| `$work clean [scope]` (`$work cc`) | Simplify code without changing behavior |
+| `$work review <target>` | Find evidence-backed risks without making changes |
+| `$work status` | Show the current goal, agents, blockers, and next action |
+| `$work check` | Check whether Work can run correctly here |
 | `$work help [command]` | Show all commands or explain one |
-| `$work open` | Open the installed Work skill and its core files |
+| `$work open` | Open the Work skill and its files |
 
-Try: `$work brief <task>`, then `$work boss use that brief`.
+Start with `$work init`, `$work plan <task>`, or `$work run <task>`.
 ```
 
 Keep the ordering above. Do not add generic introductory prose.
 
 ## Command argument
 
-For a canonical command:
+For a canonical command or `cc`:
 
-1. Read the target command's directly linked reference when needed.
+1. Resolve `cc` to `clean`, then read the target command's directly linked reference when needed.
 2. Return its syntax, purpose, behavior, and one short realistic example.
 3. State material constraints that affect how it runs.
 4. Keep the response under 180 words.

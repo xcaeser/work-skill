@@ -1,18 +1,18 @@
-# Boss
+# Run
 
-Own the vision, launch narrowly scoped executor agents, integrate their work, and verify the complete result.
+Define the result, start focused agents, integrate their work, and verify completion.
 
 ## Contents
 
-1. Frame the mission
-2. Register control state
-3. Design execution waves
-4. Prepare executor packets
-5. Launch against the live harness
-6. Coordinate without waste
-7. Integrate and close
+1. Define the result
+2. Set the goal and plan
+3. Split the work
+4. Write agent instructions
+5. Start agents
+6. Coordinate
+7. Verify and finish
 
-## 1. Frame the mission
+## 1. Define the result
 
 Before delegation:
 
@@ -23,42 +23,42 @@ Before delegation:
 5. Identify the smallest useful execution units. Prefer one executor for tightly coupled work.
 6. Keep integration, cross-cutting decisions, and final validation with the parent.
 
-Do not delegate vague exploration such as "figure out the best design." Resolve the vision first, use `$work brief` when a contract would help, then delegate execution.
+Do not delegate vague exploration such as "figure out the best design." Resolve the intended result first, use `$work plan` when a written plan would help, then delegate execution.
 
-## 2. Register control state
+## 2. Set the goal and plan
 
 Before launch:
 
-1. Require `get_goal`, `create_goal`, and `update_goal`. If the goal lifecycle is unavailable, stop because Boss cannot guarantee goal-backed execution.
+1. Require `get_goal`, `create_goal`, and `update_goal`. If the goal lifecycle is unavailable, stop because Run cannot guarantee goal-backed execution.
 2. Inspect the current goal with `get_goal`.
 3. Reuse an active goal only when it matches or contains the mission. If no unfinished goal exists, call `create_goal` with the exact mission. If an unrelated goal is active, stop and report the conflict instead of replacing it.
 4. Never set a token budget unless the user explicitly supplied one.
 5. For work with more than one meaningful step, publish and maintain a short plan with at most one step in progress when a plan tool is available.
 6. Inspect live agents and capacity with `list_agents` when available. Count the parent and already-live agents; never assume an advertised maximum is currently free.
 
-The root goal is the mission ledger. Agent goals are separate task-local commitments.
+The root goal tracks the overall result. Agent goals track their assigned work.
 
-## 3. Design execution waves
+## 3. Split the work
 
 Maintain a compact registry with:
 
 - call sign and tool-safe task ID
 - assignment, goal, and ownership
-- dependencies and launch wave
+- dependencies and execution order
 - state, returned evidence, and exact blocker
 
-Launch one executor by default. Launch several only when their scopes are genuinely independent and the saved wall-clock time justifies the extra tokens. Do not fill every available slot merely because it exists.
+Launch one agent by default. Launch several only when their scopes are genuinely independent and the saved wall-clock time justifies the extra tokens. Do not fill every available slot merely because it exists.
 
-Use dynamic waves:
+Start in small groups:
 
 1. Launch the smallest first wave that can produce implementation progress.
 2. Integrate its evidence before deciding whether another wave is needed.
 3. When a route stalls, record the exact blocker. Do not retry the same route unless new evidence, access, or a materially different mechanism exists.
-4. Keep independent diagnostic or audit agents unaware of each other's conclusions until their first handoffs when independence matters.
+4. Keep independent diagnostic or review agents unaware of each other's conclusions until their first handoffs when independence matters.
 
-## 4. Prepare complete executor packets
+## 4. Write complete agent instructions
 
-Give each executor a self-contained, task-local packet. Include:
+Give each agent complete, task-specific instructions. Include:
 
 - **Call sign:** a short, fun display name used consistently in user-facing updates.
 - **Assignment:** a plain-language phrase completing "`<Call sign>` — working on `<assignment>`."
@@ -78,9 +78,9 @@ Give each executor a self-contained, task-local packet. Include:
 
 Include decisions and evidence, not hidden reasoning or irrelevant conversation history. Prefer precise paths, symbols, and short excerpts over whole-file dumps. Make the packet complete enough that the executor should not need a planning conversation.
 
-The executor prompt must instruct it to:
+The agent prompt must instruct it to:
 
-1. Call `create_goal` or the available equivalent with the packet's exact **Goal** before implementation.
+1. Call `create_goal` or the available equivalent with the instructions' exact **Goal** before implementation.
 2. Reuse an already-active matching goal rather than create a duplicate.
 3. Omit a token budget unless the user explicitly supplied one.
 4. Call `update_goal` with `complete` only after the **Done when** checks pass.
@@ -88,9 +88,9 @@ The executor prompt must instruct it to:
 
 If no goal tool or equivalent is available to the agent, treat that as a task blocker; never imply that a goal was registered.
 
-## 5. Launch against the live harness
+## 5. Start agents
 
-For every actionable `$work boss` request, launch at least one implementation agent when the Work contract is supported. Do not perform the entire implementation locally merely because it is small.
+For every actionable `$work run` request, launch at least one implementation agent when the Work contract is supported. Do not perform the entire implementation locally merely because it is small.
 
 Use `spawn_agent` with:
 
@@ -103,7 +103,7 @@ fork_turns: none
 
 `fork_turns: none` is part of the cost and correctness contract: it avoids leaking the whole parent thread and permits an explicit model configuration in harnesses where full-history forks inherit the parent model.
 
-Give every executor two names:
+Give every agent two names:
 
 - A short, fun, memorable **call sign** for people, such as `Bob`, `Pixel Pete`, or `Schema Sally`. Keep it friendly, unique within the launch batch, and easy to pair with its assignment. Light wordplay is welcome, but clarity wins over the joke.
 - A tool-safe **task ID** for `spawn_agent`, derived from the call sign and scope, such as `bob_settings_ui` or `pixel_pete_assets`. Use only lowercase letters, digits, and underscores.
@@ -124,11 +124,11 @@ Call update_goal complete only after every Done when check passes.
 Return concrete evidence, not a status report.
 ```
 
-Then provide the complete packet.
+Then provide the complete instructions.
 
-Do not silently substitute another model, role, tool, or reasoning effort. If the subagent spawn tool cannot launch `gpt-5.6-sol` at low reasoning with a context-isolated fork, state that Boss cannot honor its execution contract.
+Do not silently substitute another model, role, tool, or reasoning effort. If the subagent spawn tool cannot launch `gpt-5.6-sol` at low reasoning with a context-isolated fork, state that Run cannot continue.
 
-An optional utility lane may use the exact model slug `gpt-5.6-luna` with `reasoning_effort: medium` only for quick, deterministic, low-risk chores: formatting, rote renames, fixture updates, bounded file moves, or simple generated metadata. Use `high` only when such a chore is mechanically large but conceptually simple. Luna must not make product, architecture, design, security, audit, or integration decisions. Use Luna only when the actual **subagent spawn tool** accepts that exact slug and effort. Model availability in a user-owned task-creation tool does not qualify, and creating another task is not a substitute.
+For simple mechanical tasks, the exact model slug `gpt-5.6-luna` may be used with `reasoning_effort: medium`: formatting, rote renames, fixture updates, bounded file moves, or simple generated metadata. Use `high` only when the task is mechanically large but conceptually simple. Luna must not make product, architecture, design, security, review, or integration decisions. Use Luna only when the actual **subagent spawn tool** accepts that exact slug and effort. Model availability in a user-owned task-creation tool does not qualify, and creating another task is not a substitute.
 
 After all launch attempts, and before any wait, post this concise roster in commentary:
 
@@ -139,7 +139,7 @@ Launched N agents:
 
 Include one row per successful launch. Never claim an agent launched before its spawn call succeeds. List failed launches separately with their exact blockers.
 
-## 6. Coordinate without waste
+## 6. Coordinate
 
 - Treat the shared workspace as shared mutable state. Give simultaneous writers disjoint ownership; sequence unavoidable overlap.
 - Continue useful parent-side inspection or integration while agents work.
@@ -147,21 +147,21 @@ Include one row per successful launch. Never claim an agent launched before its 
 - Wait with `wait_agent` or the live equivalent in bounded intervals of at most 60 seconds. Do not busy-poll or narrate unchanged snapshots.
 - Keep the user informed during long work without repeating the roster.
 - Request handoffs under 250 words unless a blocker needs exact evidence. Do not request pasted diffs or long narratives.
-- Inspect evidence before retrying. Retry once only when the miss is recoverable and the packet can be narrowed.
+- Inspect evidence before retrying. Retry once only when the miss is recoverable and the instructions can be narrowed.
 - Use `interrupt_agent` or the live equivalent when work becomes obsolete or unsafe; do not let stale agents keep editing.
 
-## 7. Integrate and close
+## 7. Verify and finish
 
-After executors finish:
+After agents finish:
 
 1. Inspect their actual changes and preserve unrelated user work.
 2. Reconcile integration issues and ensure the combined result matches the mission.
 3. Run validation proportional to the claim, including broader checks the executors could not own.
 4. Reject effort, confidence, or partial progress as completion evidence.
 5. Fix a narrow integration miss directly or send one targeted follow-up to the responsible executor.
-6. Use an independent read-only audit when the change is high-risk or the user requests `$work audit`.
+6. Use an independent read-only review when the change is high-risk or the user requests `$work review`.
 7. Call `update_goal` with `complete` only after the root **Done when** criteria pass and no required work remains.
 8. Mark a goal blocked only when the live goal-tool rules permit it; difficulty, uncertainty, or a first blocker is not enough.
-9. Report the unified outcome, validation evidence, remaining caveats, and concise crew outcomes.
+9. Report the unified outcome, validation evidence, remaining caveats, and concise agent outcomes.
 
-Never treat an executor handoff as proof. Verify the workspace and relevant runtime behavior yourself.
+Never treat an agent handoff as proof. Verify the workspace and relevant runtime behavior yourself.
