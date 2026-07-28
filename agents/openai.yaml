@@ -1,0 +1,4 @@
+interface:
+  display_name: "Work"
+  short_description: "Boss-led work through focused executor agents"
+  default_prompt: "Use $work boss to execute a task through accountable, bounded agents, or $work help to see all workflows."
