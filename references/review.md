@@ -27,11 +27,14 @@ Every reviewer must:
 - state the scope checked and tests run when it finds nothing
 - keep the handoff under 250 words unless exact reproduction evidence requires more
 
-After successful launches and before waiting, post:
+After successful launches and before waiting, post this table. Use `reviewer` for one launch and `reviewers` otherwise:
 
-```text
-Launched N reviewers:
-- <call sign> (`<task_id>`) — reviewing <scope>; Goal: <goal>; Model: gpt-5.6-sol, low
+```markdown
+Launched N reviewer(s):
+
+| Agent | Working on | Goal | Ownership | Model |
+|---|---|---|---|---|
+| <call sign> (`<task_id>`) | Review <scope> | <goal> | `<read-only files/scope>` | `gpt-5.6-sol`, low |
 ```
 
 Never claim a launch before it succeeds. Wait with `wait_agent` or the live equivalent in bounded intervals, and use `send_message`, `followup_task`, or `interrupt_agent` only for concrete steering, correction, or safety needs.

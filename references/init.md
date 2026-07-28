@@ -65,7 +65,17 @@ After confirmation:
 5. Prefer the ecosystem's official generator when it produces the confirmed minimal structure. Do not accept unwanted sample screens, packages, telemetry, or deployment configuration; remove generator extras safely.
 6. Create only the selected source structure, package manifest, build configuration, focused starter test, ignore rules, and confirmed repository guidance.
 7. Install only approved dependencies. Do not create a remote repository, publish a package, deploy, add credentials, or enable paid services unless explicitly requested.
-8. After launch, list each agent's call sign, task ID, assignment, goal, ownership, model, and reasoning effort.
+8. After successful launches and before waiting, post this table. Use `agent` for one launch and `agents` otherwise:
+
+```markdown
+Launched N agent(s):
+
+| Agent | Working on | Goal | Ownership | Model |
+|---|---|---|---|---|
+| <call sign> (`<task_id>`) | Create <confirmed setup slice> | <goal> | `<paths/subsystem>` | `<model>`, <effort> |
+```
+
+Include one row per successful launch. Never claim a launch before it succeeds; list failed launches separately with their exact blockers.
 
 ## 5. Verify
 

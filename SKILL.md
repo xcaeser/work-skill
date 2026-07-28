@@ -13,7 +13,7 @@ Act as the accountable lead. Keep requirements, decisions, integration, and proo
 |---|---|---|---|
 | `init [path]` | Create | Ask the essential setup questions, then create and verify a minimal new project | [references/init.md](references/init.md) |
 | `plan [task]` | Prepare | Define the result, boundaries, agent assignments, order, and proof without making changes | [references/plan.md](references/plan.md) |
-| `run [task]` | Execute | Complete a defined task through focused agents and final verification | [references/run.md](references/run.md) |
+| `run [profile] [effort] [task]` | Execute | Complete a task with user-selected or automatically assigned agent models | [references/run.md](references/run.md) |
 | `clean [scope]` | Execute | Remove proven code smells and overengineering while preserving behavior | [references/clean.md](references/clean.md) |
 | `review [target]` | Verify | Find evidence-backed risks without changing source files | [references/review.md](references/review.md) |
 | `status` | Observe | Show the current goal, agents, blockers, evidence, and next action | [references/status.md](references/status.md) |
@@ -35,11 +35,12 @@ Routing:
 - Preserve one coherent vision across every delegated task.
 - Treat the live tool schemas, permissions, concurrency, and workspace topology as authoritative. Never invent a capability, model, isolation boundary, launch, or state.
 - Use subagent tools for subtasks. Never create user-owned tasks or threads as a substitute for subagents.
-- Launch Work agents as `gpt-5.6-sol` with `reasoning_effort: low` and `fork_turns: none` by default; use the guarded Luna option only as defined by `run`.
+- Default `run` agents to `gpt-5.6-sol` with `reasoning_effort: low` and `fork_turns: none`. Honor an explicit `run` profile and effort exactly as defined by `run`.
 - Give every Work agent an exact goal to register before work and complete only after its checks pass.
 - Give each agent complete instructions before launch; do not make agents discover product intent.
 - Keep agents bounded and action-oriented. Retain planning, tradeoffs, integration, and final judgment in the parent.
 - Spend tokens deliberately: use the fewest useful agents, send only task-local context, avoid duplicate approaches, and require concise evidence.
 - Assume parallel agents may share permissions and a filesystem unless the live harness proves isolation. Never give concurrent writers overlapping ownership.
 - Give every agent a fun, clear call sign and use it consistently in launch rosters and updates.
+- Present every successful launch as a compact Markdown table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model` columns. Put the tool-safe task ID beside the call sign in the `Agent` cell.
 - Keep `plan`, `status`, `check`, `help`, and `open` read-only and free of delegation. Keep `review` free of source edits.

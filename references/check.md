@@ -6,13 +6,14 @@ Check whether the live Codex harness can honor Work's contracts. Diagnose only; 
 
 Inspect the tools and schemas actually exposed in the current task:
 
-- a subagent spawn tool that accepts `gpt-5.6-sol`, `reasoning_effort: low`, and context-isolated spawning such as `fork_turns: none`
+- a subagent spawn tool that accepts the default `gpt-5.6-sol`, `reasoning_effort: low`, and context-isolated spawning such as `fork_turns: none`
+- fixed `run` profile support for `gpt-5.6-sol`, `gpt-5.6-luna`, and `gpt-5.6-terra`, including their accepted reasoning efforts
 - agent listing, steering, follow-up, waiting, and interruption controls
 - `create_goal`, `get_goal`, and `update_goal`, including their active-goal and completion rules
 - current live agents and remaining concurrency when observable
 - parent permissions inherited by subagents
 - whether concurrent agents share a filesystem or have isolated worktrees
-- optional `gpt-5.6-luna` medium/high support in the **subagent spawn tool**, checked separately from user-owned task creation
+- model availability in the **subagent spawn tool**, checked separately from user-owned task creation
 
 Do not infer support from documentation, another tool, a model picker, or remembered behavior when the live schema is available. Never print secrets while inspecting configuration.
 
@@ -31,7 +32,10 @@ Return:
 
 | Capability | Required contract | Observed | Result |
 |---|---|---|---|
-| Sol executor | Sol, low, isolated context | <fact> | Pass/Fail |
+| Default run | Sol, low, isolated context | <fact> | Pass/Fail |
+| Sol profile | Requested efforts | <fact> | Pass/Fail |
+| Luna profile | Requested efforts | <fact> | Pass/Fail |
+| Terra profile | Requested efforts | <fact> | Pass/Fail |
 
 **Next action:** <one command or exact remediation>
 ```

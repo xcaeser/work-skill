@@ -2,6 +2,51 @@
 
 Define the result, start focused agents, integrate their work, and verify completion.
 
+## Choose the agent profile
+
+Syntax:
+
+```text
+$work run [sol|luna|terra|mix] [effort] <task>
+```
+
+The profile and effort are optional reserved tokens immediately after `run`. If the first token is not a recognized profile, treat the full remainder as the task and use the default. If a profile is present without a task, use the single unambiguous current task or approved `$work plan` in the thread. If none exists, ask what to run and do not start agents.
+
+| Profile | Default | Behavior |
+|---|---|---|
+| omitted or `sol` | `gpt-5.6-sol`, low | Use Sol for every agent |
+| `luna` | `gpt-5.6-luna`, medium | Use Luna for every agent |
+| `terra` | `gpt-5.6-terra`, medium | Use Terra for every agent |
+| `mix` | selected per assignment | Let the parent choose the best supported model and lowest sufficient effort for each agent |
+
+Examples:
+
+```text
+$work run implement the settings screen
+$work run sol implement the settings screen
+$work run luna update the generated fixtures
+$work run terra medium inspect and fix the failing tests
+$work run mix build the feature
+$work run mix medium build the feature
+```
+
+For `sol`, `luna`, or `terra`, a supported effort immediately after the profile overrides its default and applies to every spawned agent. Honor it exactly; do not raise, lower, or normalize it.
+
+For `mix`, an effort immediately after the profile is a maximum. Choose per assignment:
+
+- prefer Sol low for implementation and the default path
+- prefer Terra medium for read-heavy exploration, large scans, tests, logs, and supporting documents
+- prefer Luna medium for deterministic mechanical work; use Luna high only for mechanically large but conceptually simple work
+- use a higher-effort Sol agent only when the task requires it and the user's maximum allows it
+
+The profile controls spawned Work agents, not the parent model. Before launch, state the resolved fixed profile or the `mix` limit. Every roster row must show the actual model and effort.
+
+Treat the live `spawn_agent` schema as authoritative:
+
+- If a user-selected fixed model or effort is unavailable, stop and report the exact mismatch. Never substitute.
+- In `mix`, choose only supported combinations. If a preferred model is unavailable, select the best supported option within the user's effort limit and disclose it before launch.
+- With no profile, always retain Sol low. Never switch models merely because another might be cheaper or faster.
+
 ## Contents
 
 1. Define the result
@@ -20,7 +65,7 @@ Before delegation:
 2. Convert the request into one concrete outcome.
 3. Write observable **Done when** criteria and an explicit **Does not count** list for tempting partial results.
 4. Resolve architectural, product, and design choices in the parent. Ask the user only when a missing choice would materially change the outcome.
-5. Identify the smallest useful execution units. Prefer one executor for tightly coupled work.
+5. Identify the smallest useful execution units. Prefer one agent for tightly coupled work.
 6. Keep integration, cross-cutting decisions, and final validation with the parent.
 
 Do not delegate vague exploration such as "figure out the best design." Resolve the intended result first, use `$work plan` when a written plan would help, then delegate execution.
@@ -62,13 +107,13 @@ Give each agent complete, task-specific instructions. Include:
 
 - **Call sign:** a short, fun display name used consistently in user-facing updates.
 - **Assignment:** a plain-language phrase completing "`<Call sign>` — working on `<assignment>`."
-- **Goal:** one concrete objective the executor must register before implementation.
+- **Goal:** one concrete objective the agent must register before implementation.
 - **Outcome:** one sentence defining the finished result.
 - **Vision:** the product or technical intent and decisions already made.
 - **Done when:** observable acceptance criteria.
 - **Does not count:** plausible partial results or shortcuts that must be rejected.
 - **Workspace:** exact repository and working directory.
-- **Ownership:** exact files or subsystem the executor may change.
+- **Ownership:** exact files or subsystem the agent may change.
 - **Relevant state:** current implementation facts, constraints, existing edits, applicable instructions, and dependencies.
 - **Required work:** ordered implementation actions.
 - **Out of scope:** decisions and files the executor must not alter.
@@ -76,7 +121,7 @@ Give each agent complete, task-specific instructions. Include:
 - **Escalation:** conditions that require stopping and reporting rather than guessing.
 - **Handoff:** concise summary, changed files, validation evidence, goal status, and blockers.
 
-Include decisions and evidence, not hidden reasoning or irrelevant conversation history. Prefer precise paths, symbols, and short excerpts over whole-file dumps. Make the packet complete enough that the executor should not need a planning conversation.
+Include decisions and evidence, not hidden reasoning or irrelevant conversation history. Prefer precise paths, symbols, and short excerpts over whole-file dumps. Make the instructions complete enough that the agent should not need a planning conversation.
 
 The agent prompt must instruct it to:
 
@@ -92,12 +137,12 @@ If no goal tool or equivalent is available to the agent, treat that as a task bl
 
 For every actionable `$work run` request, launch at least one implementation agent when the Work contract is supported. Do not perform the entire implementation locally merely because it is small.
 
-Use `spawn_agent` with:
+Use `spawn_agent` with the resolved profile:
 
 ```yaml
 task_name: <tool_safe_task_id>
-model: gpt-5.6-sol
-reasoning_effort: low
+model: <resolved_model>
+reasoning_effort: <resolved_effort>
 fork_turns: none
 ```
 
@@ -126,15 +171,16 @@ Return concrete evidence, not a status report.
 
 Then provide the complete instructions.
 
-Do not silently substitute another model, role, tool, or reasoning effort. If the subagent spawn tool cannot launch `gpt-5.6-sol` at low reasoning with a context-isolated fork, state that Run cannot continue.
+Do not silently substitute another model, role, tool, or reasoning effort. Model availability in a user-owned task-creation tool does not qualify, and creating another task is not a substitute.
 
-For simple mechanical tasks, the exact model slug `gpt-5.6-luna` may be used with `reasoning_effort: medium`: formatting, rote renames, fixture updates, bounded file moves, or simple generated metadata. Use `high` only when the task is mechanically large but conceptually simple. Luna must not make product, architecture, design, security, review, or integration decisions. Use Luna only when the actual **subagent spawn tool** accepts that exact slug and effort. Model availability in a user-owned task-creation tool does not qualify, and creating another task is not a substitute.
+After all launch attempts, and before any wait, post this concise roster in commentary. Use `agent` for one launch and `agents` otherwise:
 
-After all launch attempts, and before any wait, post this concise roster in commentary:
+```markdown
+Launched N agent(s):
 
-```text
-Launched N agents:
-- <call sign> (`<task_id>`) — working on <assignment>; Goal: <goal>; Ownership: <files/subsystem>; Model: <model>, <effort>
+| Agent | Working on | Goal | Ownership | Model |
+|---|---|---|---|---|
+| <call sign> (`<task_id>`) | <assignment> | <goal> | `<files/subsystem>` | `<model>`, <effort> |
 ```
 
 Include one row per successful launch. Never claim an agent launched before its spawn call succeeds. List failed launches separately with their exact blockers.
@@ -156,7 +202,7 @@ After agents finish:
 
 1. Inspect their actual changes and preserve unrelated user work.
 2. Reconcile integration issues and ensure the combined result matches the mission.
-3. Run validation proportional to the claim, including broader checks the executors could not own.
+3. Run validation proportional to the claim, including broader checks the agents could not own.
 4. Reject effort, confidence, or partial progress as completion evidence.
 5. Fix a narrow integration miss directly or send one targeted follow-up to the responsible executor.
 6. Use an independent read-only review when the change is high-risk or the user requests `$work review`.

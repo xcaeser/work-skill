@@ -66,11 +66,14 @@ Keep candidate selection and architectural judgment in the parent. For an action
 3. Launch each executor with `gpt-5.6-sol`, `reasoning_effort: low`, and `fork_turns: none`.
 4. Give it a fun call sign, exact goal, paths and symbols it owns, approved transformations, behavior boundaries, validation commands, and explicit non-goals.
 5. Require it to register its exact goal before editing, work in small coherent batches, and mark the goal complete only after its checks pass.
-6. Post this roster after successful spawns and before waiting:
+6. Post this roster after successful spawns and before waiting. Use `agent` for one launch and `agents` otherwise:
 
-```text
-Launched N agents:
-- <call sign> (`<task_id>`) — cleaning <scope>; Goal: <goal>; Ownership: <paths/symbols>; Model: gpt-5.6-sol, low
+```markdown
+Launched N agent(s):
+
+| Agent | Working on | Goal | Ownership | Model |
+|---|---|---|---|---|
+| <call sign> (`<task_id>`) | Clean <scope> | <goal> | `<paths/symbols>` | `gpt-5.6-sol`, low |
 ```
 
 If the exact goal or spawn contract is unavailable, report the blocker. Do not silently substitute a model, perform the whole cleanup locally, or create a user-owned task as a fake subagent.
