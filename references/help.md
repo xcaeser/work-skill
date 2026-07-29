@@ -25,7 +25,7 @@ Start with `$work init`, `$work plan <task>`, or `$work run <task>`.
 
 Team size: put a positive integer immediately after `run` to request exactly that many new subagents, such as `$work run 3 mix build the feature`. Omit it and Work chooses the smallest useful team.
 
-Run profiles: `sol` (default, low), `luna` (medium), `terra` (medium), or `mix` (Work chooses per agent). Add a supported effort after the profile to override its default; for `mix`, it is the maximum effort.
+Run profiles: `sol` (default, low), `terra` (lightweight, low), or `mix` (Work chooses per agent). Add a supported effort after the profile to override its default; for `mix`, it is the maximum effort.
 ```
 
 Keep the ordering above. Do not add generic introductory prose.

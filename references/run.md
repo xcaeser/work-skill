@@ -7,7 +7,7 @@ Define the result, start focused agents, integrate their work, and verify comple
 Syntax:
 
 ```text
-$work run [N] [sol|luna|terra|mix] [effort] <task>
+$work run [N] [sol|terra|mix] [effort] <task>
 ```
 
 `N` is an optional positive integer immediately after `run`. It is the exact number of new Work subagents to launch for this run; it does not include the parent or agents that were already live. Reject zero, negative, fractional, or non-numeric counts. When `N` is omitted, let the orchestrator choose the smallest useful team from the task, ownership boundaries, token cost, and live capacity.
@@ -17,9 +17,8 @@ The profile and effort are optional reserved tokens after `N`, or immediately af
 | Profile | Default | Behavior |
 |---|---|---|
 | omitted or `sol` | `gpt-5.6-sol`, low | Use Sol for every agent |
-| `luna` | `gpt-5.6-luna`, medium | Use Luna for every agent |
-| `terra` | `gpt-5.6-terra`, medium | Use Terra for every agent |
-| `mix` | selected per assignment | Let the parent choose the best supported model and lowest sufficient effort for each agent |
+| `terra` | `gpt-5.6-terra`, low | Use lightweight Terra for every agent |
+| `mix` | selected per assignment | Let the parent choose Sol or Terra and the lowest sufficient effort for each agent |
 
 Examples:
 
@@ -28,19 +27,19 @@ $work run implement the settings screen
 $work run 3 implement the settings screen
 $work run sol implement the settings screen
 $work run 2 sol implement the settings screen
-$work run luna update the generated fixtures
+$work run terra update the generated fixtures
 $work run terra medium inspect and fix the failing tests
 $work run mix build the feature
 $work run 3 mix medium build the feature
 ```
 
-For `sol`, `luna`, or `terra`, a supported effort immediately after the profile overrides its default and applies to every spawned agent. Honor it exactly; do not raise, lower, or normalize it.
+For `sol` or `terra`, a supported effort immediately after the profile overrides its default and applies to every spawned agent. Honor it exactly; do not raise, lower, or normalize it.
 
 For `mix`, an effort immediately after the profile is a maximum. Choose per assignment:
 
 - prefer Sol low for implementation and the default path
+- prefer Terra low for deterministic, low-risk mechanical work such as formatting, rote renames, fixture updates, bounded file moves, and generated metadata
 - prefer Terra medium for read-heavy exploration, large scans, tests, logs, and supporting documents
-- prefer Luna medium for deterministic mechanical work; use Luna high only for mechanically large but conceptually simple work
 - use a higher-effort Sol agent only when the task requires it and the user's maximum allows it
 
 The count and profile control spawned Work agents, not the parent. Before launch, state the resolved team size and whether it was user-requested or Work-chosen, plus the resolved fixed profile or `mix` limit. Every roster row must show the actual model and effort.
@@ -49,7 +48,7 @@ Treat the live `spawn_agent` schema as authoritative:
 
 - If an explicit count cannot be honored safely, stop before launching and report the exact conflict. Never silently reduce, increase, or pad the team with duplicate work.
 - If a user-selected fixed model or effort is unavailable, stop and report the exact mismatch. Never substitute.
-- In `mix`, choose only supported combinations. If a preferred model is unavailable, select the best supported option within the user's effort limit and disclose it before launch.
+- In `mix`, choose only supported Sol or Terra combinations. If a preferred combination is unavailable, select the best supported listed option within the user's effort limit and disclose it before launch.
 - With no profile, always retain Sol low. Never switch models merely because another might be cheaper or faster.
 
 ## Contents
