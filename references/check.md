@@ -11,6 +11,7 @@ Inspect the tools and schemas actually exposed in the current task:
 - agent listing, steering, follow-up, waiting, and interruption controls
 - `create_goal`, `get_goal`, and `update_goal`, including their active-goal and completion rules
 - current live agents and remaining concurrency when observable
+- whether an explicit requested count can run now or must be scheduled in waves
 - parent permissions inherited by subagents
 - whether concurrent agents share a filesystem or have isolated worktrees
 - model availability in the **subagent spawn tool**, checked separately from user-owned task creation
@@ -32,6 +33,7 @@ Return:
 
 | Capability | Required contract | Observed | Result |
 |---|---|---|---|
+| Capacity | One free slot minimum; report visible free/total slots | <fact> | Pass/Fail |
 | Default run | Sol, low, isolated context | <fact> | Pass/Fail |
 | Sol profile | Requested efforts | <fact> | Pass/Fail |
 | Luna profile | Requested efforts | <fact> | Pass/Fail |

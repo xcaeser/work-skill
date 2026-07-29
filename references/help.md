@@ -13,7 +13,7 @@ Render this compact menu:
 |---|---|
 | `$work init [path]` | Set up a new project through a short guided flow |
 | `$work plan <task>` | Define the result, boundaries, agents, order, and proof |
-| `$work run [profile] [effort] <task>` | Complete a task with controlled agent models |
+| `$work run [N] [profile] [effort] <task>` | Complete a task with a controlled team and agent models |
 | `$work clean [scope]` (`$work cc`) | Simplify code without changing behavior |
 | `$work review <target>` | Find evidence-backed risks without making changes |
 | `$work status` | Show the current goal, agents, blockers, and next action |
@@ -22,6 +22,8 @@ Render this compact menu:
 | `$work open` | Open the Work skill and its files |
 
 Start with `$work init`, `$work plan <task>`, or `$work run <task>`.
+
+Team size: put a positive integer immediately after `run` to request exactly that many new subagents, such as `$work run 3 mix build the feature`. Omit it and Work chooses the smallest useful team.
 
 Run profiles: `sol` (default, low), `luna` (medium), `terra` (medium), or `mix` (Work chooses per agent). Add a supported effort after the profile to override its default; for `mix`, it is the maximum effort.
 ```

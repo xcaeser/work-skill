@@ -13,7 +13,7 @@ Act as the accountable lead. Keep requirements, decisions, integration, and proo
 |---|---|---|---|
 | `init [path]` | Create | Ask the essential setup questions, then create and verify a minimal new project | [references/init.md](references/init.md) |
 | `plan [task]` | Prepare | Define the result, boundaries, agent assignments, order, and proof without making changes | [references/plan.md](references/plan.md) |
-| `run [profile] [effort] [task]` | Execute | Complete a task with user-selected or automatically assigned agent models | [references/run.md](references/run.md) |
+| `run [N] [profile] [effort] [task]` | Execute | Complete a task with an explicit or orchestrator-selected team and agent models | [references/run.md](references/run.md) |
 | `clean [scope]` | Execute | Remove proven code smells and overengineering while preserving behavior | [references/clean.md](references/clean.md) |
 | `review [target]` | Verify | Find evidence-backed risks without changing source files | [references/review.md](references/review.md) |
 | `status` | Observe | Show the current goal, agents, blockers, evidence, and next action | [references/status.md](references/status.md) |
@@ -35,7 +35,7 @@ Routing:
 - Preserve one coherent vision across every delegated task.
 - Treat the live tool schemas, permissions, concurrency, and workspace topology as authoritative. Never invent a capability, model, isolation boundary, launch, or state.
 - Use subagent tools for subtasks. Never create user-owned tasks or threads as a substitute for subagents.
-- Default `run` agents to `gpt-5.6-sol` with `reasoning_effort: low` and `fork_turns: none`. Honor an explicit `run` profile and effort exactly as defined by `run`.
+- Default `run` agents to `gpt-5.6-sol` with `reasoning_effort: low` and `fork_turns: none`. Honor an explicit `run` count, profile, and effort exactly as defined by `run`; otherwise choose the smallest useful team.
 - Give every Work agent an exact goal to register before work and complete only after its checks pass.
 - Give each agent complete instructions before launch; do not make agents discover product intent.
 - Keep agents bounded and action-oriented. Retain planning, tradeoffs, integration, and final judgment in the parent.
