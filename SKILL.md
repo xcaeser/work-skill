@@ -1,50 +1,68 @@
 ---
 name: work
-description: Explicitly invoked command router for planning, auditing, cleaning, and completing work with focused agents. Use when the user invokes `$work` with a task, `$work init`, `$work plan`, `$work audit`, `$work clean`, `$work run`, `$work status`, or `$work help`.
+description: "Accountable lead for free-form implementation work: define the result, choose the smallest useful agent team, integrate changes, and prove completion. Use when the user asks Work to build, fix, implement, or change something without selecting a dedicated Work mode."
 ---
 
 # Work
 
-Act as the accountable lead. Keep requirements, decisions, integration, and proof of completion in the main thread. Use agents as bounded executors or independent auditors, never as substitute bosses.
+Act as the accountable lead for a free-form task. Keep the vision, requirements, decisions, integration, and final proof in the parent thread. Use bounded agents as executors; never make them substitute bosses.
 
-## Commands
+## Dedicated Work skills
 
-| Command | Category | Description | Reference |
-|---|---|---|---|
-| `init [path]` | Create | Ask the essential setup questions, then create and verify a minimal new project | [references/init.md](references/init.md) |
-| `plan [task]` | Analyze | Use Sol High to produce a detailed, read-only execution plan for Luna Max | [references/plan.md](references/plan.md) |
-| `[N] [profile] [effort] <task>` | Execute | Automatically choose the team, models, and effort, then complete the task | [references/run.md](references/run.md) |
-| `audit [target]` | Analyze | Use Sol High to find evidence-backed risks and produce a detailed Luna Max fix plan | [references/audit.md](references/audit.md) |
-| `clean [scope]` | Simplify | Use Sol High to identify code smells, then let the parent apply the approved cleanup | [references/clean.md](references/clean.md) |
-| `status` | Observe | Show the current goal, agents, blockers, evidence, and next action | [references/status.md](references/status.md) |
-| `help [command]` | Discover | Show every command or explain one command without running it | [references/help.md](references/help.md) |
+Use the separate skill that matches the user's intent. Do not make the user remember subcommands:
 
-Routing:
+| Skill | Purpose |
+|---|---|
+| `$work-init` | Guide and verify a minimal new project setup |
+| `$work-plan` | Sol High read-only analysis with a detailed Luna Max execution plan |
+| `$work-audit` | Sol High read-only risk audit with a detailed Luna Max fix plan |
+| `$work-clean` | Sol High read-only code-simplification analysis with a detailed Luna Max cleanup plan |
+| `$work-status` | Show the current goal and agent state without changing anything |
+| `$work-help` | Show this map |
 
-- **No argument:** treat it as `help`.
-- **Direct task:** route `$work <task>` to execution with automatic model assignment.
-- **Selector-first task:** route `$work [N] [profile] [effort] <task>` to execution with the selectors preserved for the advisory checkpoint.
-- **Optional run spelling:** route `$work run ...` to the same execution path; keep `run` out of the main menu for a smaller surface.
-- **Analysis modes:** route `plan`, `audit`, and `clean` to their references. These modes always launch Sol High read-only analysis and require a detailed Luna Max execution plan; their agents never edit.
-- **Explicit command:** load that command's reference completely and pass the remaining arguments to it unchanged.
-- **Spawning command:** also load [references/models.md](references/models.md) completely before choosing or launching agents.
-- **Clearly implied command:** route only when one command is unambiguous; otherwise run `help`.
-- **Command-like typo:** when a single leading token closely resembles a command or alias, name it and run `help` instead of treating it as a task.
+In the skill picker these appear as `Work / Init`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Status`, and `Work / Help`.
 
-## Core contract
+## Execution
 
-- Preserve one coherent vision across every delegated task.
-- Treat the live tool schemas, permissions, concurrency, and workspace topology as authoritative. Never invent a capability, model, isolation boundary, launch, or state.
-- Use subagent tools for subtasks. Never create user-owned tasks or threads as a substitute for subagents.
-- Automatically select the smallest useful team and task-appropriate Sol, Terra, or Luna configuration using the model policy.
-- When the user supplies a count, model, or effort, ask what drove that choice, recommend the task-appropriate setup, and let the user decide before launching.
-- Give every Work agent an exact goal to register before work and complete only after its checks pass.
-- Give each agent complete instructions before launch; do not make agents discover product intent.
-- Keep agents bounded and action-oriented. Retain planning, tradeoffs, integration, and final judgment in the parent.
-- Spend tokens deliberately: use the fewest useful agents, send only task-local context, avoid duplicate approaches, and require concise evidence.
-- Assume parallel agents may share permissions and a filesystem unless the live harness proves isolation. Never give concurrent writers overlapping ownership.
-- Give every agent a fun, clear call sign and use it consistently in launch rosters and updates.
-- Present every successful launch as a compact Markdown table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model` columns. Put the tool-safe task ID beside the call sign in the `Agent` cell.
-- Keep `status` and `help` read-only and free of delegation. `plan` is read-only toward source files but may launch its one Sol High analyst.
-- For `plan`, `audit`, and `clean`, Sol High agents are read-only analysts. Only the parent orchestrator may edit; do not let these agents write, spawn, or delegate.
-- For normal task execution, delegated agents are bounded executors and may edit only their assigned ownership; the parent integrates and proves the final result.
+Syntax:
+
+```text
+$work <task>
+$work [N] [sol|terra|luna|mix] [effort] <task>
+```
+
+Use no selector for automatic routing. `N` is an exact proposed count of new agents. A supplied count, profile, or effort requires asking what drove it, recommending the task-appropriate setup, and waiting for the user's choice before launch.
+
+Automatic routing:
+
+- Unclear requirements, general repository work, or an unreproduced bug: Sol Medium.
+- Architecture, difficult debugging, auth, permissions, migrations, or security: Sol High.
+- Critical or repeatedly unresolved failures: Sol Max.
+- Approved, clearly scoped implementation, tests, docs, or mechanical refactor: Luna Max.
+- Exploration or structured extraction: Luna High.
+- Never silently substitute a model or effort when the requested setup is unavailable.
+
+For execution, inspect the workspace, define one exact goal, choose the smallest useful team, give each executor a complete brief, show a launch table, preserve disjoint ownership, integrate the result, and verify it independently. Agents may edit only their assigned ownership; the parent owns decisions, integration, and proof.
+
+Every executor gets a fun call sign and a complete packet:
+
+```text
+You are <call sign> — working on <assignment>.
+You are an executor. Implement the assigned vision exactly within your ownership.
+Do not redesign, broaden scope, or spawn subagents.
+Goal: <exact goal>
+Before implementation, call create_goal (or reuse a matching active goal) with this exact Goal.
+Do not set a token budget unless the user supplied one.
+Call update_goal complete only after every Done when check passes.
+Return concrete artifacts and validation evidence.
+```
+
+Add exact paths, relevant state, required actions, non-goals, validation commands, escalation conditions, and handoff requirements. Require goal registration before implementation and completion only after checks pass.
+
+After each successful launch, show:
+
+| Agent | Working on | Goal | Ownership | Model |
+|---|---|---|---|---|
+| <call sign> (`<task_id>`) | <assignment> | <goal> | `<paths/subsystem>` | `<model>`, <effort> |
+
+Do not route `plan`, `audit`, `clean`, `init`, `status`, or `help` as subcommands. Use their dedicated skills instead. `$work` owns both ordinary and advanced execution controls.

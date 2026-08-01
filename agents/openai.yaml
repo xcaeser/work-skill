@@ -1,6 +1,6 @@
 interface:
   display_name: "Work"
-  short_description: "Plan, audit, clean, and run with focused agents"
-  default_prompt: "Use $work to plan, audit, clean, or run work with focused agents, or use $work help to see commands."
+  short_description: "Lead free-form work with bounded agents"
+  default_prompt: "Use $work for ordinary or advanced execution, or choose a dedicated mode such as $work-plan or $work-audit."
 policy:
   allow_implicit_invocation: false
