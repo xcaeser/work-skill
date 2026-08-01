@@ -11,19 +11,15 @@ Render this compact menu:
 
 | Command | What it does |
 |---|---|
-| `$work <task>` | Automatically choose the team, models, and effort, then complete the task |
-| `$work [N] [model] [effort] <task>` | Explain your proposed setup, receive a recommendation, then choose |
 | `$work init [path]` | Set up a new project through a short guided flow |
-| `$work plan <task>` | Define the result, boundaries, agents, order, and proof |
-| `$work run [N] [profile] [effort] <task>` | Complete a task with a controlled team and agent models |
-| `$work clean [scope]` (`$work cc`) | Simplify code without changing behavior |
-| `$work review <target>` | Find evidence-backed risks without making changes |
+| `$work plan <task>` | Use Sol High to produce a detailed, read-only Luna Max execution plan |
+| `$work [N] [profile] [effort] <task>` | Complete a task with a controlled team and agent models |
+| `$work audit [target]` | Use Sol High to find risks and produce a detailed Luna Max fix plan |
+| `$work clean [scope]` (`$work cc`) | Use Sol High to identify smells; the parent owns any cleanup edits |
 | `$work status` | Show the current goal, agents, blockers, and next action |
-| `$work check` | Check whether Work can run correctly here |
 | `$work help [command]` | Show all commands or explain one |
-| `$work open` | Open the Work skill and its files |
 
-Start with `$work <task>`, `$work init`, or `$work plan <task>`.
+Start with `$work <task>`, `$work init`, or `$work plan <task>`. `$work run ...` is an optional explicit spelling for a task.
 
 Automatic example: `$work fix the login bug`.
 
@@ -36,9 +32,9 @@ Keep the ordering above. Do not add generic introductory prose.
 
 ## Command argument
 
-For a canonical command or `cc`:
+For `init`, `plan`, `audit`, `clean`, `status`, `help`, `run`, or a task:
 
-1. Resolve `cc` to `clean`, then read the target command's directly linked reference when needed.
+1. Read the directly linked reference when needed.
 2. Return its syntax, purpose, behavior, and one short realistic example.
 3. State material constraints that affect how it runs.
 4. Keep the response under 180 words.

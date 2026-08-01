@@ -29,6 +29,7 @@ Use automatic routing for `$work <task>`, `$work run <task>`, or `mix` without a
 | File discovery, exploration, structured extraction, or broad read-only scan | Luna, high; use xhigh only when the scope is materially large |
 | Independent parallel implementation streams with fixed ownership | Luna, xhigh or max per stream |
 | Evidence-first independent code review | Sol, high |
+| `plan`, `audit`, or `clean` analysis mode | Sol, high, read-only |
 | Everyday middle-ground work that specifically benefits from Terra | Do not select Terra automatically; keep it available for an informed explicit choice |
 
 For mixed work, use Sol to resolve ambiguity or risk, Luna to execute approved bounded slices, and Sol High to review consequential results. Keep product decisions, integration, and final proof in the parent.
@@ -38,6 +39,8 @@ If an automatically preferred combination is unavailable, choose the closest sup
 ## Explicit selector advice
 
 Treat any user-supplied count, fixed model, or effort as a proposed setup, not immediate launch authority. `mix` by itself remains automatic.
+
+`plan`, `audit`, and `clean` have a fixed safety route: one Sol High read-only analyst. A selector cannot turn these modes into an editing run or change their model. If the user explicitly asks for another model or effort for one of these commands, explain the fixed route and offer normal task execution with `$work run ...` if they want an executor instead.
 
 Before creating goals or launching agents:
 

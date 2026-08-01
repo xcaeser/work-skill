@@ -12,7 +12,7 @@ $work [N] [sol|terra|luna|mix] [effort] <task>
 $work run [N] [sol|terra|luna|mix] [effort] <task>
 ```
 
-The direct `$work <task>` form and `$work run <task>` both use automatic routing. `mix` alone is a compatibility spelling for the same behavior.
+The direct `$work <task>` form and `$work run <task>` both use automatic routing. `run` is an optional explicit spelling; `mix` alone is a compatibility spelling for the same behavior.
 
 `N` is an optional positive integer immediately after `$work` or `run`. It proposes the exact number of new Work subagents for the run; it does not include the parent or agents that were already live. Reject zero, negative, fractional, or non-numeric counts.
 
@@ -29,7 +29,7 @@ Examples:
 
 ```text
 $work fix the login bug
-$work run implement the settings screen
+$work implement the settings screen
 $work 3 build the approved feature
 $work 1 terra medium fix the failing tests
 $work run 2 luna max implement the two approved screens
@@ -216,7 +216,7 @@ After agents finish:
 3. Run validation proportional to the claim, including broader checks the agents could not own.
 4. Reject effort, confidence, or partial progress as completion evidence.
 5. Fix a narrow integration miss directly or send one targeted follow-up to the responsible executor.
-6. Use an independent read-only review when the change is high-risk or the user requests `$work review`.
+6. Use an independent read-only review when the change is high-risk or the parent determines it is necessary.
 7. Call `update_goal` with `complete` only after the root **Done when** criteria pass and no required work remains.
 8. Mark a goal blocked only when the live goal-tool rules permit it; difficulty, uncertainty, or a first blocker is not enough.
 9. Report the unified outcome, validation evidence, remaining caveats, and concise agent outcomes.
