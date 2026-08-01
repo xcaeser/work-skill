@@ -20,10 +20,12 @@ Install the lead skill for Codex with the open skills CLI:
 npx skills add xcaeser/work-skill --skill work --agent codex --global --yes
 ```
 
-Install the complete Work family:
+The root package includes the complete Work family as nested skills. To install
+one focused mode instead, point the CLI at that skill's folder:
 
 ```bash
-npx skills add xcaeser/work-skill --skill "*" --agent codex --global --yes
+npx skills add https://github.com/xcaeser/work-skill/tree/main/skills/work-plan \
+  --agent codex --global --yes
 ```
 
 The same commands work with other supported agents by changing `--agent`
