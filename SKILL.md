@@ -22,6 +22,8 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 
 In the skill picker these appear as `Work / Init`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Status`, and `Work / Help`.
 
+The canonical sibling skill sources are tracked under `skills/`. Run `scripts/sync-local-skills.sh` from this repository after changing them; it refreshes the top-level discovery folders beside `work`.
+
 ## Execution
 
 Syntax:

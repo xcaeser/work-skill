@@ -1,0 +1,6 @@
+interface:
+  display_name: "Work / Clean"
+  short_description: "Read-only Sol High cleanup plans for simpler code"
+  default_prompt: "Use $work-clean to find code smells and produce a detailed Luna Max cleanup plan."
+policy:
+  allow_implicit_invocation: false

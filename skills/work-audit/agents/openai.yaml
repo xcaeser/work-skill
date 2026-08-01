@@ -1,0 +1,6 @@
+interface:
+  display_name: "Work / Audit"
+  short_description: "Evidence-first Sol High audits with Luna Max fix plans"
+  default_prompt: "Use $work-audit to audit a target and produce a detailed Luna Max fix plan."
+policy:
+  allow_implicit_invocation: false

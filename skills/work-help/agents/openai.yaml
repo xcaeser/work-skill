@@ -1,0 +1,6 @@
+interface:
+  display_name: "Work / Help"
+  short_description: "Show the focused Work skills and how to use them"
+  default_prompt: "Use $work-help to see the separate Work skills and their roles."
+policy:
+  allow_implicit_invocation: false

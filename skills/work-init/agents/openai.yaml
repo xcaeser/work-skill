@@ -1,0 +1,6 @@
+interface:
+  display_name: "Work / Init"
+  short_description: "Guide and verify a minimal new project setup"
+  default_prompt: "Use $work-init to set up a new project with the essential choices."
+policy:
+  allow_implicit_invocation: false
