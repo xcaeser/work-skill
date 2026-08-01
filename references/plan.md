@@ -1,21 +1,26 @@
 # Plan
 
-Turn a task into a clear execution plan without launching agents or changing files.
+Turn a task into a detailed, implementation-ready plan. This is a read-only analysis mode for source files.
 
-## Method
+## Fixed model and role
 
-1. Inspect only the context needed to understand the current state.
-2. State one concrete mission in result-first language.
-3. Separate **Done when** from **Does not count** so plausible partial work cannot masquerade as completion.
-4. Resolve product, architecture, and design choices that can be decided from evidence.
-5. Identify assumptions. Ask the user only when one unresolved choice would materially change the result.
-6. Design the fewest non-overlapping execution units and their dependency order.
-7. Give each proposed agent a fun call sign, plain-language assignment, exact ownership, and one-sentence goal.
-8. Specify validation that proves the whole result, not merely each local edit.
+- Always launch one `gpt-5.6-sol` agent at `high` effort with `fork_turns: none`.
+- The analyst is read-only: it may inspect files and run non-mutating checks, but must not edit, spawn, delegate, commit, or deploy.
+- Give the analyst a fun call sign, exact ownership, and a complete executor brief before launch.
+- Require the analyst to register the exact goal before inspection and complete it only after its evidence is collected.
 
-## Output
+## Analysis
 
-Return:
+1. Define one concrete mission from the user's task.
+2. Inspect only the relevant workspace, instructions, current state, and existing constraints.
+3. Resolve decisions that evidence can settle; identify assumptions that need user input.
+4. Design the fewest non-overlapping Luna Max execution units, with exact paths, symbols, ownership, order, and dependencies.
+5. Specify behavior boundaries, package choices when relevant, and validation that proves the whole result.
+6. Verify the analyst's evidence in the parent. Never treat its confidence as proof.
+
+## Required handoff
+
+Return a detailed plan addressed to a future `gpt-5.6-luna`, `max` effort execution. Include:
 
 ```markdown
 ## Work plan
@@ -31,11 +36,11 @@ Return:
 **Decisions and constraints**
 - <decision or boundary>
 
-**Agents**
+**Luna Max assignments**
 - <call sign> — working on <assignment>; Goal: <goal>; Ownership: <scope>
 
 **Order**
-1. <dependency-aware launch order>
+1. <dependency-aware execution order>
 
 **Validation**
 - <check and required evidence>
@@ -46,4 +51,4 @@ Return:
 **Ready:** Yes | No — <reason>
 ```
 
-Keep the plan proportional to the task and normally under 700 words. Do not create a goal, update the live task plan, spawn or steer agents, edit files, run destructive commands, or imply that proposed agents have launched.
+The parent orchestrator owns the final decision and any edits. Do not launch Luna Max from `plan`; hand off the plan for a later execution choice.

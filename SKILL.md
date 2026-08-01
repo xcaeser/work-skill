@@ -1,6 +1,6 @@
 ---
 name: work
-description: Explicitly invoked command router for automatically assigning agents to a free-form task and for creating, planning, running, cleaning, reviewing, and tracking agent work. Use when the user invokes `$work` with a task, `$work init`, `$work plan`, `$work run`, `$work clean`, `$work cc`, `$work review`, `$work status`, `$work check`, `$work help`, or `$work open`.
+description: Explicitly invoked command router for planning, auditing, cleaning, and completing work with focused agents. Use when the user invokes `$work` with a task, `$work init`, `$work plan`, `$work audit`, `$work clean`, `$work run`, `$work status`, or `$work help`.
 ---
 
 # Work
@@ -11,26 +11,23 @@ Act as the accountable lead. Keep requirements, decisions, integration, and proo
 
 | Command | Category | Description | Reference |
 |---|---|---|---|
-| `<task>` | Execute | Automatically choose the team, models, and effort, then complete the task | [references/run.md](references/run.md) |
 | `init [path]` | Create | Ask the essential setup questions, then create and verify a minimal new project | [references/init.md](references/init.md) |
-| `plan [task]` | Prepare | Define the result, boundaries, agent assignments, order, and proof without making changes | [references/plan.md](references/plan.md) |
-| `run [N] [profile] [effort] [task]` | Execute | Complete a task with an explicit or orchestrator-selected team and agent models | [references/run.md](references/run.md) |
-| `clean [scope]` | Execute | Remove proven code smells and overengineering while preserving behavior | [references/clean.md](references/clean.md) |
-| `review [target]` | Verify | Find evidence-backed risks without changing source files | [references/review.md](references/review.md) |
+| `plan [task]` | Analyze | Use Sol High to produce a detailed, read-only execution plan for Luna Max | [references/plan.md](references/plan.md) |
+| `[N] [profile] [effort] <task>` | Execute | Automatically choose the team, models, and effort, then complete the task | [references/run.md](references/run.md) |
+| `audit [target]` | Analyze | Use Sol High to find evidence-backed risks and produce a detailed Luna Max fix plan | [references/audit.md](references/audit.md) |
+| `clean [scope]` | Simplify | Use Sol High to identify code smells, then let the parent apply the approved cleanup | [references/clean.md](references/clean.md) |
 | `status` | Observe | Show the current goal, agents, blockers, evidence, and next action | [references/status.md](references/status.md) |
-| `check` | Diagnose | Check whether the current Codex setup can run Work correctly | [references/check.md](references/check.md) |
 | `help [command]` | Discover | Show every command or explain one command without running it | [references/help.md](references/help.md) |
-| `open` | Navigate | Show clickable links to the installed Work folder and its core files | [references/open.md](references/open.md) |
 
 Routing:
 
 - **No argument:** treat it as `help`.
-- **Direct task:** route `$work <task>` to `run <task>` with automatic model assignment.
-- **Selector-first task:** route `$work [N] [profile] [effort] <task>` to `run` with the selectors preserved for the advisory checkpoint.
-- **Explicit command:** load its reference completely and pass the remaining arguments to it unchanged.
+- **Direct task:** route `$work <task>` to execution with automatic model assignment.
+- **Selector-first task:** route `$work [N] [profile] [effort] <task>` to execution with the selectors preserved for the advisory checkpoint.
+- **Optional run spelling:** route `$work run ...` to the same execution path; keep `run` out of the main menu for a smaller surface.
+- **Analysis modes:** route `plan`, `audit`, and `clean` to their references. These modes always launch Sol High read-only analysis and require a detailed Luna Max execution plan; their agents never edit.
+- **Explicit command:** load that command's reference completely and pass the remaining arguments to it unchanged.
 - **Spawning command:** also load [references/models.md](references/models.md) completely before choosing or launching agents.
-- **Short alias:** route `cc [scope]` to `clean [scope]` and show it beside the canonical command in help.
-- **Compatibility aliases:** route `boss` and `orchestrate` to `run`, `brief` to `plan`, `clean-code` to `clean`, `audit` to `review`, and `doctor` to `check`. Keep these aliases out of the main help menu.
 - **Clearly implied command:** route only when one command is unambiguous; otherwise run `help`.
 - **Command-like typo:** when a single leading token closely resembles a command or alias, name it and run `help` instead of treating it as a task.
 
@@ -48,4 +45,6 @@ Routing:
 - Assume parallel agents may share permissions and a filesystem unless the live harness proves isolation. Never give concurrent writers overlapping ownership.
 - Give every agent a fun, clear call sign and use it consistently in launch rosters and updates.
 - Present every successful launch as a compact Markdown table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model` columns. Put the tool-safe task ID beside the call sign in the `Agent` cell.
-- Keep `plan`, `status`, `check`, `help`, and `open` read-only and free of delegation. Keep `review` free of source edits.
+- Keep `status` and `help` read-only and free of delegation. `plan` is read-only toward source files but may launch its one Sol High analyst.
+- For `plan`, `audit`, and `clean`, Sol High agents are read-only analysts. Only the parent orchestrator may edit; do not let these agents write, spawn, or delegate.
+- For normal task execution, delegated agents are bounded executors and may edit only their assigned ownership; the parent integrates and proves the final result.
