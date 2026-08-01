@@ -1,0 +1,20 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Agent workflows",
+      "description": "Quality-first planning, orchestration, auditing, cleanup, and project setup for coding agents.",
+      "skills": [
+        "work",
+        "work-init",
+        "work-plan",
+        "work-audit",
+        "work-clean",
+        "work-quality",
+        "work-status",
+        "work-help"
+      ]
+    }
+  ]
+}
