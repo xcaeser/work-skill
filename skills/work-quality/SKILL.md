@@ -22,6 +22,8 @@ Quality software respects people. Agents may build and verify software, but user
 
 Taste is consistent qualitative judgment. Choose the restrained, coherent, intentional option when metrics do not decide. The parent owns taste; agents execute it.
 
+Proof matters. State one exact goal, source of truth, acceptance checks, boundaries, and what does not count. Require concrete artifacts and validation evidence; challenge exact contracts and real failure boundaries. Keep parallel exploration diverse and independent until evidence is collected, mark unsupported routes blocked, and report the exact remaining gap instead of calling partial progress complete.
+
 Never preserve backwards compatibility. Prefer clean breaks, update in-scope consumers together, and remove obsolete aliases, adapters, wrappers, flags, and migration shims. If an external contract cannot be removed, stop and escalate; do not invent an internal compatibility layer. Preserve user data, recoverability, security, and truthful failure behavior separately.
 ```
 

@@ -1,30 +1,33 @@
 ---
 name: work-plan
-description: Turn a task into a detailed, read-only execution plan by always launching one gpt-5.6-sol high analyst and addressing the handoff to gpt-5.6-luna max. Use when the user wants a plan before implementation.
+description: Turn a task into a detailed, read-only execution plan by always launching one gpt-5.6-sol xhigh analyst and addressing the handoff to gpt-5.6-luna max. Use when the user wants a plan before implementation.
 ---
 
 # Work / Plan
 
 Produce an implementation-ready plan without changing source files.
 
-Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, restraint, human authorship, and clean breaks over obsolete compatibility.
+Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, restraint, human authorship, clean breaks over obsolete compatibility, and proof over status reports.
 
 ## Fixed route
 
-- Launch exactly one `gpt-5.6-sol` subagent at `high` effort with `fork_turns: none`.
-- Give it a fun call sign, complete task context, exact read-only ownership, constraints, and validation requirements.
+- Launch exactly one `gpt-5.6-sol` subagent at `xhigh` effort with `fork_turns: none`.
+- Give it a fun call sign, the exact task statement, source of truth, read-only ownership, constraints, acceptance checks, and validation requirements.
+- Require it to inspect independently and return concrete evidence, not a status report or a claim that an unproved step is “routine.”
 - Require it to register the exact goal before inspection and complete it only after its evidence is collected.
 - The analyst must not edit, commit, deploy, spawn, or delegate.
 - Report the successful launch as a compact table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model`.
 
 ## Required plan
 
-The parent defines the mission, then the analyst inspects only relevant context and resolves evidence-backed decisions. Verify the handoff independently and return:
+The parent defines the mission, then the analyst inspects only relevant context and resolves evidence-backed decisions. Keep any early alternatives independent; do not let the first elegant reduction become the plan without checking it against the exact task. Verify the handoff independently and return:
 
 ```markdown
 ## Work plan
 
 **Mission:** <one concrete outcome>
+
+**Source of truth:** <request, specification, failing behavior, tests, or artifact>
 
 **Done when**
 - <observable criterion>
@@ -34,6 +37,12 @@ The parent defines the mission, then the analyst inspects only relevant context 
 
 **Decisions and constraints**
 - <decision or boundary>
+
+**Evidence**
+- <exact path, command, observation, or artifact supporting the decision>
+
+**Alternatives rejected**
+- <approach and concrete reason, or "None">
 
 **Luna Max assignments**
 - <call sign> — working on <assignment>; Goal: <goal>; Ownership: <scope>
@@ -50,4 +59,4 @@ The parent defines the mission, then the analyst inspects only relevant context 
 **Ready:** Yes | No — <reason>
 ```
 
-Address the plan to `gpt-5.6-luna` at `max` effort. Do not launch Luna Max or edit files from this skill. For execution, hand the verified plan to `work`.
+Address the plan to `gpt-5.6-luna` at `max` effort. A plan is not ready when it is only a reduction to an unproved assumption, omits a required acceptance check, or reports progress without evidence. If a route is blocked, state the exact gap and only propose a new round when there is a materially new mechanism. Do not launch Luna Max or edit files from this skill. For execution, hand the verified plan to `work`.

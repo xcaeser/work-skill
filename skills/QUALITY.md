@@ -11,6 +11,24 @@ Apply this standard to every Work decision, plan, implementation, and review.
 5. **Respect people.** Agents may build and verify software, but user-facing words a human is expected to read require human taste and authorization. Do not fill products with generated copy, tours, or explanations just because they are easy to produce.
 6. **Use taste.** When metrics do not decide, choose the restrained, coherent, legible option. Consistency, hierarchy, wording, defaults, and details should feel intentional. The parent owns qualitative judgment; agents execute it.
 
+## Proof and exploration
+
+State one exact goal, source of truth, acceptance checks, boundaries, and what
+does not count before work begins. Completion requires concrete artifacts and
+validation evidence; a progress report, elegant reduction, or “routine” claim
+is not proof.
+
+When parallel investigation is justified, keep the first round diverse by
+approach family, preserve independent hypotheses until they have evidence, and
+track each route's state, evidence, blocker, and next move. Challenge results
+against exact contracts and the real failure boundaries the task can affect,
+including malformed input, offline or hanging work, retries, partial state,
+interruption, permissions, upgrades, and recovery. Mark a route blocked when it
+depends on a missing assumption or merely restates the original problem; reopen
+it only for a materially new mechanism. Keep rounds bounded by the user's
+scope, time, and token budget, and report the exact remaining gap instead of
+pretending partial progress is complete.
+
 ## Compatibility rule
 
 **Never preserve backwards compatibility.** Prefer a clean break over obsolete aliases, adapters, wrappers, flags, duplicate routes, legacy formats, or migration shims. Update every in-scope consumer in one coherent change and delete the superseded path. If an external contract cannot be removed, stop and escalate; do not invent an internal compatibility layer.
