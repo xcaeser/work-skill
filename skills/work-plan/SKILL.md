@@ -15,6 +15,7 @@ Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, re
 - Give it a fun call sign, the exact task statement, source of truth, read-only ownership, constraints, acceptance checks, and validation requirements.
 - Require it to inspect independently and return concrete evidence, not a status report or a claim that an unproved step is “routine.”
 - Require it to register the exact goal before inspection and complete it only after its evidence is collected.
+- Let the analyst run until it returns the plan, a real blocker, or a user-input request. Do not cancel it because a polling window or arbitrary wall-clock interval elapsed; a wait timeout is not a failure.
 - The analyst must not edit, commit, deploy, spawn, or delegate.
 - Report the successful launch as a compact table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model`.
 

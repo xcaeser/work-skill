@@ -24,6 +24,12 @@ Taste is consistent qualitative judgment. Choose the restrained, coherent, inten
 
 Proof matters. State one exact goal, source of truth, acceptance checks, boundaries, and what does not count. Require concrete artifacts and validation evidence; challenge exact contracts and real failure boundaries. Keep parallel exploration diverse and independent until evidence is collected, mark unsupported routes blocked, and report the exact remaining gap instead of calling partial progress complete.
 
+Let executors finish. Once an agent starts, wait for its registered goal to
+complete or for a real blocker/user-input request. A polling or tool-call
+timeout is not a reason to kill it; interrupt only for explicit cancellation or
+goal change, safety, duplicate ownership, an approved resource limit, or clear
+repeated no-progress evidence.
+
 Never preserve backwards compatibility. Prefer clean breaks, update in-scope consumers together, and remove obsolete aliases, adapters, wrappers, flags, and migration shims. If an external contract cannot be removed, stop and escalate; do not invent an internal compatibility layer. Preserve user data, recoverability, security, and truthful failure behavior separately.
 ```
 

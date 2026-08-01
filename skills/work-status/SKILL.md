@@ -5,7 +5,7 @@ description: Show a read-only snapshot of the current Work goal, agents, evidenc
 
 # Work / Status
 
-Show only state visible in the current task. Do not wait, steer, interrupt, spawn, create or update goals, change plans, edit files, or run validation.
+Show only state visible in the current task. Do not steer, interrupt, spawn, create or update goals, change plans, edit files, or run validation. This snapshot need not wait for agents, but a non-blocking status read is never a reason to stop them.
 
 Read [../QUALITY.md](../QUALITY.md) when summarizing the quality bar or a compatibility decision. If parallel work exists, reconcile each route by approach family, evidence, blocker, and next move rather than reporting activity alone.
 

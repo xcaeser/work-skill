@@ -15,6 +15,7 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, never preserve
 - Give it a fun call sign, the exact task statement, complete read-only brief, exact ownership, source of truth, risk axes, exclusions, acceptance checks, and validation requirements.
 - Keep early hypotheses independent and require concrete locations, reproductions, traces, or commands; reject status reports and unsupported “routine” conclusions.
 - Require it to register the exact goal before inspection and complete it only after its checks pass.
+- Let the analyst run until it returns findings, a real blocker, or a user-input request. Do not cancel it because a polling window or arbitrary wall-clock interval elapsed; a wait timeout is not a failure.
 - The analyst must not edit, commit, deploy, spawn, or delegate.
 - Report the successful launch as a compact table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model`.
 

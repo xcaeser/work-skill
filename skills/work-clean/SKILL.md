@@ -15,6 +15,7 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, remove obsolet
 - Give it a fun call sign, the exact task statement, exact scope, source of truth, behavior boundaries, package constraints, acceptance checks, and validation requirements.
 - Require independent analysis and concrete evidence for every proposed deletion or shared component; do not accept a status report, speculative smell, or “routine” migration.
 - Require it to register the exact goal before inspection and complete it only after its checks pass.
+- Let the analyst run until it returns the cleanup plan, a real blocker, or a user-input request. Do not cancel it because a polling window or arbitrary wall-clock interval elapsed; a wait timeout is not a failure.
 - The analyst must not edit, commit, deploy, spawn, or delegate.
 - Report the successful launch as a compact table with `Agent`, `Working on`, `Goal`, `Ownership`, and `Model`.
 

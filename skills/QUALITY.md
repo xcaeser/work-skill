@@ -29,6 +29,12 @@ it only for a materially new mechanism. Keep rounds bounded by the user's
 scope, time, and token budget, and report the exact remaining gap instead of
 pretending partial progress is complete.
 
+Agent persistence is part of proof: once an executor starts, let it finish its
+registered goal or report a real blocker. A polling or tool-call timeout is not
+an agent failure. Interrupt only for explicit cancellation or goal change,
+safety, duplicate ownership, an approved resource limit, or clear repeated
+no-progress evidence; preserve and report the resulting partial state.
+
 ## Compatibility rule
 
 **Never preserve backwards compatibility.** Prefer a clean break over obsolete aliases, adapters, wrappers, flags, duplicate routes, legacy formats, or migration shims. Update every in-scope consumer in one coherent change and delete the superseded path. If an external contract cannot be removed, stop and escalate; do not invent an internal compatibility layer.

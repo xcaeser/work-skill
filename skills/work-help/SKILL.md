@@ -32,6 +32,8 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 
 - Every executor receives the exact goal, source of truth, ownership, acceptance
   checks, non-goals, and validation commands before launch.
+- Let a launched executor work until it finishes or reports a real blocker; a
+  polling timeout is not a reason to kill it.
 - The parent keeps the smallest useful team, diversifies parallel exploration by
   approach family, tracks evidence and blockers, and owns integration and proof.
 - Analysts must return concrete artifacts and exact gaps. Adversarial checks and

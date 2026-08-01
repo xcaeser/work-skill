@@ -87,6 +87,20 @@ round only when it has a clear new question and remains within the user's
 time/token/scope budget; otherwise return the strongest verified result and the
 exact remaining gap.
 
+## Agent lifetime
+
+Once an agent is launched, let it work until it returns `complete`, `blocked`,
+or asks for user input. Do not terminate it merely because a polling window,
+tool call, or preferred wall-clock interval elapsed; a wait timeout is not an
+agent failure. Continue waiting or do other parent work while it runs, and do
+not duplicate its ownership with a replacement agent.
+
+Interrupt an active agent only for an explicit user cancellation or goal change,
+a safety or side-effect risk, duplicate ownership, an approved resource limit,
+or clear repeated no-progress evidence. If interruption is necessary, record
+the reason, preserve its artifacts, and report the resulting partial or blocked
+state. Do not apply the return contract while an active agent is still working.
+
 ## Execution
 
 Syntax:
@@ -140,8 +154,8 @@ After each successful launch, show:
 Return the outcome, changed paths, validation evidence, and any exact remaining
 gap. Say `complete`, `partial`, `blocked`, or `not started` plainly. Never turn a
 status update, a plausible reduction, or an unverified assumption into a claim
-of completion. If the acceptance checks are not met after the bounded rounds
-that fit the user's budget, hand back the strongest verified result and the
-precise next question or missing mechanism.
+of completion. If the acceptance checks are not met after active agents finish
+and the bounded rounds fit the user's budget, hand back the strongest verified
+result and the precise next question or missing mechanism.
 
 Do not route `plan`, `audit`, `clean`, `init`, `status`, or `help` as subcommands. Use their dedicated skills instead. `$work` owns both ordinary and advanced execution controls.
