@@ -7,6 +7,8 @@ description: Turn a task into a detailed, read-only execution plan by always lau
 
 Produce an implementation-ready plan without changing source files.
 
+Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, restraint, human authorship, and clean breaks over obsolete compatibility.
+
 ## Fixed route
 
 - Launch exactly one `gpt-5.6-sol` subagent at `high` effort with `fork_turns: none`.

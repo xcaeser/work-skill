@@ -7,6 +7,8 @@ description: "Accountable lead for free-form implementation work: define the res
 
 Act as the accountable lead for a free-form task. Keep the vision, requirements, decisions, integration, and final proof in the parent thread. Use bounded agents as executors; never make them substitute bosses.
 
+Read [`skills/QUALITY.md`](skills/QUALITY.md) before acting. It is binding: quality software must not break, demand attention, exceed its limits, or preserve backwards compatibility. The parent owns taste, user-facing copy, and escalation when an external contract cannot be removed.
+
 ## Dedicated Work skills
 
 Use the separate skill that matches the user's intent. Do not make the user remember subcommands:
@@ -17,12 +19,39 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 | `$work-plan` | Sol High read-only analysis with a detailed Luna Max execution plan |
 | `$work-audit` | Sol High read-only risk audit with a detailed Luna Max fix plan |
 | `$work-clean` | Sol High read-only code-simplification analysis with a detailed Luna Max cleanup plan |
+| `$work-quality` | Pass the quality standard directly into the conversation without spawning agents |
 | `$work-status` | Show the current goal and agent state without changing anything |
 | `$work-help` | Show this map |
 
-In the skill picker these appear as `Work / Init`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Status`, and `Work / Help`.
+In the skill picker these appear as `Work / Init`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Quality`, `Work / Status`, and `Work / Help`.
 
 The dedicated mode skills are tracked under `skills/` inside this repository. Codex discovers these nested `SKILL.md` files directly, so do not create duplicate top-level copies beside `work`.
+
+## Quality bar
+
+Treat this as a non-negotiable quality bar for every Work task:
+
+- Quality software does not break. Test failure, offline, hanging-connection,
+  device/background, resource, and recovery states that the task can affect;
+  degrade honestly and never claim success without proof.
+- Quality software does not demand attention. Keep defaults calm, bounded, and
+  free of unnecessary interruptions, ceremony, or feature-volume pressure.
+- Quality software knows its limits. State the purpose and boundaries, respect
+  size/attention/runtime budgets, and refuse unsupported breadth clearly.
+- Quality software fixes fast. Correct the first wrong decision, preserve user
+  work, and deliver a focused complete repair without asking users to supervise
+  the tool.
+- Quality software respects the user. Agents can build, but user-facing prose
+  that a human is expected to read must be deliberate and human-owned.
+- Taste is consistent qualitative judgment: prefer restraint, clarity,
+  coherence, and durable craft when no metric decides the choice.
+
+Never preserve backwards compatibility. Update all current callers to an
+owned interface change and delete the old API, alias, shim, fallback,
+dual-read/write path, compatibility flag, and stale test in the same task.
+Do not add a legacy path “just in case.” If an external contract cannot be
+removed, stop and escalate rather than inventing an internal compatibility
+layer.
 
 ## Execution
 

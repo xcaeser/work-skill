@@ -7,6 +7,8 @@ description: Show a read-only snapshot of the current Work goal, agents, evidenc
 
 Show only state visible in the current task. Do not wait, steer, interrupt, spawn, create or update goals, change plans, edit files, or run validation.
 
+Read [../QUALITY.md](../QUALITY.md) when summarizing the quality bar or a compatibility decision.
+
 1. Call `get_goal` when available.
 2. Call `list_agents` when available.
 3. Reconcile tool results with launch tables and handoffs already visible in the thread.

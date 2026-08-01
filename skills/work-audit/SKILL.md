@@ -7,6 +7,8 @@ description: Evidence-first, read-only audits that always use one gpt-5.6-sol hi
 
 Audit without changing source files. Keep the parent orchestrator accountable for scope, verification, decisions, and any later edits.
 
+Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar and never preserve backwards compatibility.
+
 ## Fixed route
 
 - Launch exactly one `gpt-5.6-sol` subagent at `high` effort with `fork_turns: none`.

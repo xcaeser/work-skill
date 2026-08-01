@@ -7,6 +7,8 @@ description: Show the separate Work skills and their purpose without running a t
 
 Show the Work skill family directly. Do not make the user remember subcommands.
 
+Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
+
 ## Work skills
 
 | Skill | Use it for |
@@ -16,6 +18,7 @@ Show the Work skill family directly. Do not make the user remember subcommands.
 | `$work-plan` | Build a detailed read-only plan with Sol High |
 | `$work-audit` | Audit risks with Sol High and produce a Luna Max fix plan |
 | `$work-clean` | Analyze code smells with Sol High and produce a Luna Max cleanup plan |
+| `$work-quality` | Pass the quality standard directly into the conversation |
 | `$work-status` | Show the current goal, agents, evidence, and next action |
 | `$work-help` | Show this map |
 

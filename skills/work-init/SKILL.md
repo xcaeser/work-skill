@@ -7,6 +7,8 @@ description: Guide and verify a minimal new project setup by asking only essenti
 
 Create the smallest useful project foundation through a short guided flow.
 
+Read [../QUALITY.md](../QUALITY.md) first. Keep the scaffold focused, reliable at real boundaries, and free of compatibility scaffolding.
+
 ## Ask first
 
 Ask no more than three setup questions at a time, progressively:

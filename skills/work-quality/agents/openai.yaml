@@ -1,0 +1,6 @@
+interface:
+  display_name: "Work / Quality"
+  short_description: "Pass the quality standard into a conversation"
+  default_prompt: "Use $work-quality to add the Work quality standard to this conversation."
+policy:
+  allow_implicit_invocation: false

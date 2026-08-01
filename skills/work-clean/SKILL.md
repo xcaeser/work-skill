@@ -7,6 +7,8 @@ description: Read-only code-simplification analysis that always uses one gpt-5.6
 
 Find defensible simplifications without letting an agent edit. The parent orchestrator owns the final decision and is the sole writer if cleanup is approved.
 
+Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, remove obsolete paths instead of preserving compatibility, and keep user data safe.
+
 ## Fixed route
 
 - Launch exactly one `gpt-5.6-sol` subagent at `high` effort with `fork_turns: none`.
