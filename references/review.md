@@ -13,9 +13,9 @@ Run an independent, evidence-first review of existing work. Do not edit source f
 
 Inspect the root goal. Reuse it only when it matches or contains the review; otherwise create the exact review goal when no unfinished goal exists. Stop on an unrelated active-goal conflict. Never set a token budget unless the user supplied one.
 
-Launch one `gpt-5.6-sol` low-reasoning reviewer by default with `fork_turns: none`. Use two or three only when the target has independent risk axes that materially benefit from separate review and live capacity permits it.
+Launch one Sol High reviewer by default with `fork_turns: none`. Use Sol Max for security, migrations, repeatedly unresolved failures, or other consequential review. Use two or three only when the target has independent risk axes that materially benefit from separate review and live capacity permits it.
 
-Before launch, inspect live agents with `list_agents` when available and do not exceed confirmed capacity. Use `spawn_agent` with a tool-safe task ID, `model: gpt-5.6-sol`, `reasoning_effort: low`, and `fork_turns: none`. If that exact contract is unsupported, stop and state the mismatch. Never use a user-owned task as a subagent substitute.
+Before launch, inspect live agents with `list_agents` when available and do not exceed confirmed capacity. Use `spawn_agent` with a tool-safe task ID, `model: gpt-5.6-sol`, the resolved high or max effort, and `fork_turns: none`. If that exact contract is unsupported, stop and state the mismatch. Never use a user-owned task as a subagent substitute.
 
 Every reviewer must:
 
@@ -34,7 +34,7 @@ Launched N reviewer(s):
 
 | Agent | Working on | Goal | Ownership | Model |
 |---|---|---|---|---|
-| <call sign> (`<task_id>`) | Review <scope> | <goal> | `<read-only files/scope>` | `gpt-5.6-sol`, low |
+| <call sign> (`<task_id>`) | Review <scope> | <goal> | `<read-only files/scope>` | `gpt-5.6-sol`, <high or max> |
 ```
 
 Never claim a launch before it succeeds. Wait with `wait_agent` or the live equivalent in bounded intervals, and use `send_message`, `followup_task`, or `interrupt_agent` only for concrete steering, correction, or safety needs.

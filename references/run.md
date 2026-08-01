@@ -2,54 +2,51 @@
 
 Define the result, start focused agents, integrate their work, and verify completion.
 
-## Choose the team and agent profile
+## Choose the team and models
 
 Syntax:
 
 ```text
-$work run [N] [sol|terra|mix] [effort] <task>
+$work <task>
+$work [N] [sol|terra|luna|mix] [effort] <task>
+$work run [N] [sol|terra|luna|mix] [effort] <task>
 ```
 
-`N` is an optional positive integer immediately after `run`. It is the exact number of new Work subagents to launch for this run; it does not include the parent or agents that were already live. Reject zero, negative, fractional, or non-numeric counts. When `N` is omitted, let the orchestrator choose the smallest useful team from the task, ownership boundaries, token cost, and live capacity.
+The direct `$work <task>` form and `$work run <task>` both use automatic routing. `mix` alone is a compatibility spelling for the same behavior.
 
-The profile and effort are optional reserved tokens after `N`, or immediately after `run` when `N` is omitted. If the next token is not a recognized profile, treat it and the full remainder as the task and use the default profile. If selectors are present without a task, use the single unambiguous current task or approved `$work plan` in the thread. If none exists, ask what to run and do not start agents.
+`N` is an optional positive integer immediately after `$work` or `run`. It proposes the exact number of new Work subagents for the run; it does not include the parent or agents that were already live. Reject zero, negative, fractional, or non-numeric counts.
 
-| Profile | Default | Behavior |
+The profile and effort are optional reserved tokens after `N`, or immediately after `$work` or `run` when `N` is omitted:
+
+| Profile | Default effort | Meaning |
 |---|---|---|
-| omitted or `sol` | `gpt-5.6-sol`, low | Use Sol for every agent |
-| `terra` | `gpt-5.6-terra`, low | Use lightweight Terra for every agent |
-| `mix` | selected per assignment | Let the parent choose Sol or Terra and the lowest sufficient effort for each agent |
+| omitted or `mix` | selected per assignment | Automatically route each agent |
+| `sol` | medium | Propose Sol for every agent |
+| `terra` | medium | Propose Terra for every agent |
+| `luna` | max | Propose Luna for every agent |
 
 Examples:
 
 ```text
+$work fix the login bug
 $work run implement the settings screen
-$work run 3 implement the settings screen
-$work run sol implement the settings screen
-$work run 2 sol implement the settings screen
-$work run terra update the generated fixtures
-$work run terra medium inspect and fix the failing tests
-$work run mix build the feature
-$work run 3 mix medium build the feature
+$work 3 build the approved feature
+$work 1 terra medium fix the failing tests
+$work run 2 luna max implement the two approved screens
+$work mix inspect and repair the repository
 ```
 
-For `sol` or `terra`, a supported effort immediately after the profile overrides its default and applies to every spawned agent. Honor it exactly; do not raise, lower, or normalize it.
+When no selector is present, apply the automatic route from `models.md`, announce the chosen team and models, and continue without asking a model question.
 
-For `mix`, an effort immediately after the profile is a maximum. Choose per assignment:
+When the user supplies `N`, a fixed model, or an effort, apply the explicit selector advice from `models.md` before creating a goal or launching anything. Ask what drove the choice, recommend the configuration best suited to the actual task, and let the user choose when the recommendation differs.
 
-- prefer Sol low for implementation and the default path
-- prefer Terra low for deterministic, low-risk mechanical work such as formatting, rote renames, fixture updates, bounded file moves, and generated metadata
-- prefer Terra medium for read-heavy exploration, large scans, tests, logs, and supporting documents
-- use a higher-effort Sol agent only when the task requires it and the user's maximum allows it
-
-The count and profile control spawned Work agents, not the parent. Before launch, state the resolved team size and whether it was user-requested or Work-chosen, plus the resolved fixed profile or `mix` limit. Every roster row must show the actual model and effort.
+If selectors are present without a task, use the single unambiguous current task or approved `$work plan` in the thread. If none exists, ask what to run before the selector-advice question.
 
 Treat the live `spawn_agent` schema as authoritative:
 
-- If an explicit count cannot be honored safely, stop before launching and report the exact conflict. Never silently reduce, increase, or pad the team with duplicate work.
-- If a user-selected fixed model or effort is unavailable, stop and report the exact mismatch. Never substitute.
-- In `mix`, choose only supported Sol or Terra combinations. If a preferred combination is unavailable, select the best supported listed option within the user's effort limit and disclose it before launch.
-- With no profile, always retain Sol low. Never switch models merely because another might be cheaper or faster.
+- If the user's final explicit choice is unavailable, stop and report the exact mismatch. Never substitute.
+- If an automatic choice is unavailable, use the model policy's risk-preserving fallback rule and disclose it.
+- If the final count cannot be assigned safely, stop and report the exact ownership or capacity conflict. Never silently reduce, increase, or pad the team with duplicate work.
 
 ## Contents
 
@@ -96,9 +93,9 @@ Maintain a compact registry with:
 - dependencies and execution order
 - state, returned evidence, and exact blocker
 
-When `N` is omitted, launch one agent by default. Launch several only when their scopes are genuinely independent and the saved wall-clock time justifies the extra tokens. Do not fill every available slot merely because it exists.
+When the final count is automatic, launch one agent by default. Launch several only when their scopes are genuinely independent and the saved wall-clock time justifies the extra tokens. Do not fill every available slot merely because it exists.
 
-When the user supplies `N`:
+When the user chooses an explicit `N` after the advisory checkpoint:
 
 1. Define exactly `N` useful, bounded assignments before the first launch.
 2. Count successful new `spawn_agent` calls for this run. Do not count the parent, pre-existing agents, failed launches, or follow-up turns on an existing agent.
@@ -106,7 +103,7 @@ When the user supplies `N`:
 4. Launch in waves when `N` exceeds current free concurrency, preserving disjoint ownership within each wave.
 5. Stop before launching if the task cannot support `N` non-duplicative assignments or the harness cannot eventually provide the required slots. Explain the constraint and ask for a smaller count or broader scope.
 
-When the user omits `N`, choose the count. Start with the smallest team that can materially improve the outcome, then add an agent only when a newly discovered, non-overlapping assignment justifies its token cost.
+When the count remains automatic, choose it. Start with the smallest team that can materially improve the outcome, then add an agent only when a newly discovered, non-overlapping assignment justifies its token cost.
 
 Start in small groups:
 
@@ -149,7 +146,7 @@ If no goal tool or equivalent is available to the agent, treat that as a task bl
 
 ## 5. Start agents
 
-For every actionable `$work run` request, launch at least one implementation agent when the Work contract is supported. Do not perform the entire implementation locally merely because it is small.
+For every actionable `$work` execution request, launch at least one implementation agent when the Work contract is supported. Do not perform the entire implementation locally merely because it is small.
 
 Use `spawn_agent` with the resolved profile:
 

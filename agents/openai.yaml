@@ -1,6 +1,6 @@
 interface:
   display_name: "Work"
-  short_description: "Create, plan, run, clean, and review projects"
-  default_prompt: "Use $work help to choose an action, or $work run to complete a task with focused agents."
+  short_description: "Create, route, run, clean, and review projects"
+  default_prompt: "Use $work with a task to automatically choose and run the right agents, or use $work help to see commands."
 policy:
   allow_implicit_invocation: false

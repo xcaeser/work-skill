@@ -60,7 +60,7 @@ After confirmation:
 
 1. Inspect the target. Never overwrite a non-empty folder or unrelated files.
 2. Register the exact root goal. Stop on an unrelated active-goal conflict.
-3. Use one `gpt-5.6-sol` low-reasoning agent with `fork_turns: none` unless separate, non-overlapping setup units materially help.
+3. Route the confirmed setup through the automatic model policy. Prefer one Luna Max executor when the specification is complete; use Sol Medium when material setup ambiguity remains.
 4. Give the agent the confirmed setup as a fixed specification. Require its own exact goal before implementation.
 5. Prefer the ecosystem's official generator when it produces the confirmed minimal structure. Do not accept unwanted sample screens, packages, telemetry, or deployment configuration; remove generator extras safely.
 6. Create only the selected source structure, package manifest, build configuration, focused starter test, ignore rules, and confirmed repository guidance.

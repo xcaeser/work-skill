@@ -6,8 +6,9 @@ Check whether the live Codex harness can honor Work's contracts. Diagnose only; 
 
 Inspect the tools and schemas actually exposed in the current task:
 
-- a subagent spawn tool that accepts the default `gpt-5.6-sol`, `reasoning_effort: low`, and context-isolated spawning such as `fork_turns: none`
-- fixed `run` profile support for `gpt-5.6-sol` and `gpt-5.6-terra`, including their accepted reasoning efforts
+- a subagent spawn tool that accepts `gpt-5.6-sol` medium/high/max and context-isolated spawning such as `fork_turns: none`
+- cost-focused worker support for `gpt-5.6-luna` high/xhigh/max
+- optional fixed-profile support for `gpt-5.6-terra`, including its accepted reasoning efforts
 - agent listing, steering, follow-up, waiting, and interruption controls
 - `create_goal`, `get_goal`, and `update_goal`, including their active-goal and completion rules
 - current live agents and remaining concurrency when observable
@@ -20,9 +21,9 @@ Do not infer support from documentation, another tool, a model picker, or rememb
 
 ## Results
 
-- **Ready:** Run can launch at least one Sol-low, goal-backed, context-isolated subagent.
-- **Limited:** Run works, but an optional control such as Terra or precise capacity reporting is unavailable.
-- **Blocked:** A required Run capability is missing or no agent slot is available.
+- **Ready:** Run can launch goal-backed, context-isolated Sol Medium/High and Luna Max agents.
+- **Limited:** Run can execute safely, but a cost lane, optional Terra control, higher effort, or precise capacity reporting is unavailable.
+- **Blocked:** No safe Sol Medium execution path, goal lifecycle, context-isolated spawn, or agent slot is available.
 
 Return:
 
@@ -34,8 +35,8 @@ Return:
 | Capability | Required contract | Observed | Result |
 |---|---|---|---|
 | Capacity | One free slot minimum; report visible free/total slots | <fact> | Pass/Fail |
-| Default run | Sol, low, isolated context | <fact> | Pass/Fail |
-| Sol profile | Requested efforts | <fact> | Pass/Fail |
+| Sol assurance lane | Medium, high, max | <fact> | Pass/Fail |
+| Luna value lane | High, xhigh, max | <fact> | Pass/Fail |
 | Terra profile | Requested efforts | <fact> | Pass/Fail |
 
 **Next action:** <one command or exact remediation>

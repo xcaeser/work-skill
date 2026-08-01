@@ -63,7 +63,7 @@ Keep candidate selection and architectural judgment in the parent. For an action
 
 1. Require `get_goal`, `create_goal`, and `update_goal`. Reuse a matching active goal, create the exact cleanup goal when no unfinished goal exists, and stop on an unrelated active-goal conflict.
 2. Use one executor by default. Add another only for a disjoint module with no shared write ownership.
-3. Launch each executor with `gpt-5.6-sol`, `reasoning_effort: low`, and `fork_turns: none`.
+3. Apply the automatic model policy. Prefer Luna Max for approved mechanical cleanup slices and Sol High for behavior-sensitive, cross-cutting, or uncertain cleanup.
 4. Give it a fun call sign, exact goal, paths and symbols it owns, approved transformations, behavior boundaries, validation commands, and explicit non-goals.
 5. Require it to register its exact goal before editing, work in small coherent batches, and mark the goal complete only after its checks pass.
 6. Post this roster after successful spawns and before waiting. Use `agent` for one launch and `agents` otherwise:
@@ -73,7 +73,7 @@ Launched N agent(s):
 
 | Agent | Working on | Goal | Ownership | Model |
 |---|---|---|---|---|
-| <call sign> (`<task_id>`) | Clean <scope> | <goal> | `<paths/symbols>` | `gpt-5.6-sol`, low |
+| <call sign> (`<task_id>`) | Clean <scope> | <goal> | `<paths/symbols>` | `<model>`, <effort> |
 ```
 
 If the exact goal or spawn contract is unavailable, report the blocker. Do not silently substitute a model, perform the whole cleanup locally, or create a user-owned task as a fake subagent.

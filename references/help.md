@@ -11,6 +11,8 @@ Render this compact menu:
 
 | Command | What it does |
 |---|---|
+| `$work <task>` | Automatically choose the team, models, and effort, then complete the task |
+| `$work [N] [model] [effort] <task>` | Explain your proposed setup, receive a recommendation, then choose |
 | `$work init [path]` | Set up a new project through a short guided flow |
 | `$work plan <task>` | Define the result, boundaries, agents, order, and proof |
 | `$work run [N] [profile] [effort] <task>` | Complete a task with a controlled team and agent models |
@@ -21,11 +23,13 @@ Render this compact menu:
 | `$work help [command]` | Show all commands or explain one |
 | `$work open` | Open the Work skill and its files |
 
-Start with `$work init`, `$work plan <task>`, or `$work run <task>`.
+Start with `$work <task>`, `$work init`, or `$work plan <task>`.
 
-Team size: put a positive integer immediately after `run` to request exactly that many new subagents, such as `$work run 3 mix build the feature`. Omit it and Work chooses the smallest useful team.
+Automatic example: `$work fix the login bug`.
 
-Run profiles: `sol` (default, low), `terra` (lightweight, low), or `mix` (Work chooses per agent). Add a supported effort after the profile to override its default; for `mix`, it is the maximum effort.
+Guided example: `$work 1 terra medium fix the login bug`. Work asks what drove the setup, recommends the task-appropriate configuration, and lets you choose before launch.
+
+Models: `sol`, `terra`, `luna`, or `mix`. Omit selectors and Work routes automatically.
 ```
 
 Keep the ordering above. Do not add generic introductory prose.
