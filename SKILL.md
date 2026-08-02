@@ -45,6 +45,10 @@ Treat this as a non-negotiable quality bar for every Work task:
   that a human is expected to read must be deliberate and human-owned.
 - Taste is consistent qualitative judgment: prefer restraint, clarity,
   coherence, and durable craft when no metric decides the choice.
+- Make the hard work disappear. “Your work is done when it looks so simple that
+  the consumer thinks they could have done it, which means they won’t appreciate
+  how hard you worked.” — Visualize Value. Simplify the result without hiding
+  failure or weakening correctness.
 
 Never preserve backwards compatibility. Update all current callers to an
 owned interface change and delete the old API, alias, shim, fallback,

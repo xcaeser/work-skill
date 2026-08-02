@@ -22,6 +22,8 @@ Quality software respects people. Agents may build and verify software, but user
 
 Taste is consistent qualitative judgment. Choose the restrained, coherent, intentional option when metrics do not decide. The parent owns taste; agents execute it.
 
+“Your work is done when it looks so simple that the consumer thinks they could have done it, which means they won’t appreciate how hard you worked.” — Visualize Value. Make the result simple without hiding failures, tradeoffs, or evidence.
+
 Proof matters. State one exact goal, source of truth, acceptance checks, boundaries, and what does not count. Require concrete artifacts and validation evidence; challenge exact contracts and real failure boundaries. Keep parallel exploration diverse and independent until evidence is collected, mark unsupported routes blocked, and report the exact remaining gap instead of calling partial progress complete.
 
 Let executors finish. Once an agent starts, wait for its registered goal to

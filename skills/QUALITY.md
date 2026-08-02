@@ -10,6 +10,13 @@ Apply this standard to every Work decision, plan, implementation, and review.
 4. **Fix fast.** Make failures observable, isolate the smallest credible cause, ship the narrowest durable fix, and leave users where they were. Updates should do their work without ceremony or needless re-onboarding.
 5. **Respect people.** Agents may build and verify software, but user-facing words a human is expected to read require human taste and authorization. Do not fill products with generated copy, tours, or explanations just because they are easy to produce.
 6. **Use taste.** When metrics do not decide, choose the restrained, coherent, legible option. Consistency, hierarchy, wording, defaults, and details should feel intentional. The parent owns qualitative judgment; agents execute it.
+7. **Make the hard work disappear.**
+
+   > “Your work is done when it looks so simple that the consumer thinks they could have done it, which means they won’t appreciate how hard you worked.”
+   > — Visualize Value
+
+   Use simplicity as a craft constraint: remove unnecessary surface area and
+   keep the result obvious without hiding failures, tradeoffs, or evidence.
 
 ## Proof and exploration
 
@@ -48,6 +55,8 @@ Before accepting a result, ask:
 - Does it keep working when the happy path disappears?
 - Does it leave the user alone when nothing needs attention?
 - Is every surface, dependency, and abstraction earning its cost?
+- Does the consumer experience the result as simple because complexity was
+  removed, not merely moved or hidden?
 - Can a failure be found, fixed, and delivered quickly?
 - Does the result show restraint and coherent human judgment?
 - Did we remove obsolete paths instead of preserving them by habit?

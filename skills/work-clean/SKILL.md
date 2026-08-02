@@ -24,7 +24,7 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, remove obsolet
 1. Prefer an explicit path, subsystem, feature, or diff; otherwise use the smallest scope clearly implied by the request.
 2. Inspect instructions, status, relevant diffs, consumers, registrations, generated outputs, and tests.
 3. Identify dead code, needless indirection, duplicate behavior, speculative abstractions, and unclear boundaries.
-4. Keep helpers that communicate intent, isolate side effects, improve testing, or have genuine reuse.
+4. Keep helpers that communicate intent, isolate side effects, improve testing, or have genuine reuse. Simplify the consumer path; do not merely move complexity into a new wrapper or hide it behind a renamed abstraction.
 5. Consider packages in this order: standard library/platform, an existing project dependency, a mature and battle-tested external package, then focused local code. Choose a package only when its reliability, maintenance, license, runtime fit, and reduced complexity earn the dependency cost; record chosen and rejected options with reasons.
 6. Challenge cleanup candidates against exact behavior, error paths, partial state, retries, interruption, permissions, upgrades, and recovery before recommending removal.
 7. Do not propose behavior, API, persistence, security, UX, test, or type weakening without explicit authorization.

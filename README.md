@@ -63,6 +63,9 @@ These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/
 
 - Software should not break, demand attention, or exceed its purpose.
 - Keep decisions human-owned and user-facing writing human-readable.
+- “Your work is done when it looks so simple that the consumer thinks they
+  could have done it, which means they won’t appreciate how hard you worked.”
+  — Visualize Value.
 - Prefer the smallest reliable change and remove obsolete compatibility paths.
 - Treat “done” as a claim that current evidence proves.
 
