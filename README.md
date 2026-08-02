@@ -6,133 +6,75 @@
 
 Quality-first orchestration for coding agents.
 
-Work turns a free-form request into one exact goal, gives bounded agents a
-complete executor brief, keeps them running until they finish or hit a real
-blocker, integrates the result in the parent thread, and proves the outcome
-with evidence. It is designed for Codex and follows the portable Agent Skills
-format used across modern coding agents.
+Work turns a request into one exact goal, gives specialists complete bounded
+briefs, and keeps the parent responsible for integration and proof. It is a
+portable Agent Skill for Codex and other compatible coding agents.
 
 ## Install
-
-Install the lead skill for Codex with the open skills CLI:
 
 ```bash
 npx skills add xcaeser/work-skill --skill work --agent codex --global --yes
 ```
 
-The root package includes the complete Work family as nested skills. To install
-one focused mode instead, point the CLI at that skill's folder:
+Install one focused mode by pointing the CLI at its folder:
 
 ```bash
 npx skills add https://github.com/xcaeser/work-skill/tree/main/skills/work-plan \
   --agent codex --global --yes
 ```
 
-The same commands work with other supported agents by changing `--agent`
-(for example, `claude-code`, `cursor`, or `opencode`). Browse the package at
-[skills.sh](https://skills.sh/xcaeser/work-skill).
-
-## Use it
-
-Invoke Work in your agent conversation:
+## Use
 
 ```text
 $work Fix the intermittent login failure and ship the smallest verified repair.
-```
-
-Advanced execution controls stay explicit when you need them:
-
-```text
 $work 2 sol xhigh Investigate the data-loss report and implement the durable fix.
 ```
 
-If you do not specify a team size, Work chooses the smallest useful team. If
-you specify a model, effort, or count, Work asks what drove that choice and
-recommends a better fit when the task calls for one.
+If no team size is given, Work chooses the smallest useful team. Explicit
+model, effort, and count requests remain under the user's control.
 
-## The Work family
+## Skills
 
-| Skill | Use it for | Default behavior |
-| --- | --- | --- |
-| `$work` | Build, fix, or change a task | Accountable parent lead; bounded executors; independent verification |
-| `$work-init` | Start a new project | Essential setup questions, minimal scaffold, real build proof |
-| `$work-plan` | Plan before implementation | One read-only Sol xhigh analyst; Luna Max execution handoff |
-| `$work-audit` | Audit code, diffs, or runtime flows | Evidence-first Sol xhigh review; Luna Max fix plan |
-| `$work-clean` | Remove smells and overengineering | Read-only Sol xhigh simplification plan; package judgment included |
-| `$work-quality` | Pass the quality bar into a conversation | No agents, edits, or project-state changes |
-| `$work-status` | See current Work state | Read-only goal, agent, evidence, and blocker snapshot |
-| `$work-help` | Remember the available skills | Compact map of the Work family |
-
-These are separate skills, not subcommands. Some clients render them as
-`Work / Audit` or `/work audit`; the canonical skill IDs are the hyphenated
-names above.
-
-## What Work protects
-
-- **The parent owns the vision.** Agents receive the complete goal, source of
-  truth, ownership, done criteria, non-goals, and validation commands. They
-  execute; the parent decides, integrates, and verifies.
-- **Agents finish their work.** A polling or tool-call timeout is not an agent
-  failure. Work waits for `complete`, `blocked`, or a user-input request and
-  interrupts only for an explicit cancellation or goal change, safety risk,
-  duplicate ownership, an approved resource limit, or repeated no progress.
-- **Evidence beats status.** Every handoff names concrete artifacts, exact
-  locations, checks, and remaining gaps. Partial progress is not completion.
-- **Explore without premature convergence.** Parallel work uses the smallest
-  useful team, diverse approach families, adversarial checks, and explicit
-  blocker tracking.
-- **Quality is quiet and restrained.** Software should not break, demand
-  attention, exceed its purpose, or preserve obsolete compatibility paths.
-
-## Model routing
-
-Automatic routing keeps ordinary work inexpensive and reserves deeper effort
-for tasks that need it:
-
-| Task shape | Route |
+| Skill | Purpose |
 | --- | --- |
-| Ordinary or unclear work | Sol Low |
-| Unreproduced bug | Sol Medium |
-| Architecture, difficult debugging, auth, migrations, or security | Sol xhigh |
-| Critical or repeatedly unresolved failure | Sol Max |
-| Approved implementation or mechanical refactor | Luna Max |
-| Exploration or structured extraction | Luna High |
+| `$work` | Implement a task with an accountable parent lead |
+| `$work-init` | Start a project with a minimal verified setup |
+| `$work-plan` | Produce a detailed read-only implementation plan |
+| `$work-audit` | Audit code, diffs, or runtime flows |
+| `$work-clean` | Find smells, overengineering, and package opportunities |
+| `$work-quality` | Pass the shared quality standard into the conversation |
+| `$work-status` | Show the current goal, agents, evidence, and blockers |
+| `$work-help` | Show the available Work skills |
 
-No model or effort is silently substituted when an explicitly requested setup
-is unavailable.
+## Workflow
 
-## Repository layout
+1. Define one goal, ownership boundary, done criteria, and validation path.
+2. Launch the smallest useful team with complete executor briefs.
+3. Keep materially different approaches independent until their real strengths
+   and gaps are visible; track the approach families explicitly.
+4. Require concrete changes, tests, lemmas, or other evidence—not status or
+   optimism. Agents work until they finish or report a real blocker.
+5. Use adversarial checks, then have the parent integrate, verify, and report
+   remaining gaps. Reopen a blocked route only with a genuinely new mechanism.
 
-```text
-SKILL.md                  # Root Work lead
-skills/work-*/SKILL.md    # Dedicated Work modes
-skills/QUALITY.md         # Shared quality and compatibility standard
-agents/openai.yaml        # Codex UI metadata
-skills.sh.json            # skills.sh grouping metadata
-```
+These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf): diverse exploration, explicit route tracking, adversarial review, concrete evidence, and no premature return. Work applies that discipline to coding tasks; the PDF is not a Work API or model-pricing specification.
 
-Every skill is a portable directory with `SKILL.md` YAML frontmatter. The
-repository contains no runtime dependencies or bundled scripts.
+## Quality bar
 
-## Validate locally
+- Software should not break, demand attention, or exceed its purpose.
+- Keep decisions human-owned and user-facing writing human-readable.
+- Prefer the smallest reliable change and remove obsolete compatibility paths.
+- Treat “done” as a claim that current evidence proves.
 
-List the package with the skills CLI before publishing a change:
+## Validate
 
 ```bash
 npx skills add . --list --full-depth
 git diff --check
 ```
 
-Then run the skill validator available in your Codex installation and verify
-the relevant agent metadata. Keep each `SKILL.md` focused; move large,
-conditional reference material into a directly linked resource.
-
-## Contributing
-
-Open an issue or pull request with a concrete task, evidence, and the smallest
-focused change. Preserve the Work contract: bounded ownership, human-owned
-decisions and copy, explicit validation, no silent compatibility layers, and no
-claims of completion without proof.
+Each skill is a portable directory with `SKILL.md` frontmatter. The package
+has no runtime dependencies or bundled services.
 
 ## License
 
