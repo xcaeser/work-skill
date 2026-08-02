@@ -87,6 +87,20 @@ round only when it has a clear new question and remains within the user's
 time/token/scope budget; otherwise return the strongest verified result and the
 exact remaining gap.
 
+## OpenAI grounding
+
+This orchestration loop is informed by [OpenAI's proof prompt](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf). Apply its coding-task equivalents:
+
+- Start with genuinely different approach families; do not let the first
+  attractive idea become the only route.
+- Keep a compact route registry with evidence, state, blockers, and next moves.
+- Use adversarial checks and require concrete artifacts, tests, or proofs—not
+  status reports or vague optimism.
+- Reopen a blocked route only when there is a materially new mechanism, and do
+  not return early with an unverified reduction or partial result.
+
+The PDF is a proof prompt, not a Work API or model-pricing specification.
+
 ## Agent lifetime
 
 Once an agent is launched, let it work until it returns `complete`, `blocked`,
