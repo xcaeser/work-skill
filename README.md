@@ -42,7 +42,7 @@ model, effort, and count requests remain under the user's control.
 | `$work-plan` | Produce a detailed read-only implementation plan |
 | `$work-audit` | Audit code, diffs, or runtime flows |
 | `$work-clean` | Find smells, overengineering, and package opportunities |
-| `$work-quality` | Pass the shared quality standard into the conversation |
+| `$work-quality` | Pass the Work golden rules into the conversation |
 | `$work-status` | Show the current goal, agents, evidence, and blockers |
 | `$work-help` | Show the available Work skills |
 
@@ -68,6 +68,16 @@ These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/
   — Visualize Value.
 - Prefer the smallest reliable change and remove obsolete compatibility paths.
 - Treat “done” as a claim that current evidence proves.
+
+## Engineering discipline
+
+- Choose the simplest implementation that fully meets current requirements.
+- Grow in working layers; never trade a working product for unfinished
+  complexity.
+- Keep components modular and concerns clearly separated.
+- Check existing dependencies, documentation, and types before reimplementing
+  functionality or adding a package.
+- Make architectural decisions for the long term, not as temporary stopgaps.
 
 ## Validate
 

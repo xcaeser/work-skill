@@ -18,6 +18,22 @@ Apply this standard to every Work decision, plan, implementation, and review.
    Use simplicity as a craft constraint: remove unnecessary surface area and
    keep the result obvious without hiding failures, tradeoffs, or evidence.
 
+## Engineering discipline
+
+- Choose the simplest implementation that fully meets the current
+  requirements. Avoid speculative abstractions, configuration, and indirection.
+- Grow the system in layers. Start from the smallest version that works end to
+  end, and add each new capability on top of a product that already works.
+  Never trade a working product for unfinished complexity.
+- Keep components modular and concerns clearly separated.
+- Prefer established, well-maintained libraries when they reduce overall
+  complexity or improve reliability. Do not reimplement common functionality
+  without a clear reason.
+- Lean on project dependencies before writing new code or adding packages.
+  Check documentation and types before assuming a capability is missing.
+- Make architectural decisions for the long term; reject stopgaps intended to
+  be replaced later.
+
 ## Proof and exploration
 
 State one exact goal, source of truth, acceptance checks, boundaries, and what
@@ -57,6 +73,11 @@ Before accepting a result, ask:
 - Is every surface, dependency, and abstraction earning its cost?
 - Does the consumer experience the result as simple because complexity was
   removed, not merely moved or hidden?
+- Is this the simplest implementation that fully meets the current requirements?
+- Does each new layer sit on top of a product that already works?
+- Are the boundaries modular, and did we check existing dependencies,
+  documentation, and types before adding or reimplementing functionality?
+- Is the architecture durable rather than a stopgap?
 - Can a failure be found, fixed, and delivered quickly?
 - Does the result show restraint and coherent human judgment?
 - Did we remove obsolete paths instead of preserving them by habit?

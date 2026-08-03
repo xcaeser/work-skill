@@ -18,7 +18,7 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 | `$work-plan` | Build a detailed read-only plan with Sol xhigh |
 | `$work-audit` | Audit risks with Sol xhigh and produce a Luna Max fix plan |
 | `$work-clean` | Analyze code smells with Sol xhigh and produce a Luna Max cleanup plan |
-| `$work-quality` | Pass the quality standard directly into the conversation |
+| `$work-quality` | Pass the Work golden rules directly into the conversation |
 | `$work-status` | Show the current goal, agents, evidence, and next action |
 | `$work-help` | Show this map |
 

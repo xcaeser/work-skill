@@ -4,6 +4,12 @@ Read [`skills/QUALITY.md`](skills/QUALITY.md) before changing this project or an
 
 - Quality software must not break at real boundaries, must not demand attention without a reason, must know its limits, fix failures quickly, and respect human attention and authorship.
 - Never preserve backwards compatibility. Prefer a clean break, update all in-scope consumers together, and remove obsolete aliases, adapters, wrappers, flags, and migration shims. If an external contract cannot be removed, stop and escalate; do not invent an internal compatibility layer.
+- Choose the simplest implementation that fully meets the current requirements. Avoid speculative abstractions, configuration, and indirection.
+- Grow the system in layers. Start from the smallest version that works end to end, and add each new capability on top of a product that already works. Never trade a working product for unfinished complexity.
+- Keep components modular and concerns clearly separated.
+- Prefer established, well-maintained libraries when they reduce overall complexity or improve reliability. Do not reimplement common functionality without a clear reason.
+- Lean on the dependencies already in the project before writing your own implementation or adding packages. Do not assume a library lacks a capability without checking its documentation and types.
+- Make architectural decisions for the long term. Do not accept a stopgap that only works for now and is meant to be replaced later.
 - Keep user data, recoverability, security, and truthful failure behavior safe; those are not compatibility shims.
 - Keep agents bounded executors. The parent owns taste, decisions, integration, user-facing copy, and proof.
 - Before work begins, state the exact goal, source of truth, acceptance checks, boundaries, and what does not count. Treat concrete artifacts and validation evidence as the only completion proof.

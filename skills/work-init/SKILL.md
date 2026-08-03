@@ -22,7 +22,9 @@ Use sensible defaults when the answer is discoverable from the workspace. Do not
 Before writing, state the exact foundation goal, source of truth, what “ready” means,
 and what does not count (for example, an empty scaffold that has never built or
 run). Keep the first setup intentionally narrow; defer product features until
-the foundation proves itself.
+the foundation proves itself. Grow in working layers: start with the smallest
+end-to-end version and add each capability only after the product already works.
+Never trade a working foundation for unfinished complexity.
 
 ## Build and verify
 

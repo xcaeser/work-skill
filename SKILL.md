@@ -19,7 +19,7 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 | `$work-plan` | Sol xhigh read-only analysis with a detailed Luna Max execution plan |
 | `$work-audit` | Sol xhigh read-only risk audit with a detailed Luna Max fix plan |
 | `$work-clean` | Sol xhigh read-only code-simplification analysis with a detailed Luna Max cleanup plan |
-| `$work-quality` | Pass the quality standard directly into the conversation without spawning agents |
+| `$work-quality` | Pass the Work golden rules directly into the conversation without spawning agents |
 | `$work-status` | Show the current goal and agent state without changing anything |
 | `$work-help` | Show this map |
 
@@ -49,6 +49,19 @@ Treat this as a non-negotiable quality bar for every Work task:
   the consumer thinks they could have done it, which means they won’t appreciate
   how hard you worked.” — Visualize Value. Simplify the result without hiding
   failure or weakening correctness.
+
+## Engineering discipline
+
+- Choose the simplest implementation that fully meets the current requirements;
+  avoid speculative abstractions, configuration, and indirection.
+- Grow in working layers: prove the smallest end-to-end version before adding
+  the next capability. Never trade a working product for unfinished complexity.
+- Keep components modular and concerns clearly separated.
+- Prefer established libraries and existing project dependencies when they
+  reduce complexity or improve reliability; check their documentation and types
+  before reimplementing or adding packages.
+- Make architectural decisions for the long term, not as stopgaps intended to
+  be replaced later.
 
 Never preserve backwards compatibility. Update all current callers to an
 owned interface change and delete the old API, alias, shim, fallback,

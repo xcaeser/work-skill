@@ -25,8 +25,9 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, never preserve
 2. Identify the source of truth and material risk axes: correctness, regressions, security, data loss, accessibility, performance, or missing validation.
 3. Inspect independently and collect concrete evidence, exact locations, and the smallest credible reproduction.
 4. Challenge the happy path and the exact contract at the boundaries the task can affect: malformed input, offline or hanging work, retries, partial state, interruption, permissions, upgrades, and recovery.
-5. Reject style preferences, unsupported suspicion, findings without material impact, and reductions that merely restate the original problem.
-6. Verify the handoff in the parent; an analyst summary is not proof. If the route is blocked, record the exact gap and do not keep repeating it without a materially new mechanism.
+5. Check the architecture against the simplest complete implementation, modular concerns, existing dependencies and their documentation/types, and long-term decisions rather than stopgaps.
+6. Reject style preferences, unsupported suspicion, findings without material impact, and reductions that merely restate the original problem.
+7. Verify the handoff in the parent; an analyst summary is not proof. If the route is blocked, record the exact gap and do not keep repeating it without a materially new mechanism.
 
 ## Handoff
 
