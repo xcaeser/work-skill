@@ -4,10 +4,11 @@
   "groupings": [
     {
       "title": "Agent workflows",
-      "description": "Quality-first planning, orchestration, auditing, cleanup, and project setup for coding agents.",
+      "description": "Quality-first ideation, planning, orchestration, auditing, cleanup, and project setup for coding agents.",
       "skills": [
         "work",
         "work-init",
+        "work-ideate",
         "work-plan",
         "work-audit",
         "work-clean",

@@ -16,6 +16,7 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 | Skill | Purpose |
 |---|---|
 | `$work-init` | Guide and verify a minimal new project setup |
+| `$work-ideate` | Challenge assumptions, explore distinct directions, and shape a testable idea |
 | `$work-plan` | Sol xhigh read-only analysis with a detailed Luna Max execution plan |
 | `$work-audit` | Sol xhigh read-only risk audit with a detailed Luna Max fix plan |
 | `$work-clean` | Sol xhigh read-only code-simplification analysis with a detailed Luna Max cleanup plan |
@@ -23,7 +24,7 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 | `$work-status` | Show the current goal and agent state without changing anything |
 | `$work-help` | Show this map |
 
-In the skill picker these appear as `Work / Init`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Quality`, `Work / Status`, and `Work / Help`.
+In the skill picker these appear as `Work / Init`, `Work / Ideate`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Quality`, `Work / Status`, and `Work / Help`.
 
 The dedicated mode skills are tracked under `skills/` inside this repository. Codex discovers these nested `SKILL.md` files directly, so do not create duplicate top-level copies beside `work`.
 

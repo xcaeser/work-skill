@@ -1,0 +1,4 @@
+interface:
+  display_name: "Work / Ideate"
+  short_description: "Challenge assumptions and shape sharper ideas"
+  default_prompt: "Use $work-ideate as a rigorous creative sparring partner: ask one sharp question at a time, challenge assumptions, generate distinct options, stress-test them, and end with a smallest useful experiment."
