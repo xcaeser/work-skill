@@ -70,6 +70,17 @@ These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/
 - Prefer the smallest reliable change and remove obsolete compatibility paths.
 - Treat “done” as a claim that current evidence proves.
 
+## Testing
+
+Before writing tests, inspect the implementation, existing tests, public APIs,
+and actual user flows. Protect observed behavior with a few deterministic,
+high-value tests using the repository's conventions. Prefer integration tests
+for interactions between owned modules; mock only necessary external
+boundaries. Avoid coverage-only tests, framework assertions, speculative
+threats, impossible states, and tautological mocks. State the behavior, why it
+matters, test level, and exact observable assertion first; report omissions and
+real bugs afterward.
+
 ## Engineering discipline
 
 - Choose the simplest implementation that fully meets current requirements.

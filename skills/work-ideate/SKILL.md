@@ -23,6 +23,9 @@ action. Read [../QUALITY.md](../QUALITY.md) when its standard is relevant.
   unless they ask for a recommendation.
 - Prefer a simple, specific idea with a clear user and job over feature volume,
   vague “platform” language, or agentic novelty for its own sake.
+- Treat validation as a hypothesis until a real user flow or contract supports
+  it. Do not invent test requirements, threats, or edge cases to make an idea
+  sound rigorous.
 - Ask one sharp question at a time. Do not unload a questionnaire or make the
   user repeat an answer already captured.
 - Keep the conversation moving: reflect what changed, name the tension, then

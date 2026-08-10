@@ -23,11 +23,12 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, never preserve
 
 1. Resolve the target: working tree, commit, branch comparison, artifact, runtime flow, or named files.
 2. Identify the source of truth and material risk axes: correctness, regressions, security, data loss, accessibility, performance, or missing validation.
-3. Inspect independently and collect concrete evidence, exact locations, and the smallest credible reproduction.
-4. Challenge the happy path and the exact contract at the boundaries the task can affect: malformed input, offline or hanging work, retries, partial state, interruption, permissions, upgrades, and recovery.
-5. Check the architecture against the simplest complete implementation, modular concerns, existing dependencies and their documentation/types, and long-term decisions rather than stopgaps.
-6. Reject style preferences, unsupported suspicion, findings without material impact, and reductions that merely restate the original problem.
-7. Verify the handoff in the parent; an analyst summary is not proof. If the route is blocked, record the exact gap and do not keep repeating it without a materially new mechanism.
+3. Before recommending tests, inspect the implementation, existing tests, public APIs, and actual user flows. Add test findings only for observed contracts, real regressions, or meaningful boundaries.
+4. Inspect independently and collect concrete evidence, exact locations, and the smallest credible reproduction.
+5. Challenge the happy path and the exact contract at the boundaries the task can affect: malformed input, offline or hanging work, retries, partial state, interruption, permissions, upgrades, and recovery.
+6. Check the architecture against the simplest complete implementation, modular concerns, existing dependencies and their documentation/types, and long-term decisions rather than stopgaps.
+7. Reject style preferences, unsupported suspicion, findings without material impact, and reductions that merely restate the original problem.
+8. Verify the handoff in the parent; an analyst summary is not proof. If the route is blocked, record the exact gap and do not keep repeating it without a materially new mechanism.
 
 ## Handoff
 
@@ -54,6 +55,13 @@ Return findings ordered by severity, followed by a detailed execution plan addre
 **Validation:** <commands and expected evidence>
 **Does not count:** <shortcuts to reject>
 **Packages considered:** <chosen/rejected package and one reason each, when relevant>
+
+### Testing plan
+**Behavior being protected:** <observed behavior or "No test change justified">
+**Why it matters:** <user or system consequence>
+**Test level:** <unit, integration, or end-to-end, or "None">
+**Exact observable assertion:** <assertion, or "None">
+**Tests deliberately not added:** <scope and reason>
 ```
 
 If no findings survive verification, say so directly and list the scope, checks, and remaining gaps. Do not call a partial result complete. Do not launch Luna Max or edit files from this skill. If the user wants implementation, hand the verified plan to `work`.

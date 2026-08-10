@@ -7,7 +7,7 @@ description: Turn a task into a detailed, read-only execution plan by always lau
 
 Produce an implementation-ready plan without changing source files.
 
-Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, restraint, modular boundaries, the simplest complete implementation, human authorship, clean breaks over obsolete compatibility, and proof over status reports. Prefer existing dependencies and durable architecture over speculative packages or stopgaps.
+Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, restraint, modular boundaries, the simplest complete implementation, human authorship, clean breaks over obsolete compatibility, meaningful tests, and proof over status reports. Prefer existing dependencies and durable architecture over speculative packages or stopgaps.
 
 ## Fixed route
 
@@ -22,6 +22,11 @@ Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, re
 ## Required plan
 
 The parent defines the mission, then the analyst inspects only relevant context and resolves evidence-backed decisions. Keep any early alternatives independent; do not let the first elegant reduction become the plan without checking it against the exact task. Verify the handoff independently and return:
+
+For test work, inspect the implementation, existing tests, public APIs, and
+actual user flows before proposing a test. Put the four-line test plan before
+any test implementation assignment, and name tests deliberately omitted when
+no real behavior justifies them.
 
 ```markdown
 ## Work plan
@@ -53,6 +58,13 @@ The parent defines the mission, then the analyst inspects only relevant context 
 
 **Validation**
 - <check and required evidence>
+
+**Testing**
+- **Behavior being protected:** <behavior, or "No test change justified">
+- **Why it matters:** <user or system consequence>
+- **Test level:** <unit, integration, or end-to-end, or "None">
+- **Exact observable assertion:** <assertion, or "None">
+- **Tests deliberately not added:** <scope and reason>
 
 **Risks or material unknowns**
 - <item, or "None">

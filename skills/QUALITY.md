@@ -34,6 +34,57 @@ Apply this standard to every Work decision, plan, implementation, and review.
 - Make architectural decisions for the long term; reject stopgaps intended to
   be replaced later.
 
+## Meaningful testing
+
+Before writing anything for a test task, inspect the implementation, existing
+tests, public APIs, and actual user flows. Base every test on behavior the
+application genuinely promises or currently depends on. Do not invent
+requirements, hypothetical threats, or unrealistic edge cases.
+
+- Test observable behavior, not internal implementation details.
+- Prefer a small number of high-value tests over exhaustive low-value coverage.
+- Prioritize core happy paths, realistic failures, important boundaries,
+  previously broken behavior, and persistence, permissions, billing,
+  authentication, or destructive actions when they are relevant.
+- Add negative tests only for a real contract or regression, such as a
+  documented validation error, private-data boundary, or transaction that must
+  not partially persist.
+- Do not test impossible states unless the code explicitly handles them.
+- Do not add speculative security tests without a concrete attack surface.
+- Do not assert framework, library, language, or trivial getter behavior.
+- Do not reproduce the implementation in the test or mock the whole system and
+  only verify calls. Mock external boundaries only when necessary: network,
+  time, randomness, queues, email, payment providers, or databases.
+- Prefer integration tests for interactions between owned modules.
+- Use realistic inputs and fixtures. Keep tests deterministic and independent
+  of execution order.
+- Use the repository's existing framework, helpers, conventions, and layout.
+- Do not change production code merely to satisfy an artificial test. If the
+  code is genuinely hard to test, explain the smallest justified production
+  change before making it.
+- If a function has no meaningful behavior worth testing, do not create a test
+  for coverage. Do not optimize for a coverage percentage.
+
+Before implementing tests, provide this short plan:
+
+1. **Behavior being protected**
+2. **Why it matters**
+3. **Test level:** unit, integration, or end-to-end
+4. **Exact observable assertion**
+
+Afterward, report tests added, behaviors covered, tests deliberately not added
+and why, and any actual bug discovered. Assertions must verify the real result,
+persisted state, returned error, emitted event, or externally visible side
+effect.
+
+Good candidates include creating an account that persists a normalized email,
+rejecting a duplicate without a second record, making a webhook retry
+idempotent, deleting one tenant's resources without affecting another, or
+returning 401 for an expired session. Bad candidates include proving an
+unrelated function does not delete users, checking a mocked function's return,
+testing framework behavior, or asserting a call without checking what was
+saved.
+
 ## Proof and exploration
 
 State one exact goal, source of truth, acceptance checks, boundaries, and what

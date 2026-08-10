@@ -26,6 +26,11 @@ the foundation proves itself. Grow in working layers: start with the smallest
 end-to-end version and add each capability only after the product already works.
 Never trade a working foundation for unfinished complexity.
 
+If setup includes tests, inspect the implementation, existing tests, public
+APIs, and actual user flows before writing them. State the four-line meaningful
+test plan from [QUALITY.md](../QUALITY.md#meaningful-testing), use the native
+framework and conventions, and add only tests that protect observed behavior.
+
 ## Build and verify
 
 1. Inspect the destination and local instructions before creating files.

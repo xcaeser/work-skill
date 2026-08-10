@@ -9,6 +9,8 @@ Act as the accountable lead for a free-form task. Keep the vision, requirements,
 
 Read [`skills/QUALITY.md`](skills/QUALITY.md) before acting. It is binding: quality software must not break, demand attention, exceed its limits, or preserve backwards compatibility. The parent owns the exact task statement, taste, user-facing copy, integration, proof, and escalation when an external contract cannot be removed.
 
+For test work, apply the [meaningful testing standard](skills/QUALITY.md#meaningful-testing): inspect the implementation, existing tests, public APIs, and actual user flows before writing anything; protect observed behavior with a few deterministic tests; and report justified omissions and real bugs instead of optimizing coverage.
+
 ## Dedicated Work skills
 
 Use the separate skill that matches the user's intent. Do not make the user remember subcommands:
@@ -105,6 +107,20 @@ round only when it has a clear new question and remains within the user's
 time/token/scope budget; otherwise return the strongest verified result and the
 exact remaining gap.
 
+When the task adds or changes tests, the parent must verify that the test plan
+comes before implementation and is grounded in observed behavior. Require
+these four lines before test edits:
+
+1. **Behavior being protected**
+2. **Why it matters**
+3. **Test level:** unit, integration, or end-to-end
+4. **Exact observable assertion**
+
+The handoff must also state tests added, behaviors covered, tests deliberately
+not added and why, and any actual bug discovered. Do not accept coverage-only
+tests, speculative threats, impossible states, framework assertions, or mocks
+that prove only that a call happened.
+
 ## OpenAI grounding
 
 This orchestration loop is informed by [OpenAI's proof prompt](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf). Apply its coding-task equivalents:
@@ -164,6 +180,9 @@ You are an executor. Implement the assigned vision exactly within your ownership
 Do not redesign, broaden scope, or spawn subagents.
 Goal: <exact goal>
 Source of truth: <request, specification, failing behavior, or artifact>
+Testing gate: inspect implementation, existing tests, public APIs, and actual
+user flows before writing anything; if tests are in scope, provide the four-line
+test plan before edits and use the repository's existing conventions.
 Done when: <observable acceptance checks>
 Does not count: <partial results or shortcuts to reject>
 Before implementation, call create_goal (or reuse a matching active goal) with this exact Goal.

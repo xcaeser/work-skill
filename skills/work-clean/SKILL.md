@@ -22,12 +22,13 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, remove obsolet
 ## Analysis
 
 1. Prefer an explicit path, subsystem, feature, or diff; otherwise use the smallest scope clearly implied by the request.
-2. Inspect instructions, status, relevant diffs, consumers, registrations, generated outputs, and tests.
+2. Inspect instructions, status, relevant diffs, consumers, registrations, generated outputs, existing tests, public APIs, and actual user flows.
 3. Identify dead code, needless indirection, duplicate behavior, speculative abstractions, and unclear boundaries.
 4. Keep helpers that communicate intent, isolate side effects, improve testing, or have genuine reuse. Simplify the consumer path; do not merely move complexity into a new wrapper or hide it behind a renamed abstraction.
 5. Consider packages in this order: standard library/platform, an existing project dependency, a mature and battle-tested external package, then focused local code. Check existing dependency documentation and types before reimplementing functionality or adding a package. Choose a package only when its reliability, maintenance, license, runtime fit, and reduced complexity earn the dependency cost; record chosen and rejected options with reasons.
 6. Challenge cleanup candidates against exact behavior, error paths, partial state, retries, interruption, permissions, upgrades, and recovery before recommending removal.
-7. Prefer durable architecture over a stopgap intended to be replaced later. Do not propose behavior, API, persistence, security, UX, test, or type weakening without explicit authorization.
+7. Preserve meaningful tests and remove only tests that are demonstrably obsolete, tautological, framework-level, or detached from a real contract. Do not add coverage-only tests.
+8. Prefer durable architecture over a stopgap intended to be replaced later. Do not propose behavior, API, persistence, security, UX, test, or type weakening without explicit authorization.
 
 ## Handoff
 
@@ -59,6 +60,13 @@ Return a detailed plan addressed to `gpt-5.6-luna` at `max` effort:
 **Validation:** <commands and expected evidence>
 **Does not count:** <format-only churn, hidden complexity, behavior changes, or unproven deletions>
 **Packages considered:** <chosen/rejected package and one reason each, when relevant>
+
+**Testing**
+- **Behavior being protected:** <observed behavior or "No test change justified">
+- **Why it matters:** <user or system consequence>
+- **Test level:** <unit, integration, or end-to-end, or "None">
+- **Exact observable assertion:** <assertion, or "None">
+- **Tests deliberately not added or removed:** <scope and reason>
 ```
 
 The parent orchestrator verifies the plan and is the only permitted writer. A smaller diff is not automatically a better result: reject cleanups that only move complexity, weaken behavior, or preserve obsolete paths through a new wrapper. If the route is blocked, state the exact gap and require a materially new mechanism before another round. Do not launch Luna Max or edit files from this skill. For execution, hand the verified plan to `work`.

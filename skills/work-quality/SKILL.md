@@ -22,6 +22,16 @@ Choose the simplest implementation that fully meets the current requirements. Gr
 
 Quality software fixes fast. Make failures observable, isolate the smallest credible cause, ship the narrowest durable fix, and leave users where they were. Updates should work without ceremony.
 
+Meaningful tests start with inspection. Before writing anything, inspect the implementation, existing tests, public APIs, and actual user flows. Test observable behavior the application genuinely promises or depends on, using a small number of deterministic tests and realistic fixtures. Prioritize core paths, realistic failures, important boundaries, previous regressions, and persistence, permissions, billing, authentication, or destructive actions when relevant. Add negative tests only for a real contract or regression. Do not test impossible states, speculative threats, framework behavior, trivial accessors, tautologies, coverage for its own sake, or mocks that only prove calls. Prefer integration tests for interactions between owned modules and mock only necessary external boundaries.
+
+Before test edits, provide:
+1. Behavior being protected
+2. Why it matters
+3. Test level: unit, integration, or end-to-end
+4. Exact observable assertion
+
+Afterward report tests added, behaviors covered, tests deliberately not added and why, and any actual bug discovered. If production code is genuinely hard to test, explain the smallest justified change before editing it.
+
 Quality software respects people. Agents may build and verify software, but user-facing writing a human is expected to read remains human-owned unless explicitly authorized.
 
 Taste is consistent qualitative judgment. Choose the restrained, coherent, intentional option when metrics do not decide. The parent owns taste; agents execute it.
