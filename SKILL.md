@@ -46,8 +46,9 @@ Treat this as a non-negotiable quality bar for every Work task:
   the tool.
 - Quality software respects the user. Agents can build, but user-facing prose
   that a human is expected to read must be deliberate and human-owned.
-- Taste is consistent qualitative judgment: prefer restraint, clarity,
-  coherence, and durable craft when no metric decides the choice.
+- Taste is trained qualitative judgment, not mere preference. Ground choices
+  in hierarchy, clarity, balance, readability, references, critique, and
+  context; balance usability with character and resist novelty for its own sake.
 - Practice empathy: understand the user's real workflow, needs, and constraints
   beyond the surface wording without confusing empathy with agreement.
 - Practice focus: eliminate unimportant opportunities so the essential outcome
@@ -195,6 +196,11 @@ impute to the final product and handoff, and deliberate friction to decisions
 that cheap implementation would otherwise bypass. Do not let presentation hide
 weak behavior; presentation must truthfully signal the quality that validation
 proves.
+
+When no objective metric decides, the parent must still articulate why a
+qualitative direction is appropriate. Compare references or alternatives,
+identify the enduring principle being applied, and distinguish personal taste
+from a reasoned judgment the user can evaluate.
 
 Every executor gets a fun call sign and a complete packet:
 

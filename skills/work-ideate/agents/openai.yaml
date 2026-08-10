@@ -1,4 +1,4 @@
 interface:
   display_name: "Work / Ideate"
   short_description: "Challenge assumptions and shape sharper ideas"
-  default_prompt: "Use $work-ideate as a rigorous creative sparring partner: ask whether the idea deserves to exist, challenge assumptions one question at a time, generate distinct options, stress-test them, and end with a named validation experiment and kill criterion."
+  default_prompt: "Use $work-ideate as a rigorous creative sparring partner: ask whether the idea deserves to exist, challenge assumptions one question at a time, use trained taste to compare distinct options, stress-test them, and end with a named validation experiment and kill criterion."

@@ -67,6 +67,9 @@ These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/
 - Apply empathy, focus, and impute: understand the real user, eliminate
   unimportant opportunities, and present the result with care that truthfully
   reflects its quality.
+- Treat [taste as trained judgment](https://www.raphaelsalaja.com/library/the-concept-of-taste):
+  use enduring fundamentals, references, critique, and context rather than
+  preference or novelty alone.
 - Use [friction as a feature](https://emilkowal.ski/ui/friction-as-a-feature):
   require judgment and validation before cheap implementation becomes product
   surface.

@@ -33,6 +33,10 @@ being cheap to generate. If the plan includes prototypes or variants, require
 each to answer a named question and include the evidence, selection rule, or
 kill criterion that determines what survives.
 
+For qualitative decisions, record the fundamentals, references, context, and
+tradeoffs that make the chosen direction appropriate. Do not use preference or
+trend-following as the entire rationale.
+
 ```markdown
 ## Work plan
 
@@ -48,6 +52,9 @@ kill criterion that determines what survives.
 
 **Decisions and constraints**
 - <decision or boundary>
+
+**Taste rationale**
+- <fundamental, reference, context, and tradeoff, or "Not applicable">
 
 **Evidence**
 - <exact path, command, observation, or artifact supporting the decision>

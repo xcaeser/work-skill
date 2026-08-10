@@ -18,6 +18,31 @@ Apply this standard to every Work decision, plan, implementation, and review.
    Use simplicity as a craft constraint: remove unnecessary surface area and
    keep the result obvious without hiding failures, tradeoffs, or evidence.
 
+## Taste as trained judgment
+
+Treat taste as a cultivated skill, not an unchallengeable personal preference,
+following Raphael Salaja's [The Concept of Taste](https://www.raphaelsalaja.com/library/the-concept-of-taste).
+It grows through exposure, education, critique, experimentation, and attention
+to cultural context.
+
+- Ground qualitative choices in enduring fundamentals: hierarchy, clarity,
+  balance, proportion, readability, composition, and emotional resonance.
+- Use principles as tools for directing attention, not rigid rules that erase
+  character or context.
+- Study strong work across eras, disciplines, and cultures. Keep references,
+  identify what makes them work, and borrow the underlying judgment rather than
+  copying the visible surface.
+- Distinguish a durable direction from a trend amplified by platforms or
+  algorithms. Balance usability with character and resist novelty for its own
+  sake.
+- Train taste by making alternatives, articulating why one succeeds, inviting
+  critique, and revisiting the result with fresh eyes.
+- Explain important qualitative decisions. “I like it” is a preference, not a
+  sufficient design rationale.
+
+The goal is work that channels personal intuition through durable principles:
+appropriate to its moment without becoming disposable when the trend passes.
+
 ## Empathy, focus, and impute
 
 Apply Mike Markkula's 1977 Apple philosophy as an operating discipline:
@@ -169,6 +194,8 @@ Before accepting a result, ask:
 - Is the architecture durable rather than a stopgap?
 - Can a failure be found, fixed, and delivered quickly?
 - Does the result show restraint and coherent human judgment?
+- Is qualitative judgment grounded in fundamentals, references, critique, and
+  context rather than personal preference or novelty alone?
 - Did we understand the user's real situation, eliminate unimportant
   opportunities, and present the result with care that truthfully reflects its
   quality?

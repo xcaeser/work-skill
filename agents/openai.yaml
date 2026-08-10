@@ -1,6 +1,6 @@
 interface:
   display_name: "Work"
   short_description: "Lead evidence-driven work with bounded agents"
-  default_prompt: "Use $work to understand the real user, focus the exact goal, restore decision friction before cheap implementation, choose the smallest useful team, inspect real behavior before writing tests, execute with complete briefs, present the result with care, and verify concrete evidence; use $work-ideate to challenge assumptions and shape a testable direction, or choose $work-plan and $work-audit for read-only modes."
+  default_prompt: "Use $work to understand the real user, focus the exact goal, apply trained taste, restore decision friction before cheap implementation, choose the smallest useful team, inspect real behavior before writing tests, execute with complete briefs, present the result with care, and verify concrete evidence; use $work-ideate to challenge assumptions and shape a testable direction, or choose $work-plan and $work-audit for read-only modes."
 policy:
   allow_implicit_invocation: false

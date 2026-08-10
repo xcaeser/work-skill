@@ -33,6 +33,9 @@ action. Read [../QUALITY.md](../QUALITY.md) when its standard is relevant.
 - Use empathy to understand the person's real context and current behavior,
   focus to eliminate attractive but unimportant directions, and impute to make
   the final idea brief feel as clear and intentional as the idea deserves.
+- Treat taste as trained judgment. Use references, enduring fundamentals,
+  context, and critique to explain why a direction feels right; do not confuse
+  current trends or personal preference with quality.
 
 ## The session
 
@@ -143,6 +146,7 @@ When the user is ready to converge, return:
 **For:** <specific person or group>
 **Insight:** <non-obvious observation, or “still an assumption”>
 **Direction:** <one-sentence concept>
+**Taste rationale:** <fundamentals, references, context, and character that make this direction appropriate>
 **Why now:** <timing or trigger>
 **Core behavior:** <what the user actually does>
 **Non-goals:** <what this deliberately does not become>
