@@ -3,6 +3,8 @@
 Read [`skills/QUALITY.md`](skills/QUALITY.md) before changing this project or any nested Work skill. Treat it as the project's quality bar.
 
 - Quality software must not break at real boundaries, must not demand attention without a reason, must know its limits, fix failures quickly, and respect human attention and authorship.
+- Practice empathy, focus, and impute: understand the user's real context, eliminate unimportant opportunities, and present every surface and handoff with care that truthfully reflects the quality underneath.
+- Restore deliberate friction where cheap implementation would bypass judgment: require a real problem, user, validation question, and kill or selection criterion before turning generated options into product surface.
 - Never preserve backwards compatibility. Prefer a clean break, update all in-scope consumers together, and remove obsolete aliases, adapters, wrappers, flags, and migration shims. If an external contract cannot be removed, stop and escalate; do not invent an internal compatibility layer.
 - Choose the simplest implementation that fully meets the current requirements. Avoid speculative abstractions, configuration, and indirection.
 - Grow the system in layers. Start from the smallest version that works end to end, and add each new capability on top of a product that already works. Never trade a working product for unfinished complexity.

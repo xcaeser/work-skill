@@ -64,6 +64,12 @@ These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/
 
 - Software should not break, demand attention, or exceed its purpose.
 - Keep decisions human-owned and user-facing writing human-readable.
+- Apply empathy, focus, and impute: understand the real user, eliminate
+  unimportant opportunities, and present the result with care that truthfully
+  reflects its quality.
+- Use [friction as a feature](https://emilkowal.ski/ui/friction-as-a-feature):
+  require judgment and validation before cheap implementation becomes product
+  surface.
 - “Your work is done when it looks so simple that the consumer thinks they
   could have done it, which means they won’t appreciate how hard you worked.”
   — Visualize Value.

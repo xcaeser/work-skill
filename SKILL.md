@@ -48,6 +48,12 @@ Treat this as a non-negotiable quality bar for every Work task:
   that a human is expected to read must be deliberate and human-owned.
 - Taste is consistent qualitative judgment: prefer restraint, clarity,
   coherence, and durable craft when no metric decides the choice.
+- Practice empathy: understand the user's real workflow, needs, and constraints
+  beyond the surface wording without confusing empathy with agreement.
+- Practice focus: eliminate unimportant opportunities so the essential outcome
+  receives exceptional attention.
+- Practice impute: people infer overall quality from visible details, so present
+  every surface and handoff with clear, coherent, truthful care.
 - Make the hard work disappear. “Your work is done when it looks so simple that
   the consumer thinks they could have done it, which means they won’t appreciate
   how hard you worked.” — Visualize Value. Simplify the result without hiding
@@ -121,6 +127,18 @@ not added and why, and any actual bug discovered. Do not accept coverage-only
 tests, speculative threats, impossible states, framework assertions, or mocks
 that prove only that a call happened.
 
+## Deliberate friction
+
+Cheap implementation is not evidence that an idea deserves to ship. Before
+launching execution, require the user, parent, or source of truth to establish
+the real problem, intended user, essential outcome, non-goals, and the evidence
+that would validate or kill the direction. This decision gate replaces the
+judgment that implementation cost used to force.
+
+Prototypes are valid thinking tools only when each one answers a named question.
+Do not ship every generated option because it was easy to build. Select, merge,
+or kill routes using explicit evidence, then remove discarded surface area.
+
 ## OpenAI grounding
 
 This orchestration loop is informed by [OpenAI's proof prompt](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf). Apply its coding-task equivalents:
@@ -171,6 +189,12 @@ Automatic routing:
 - Never silently substitute a model or effort when the requested setup is unavailable.
 
 For execution, inspect the workspace, define one exact goal, choose the smallest useful team, give each executor a complete brief, show a launch table, preserve disjoint ownership, integrate the result, and verify it independently. Agents may edit only their assigned ownership; the parent owns decisions, integration, and proof.
+
+The parent applies empathy to the real user flow, focus to scope and non-goals,
+impute to the final product and handoff, and deliberate friction to decisions
+that cheap implementation would otherwise bypass. Do not let presentation hide
+weak behavior; presentation must truthfully signal the quality that validation
+proves.
 
 Every executor gets a fun call sign and a complete packet:
 

@@ -30,8 +30,25 @@ action. Read [../QUALITY.md](../QUALITY.md) when its standard is relevant.
   user repeat an answer already captured.
 - Keep the conversation moving: reflect what changed, name the tension, then
   ask the next highest-leverage question.
+- Use empathy to understand the person's real context and current behavior,
+  focus to eliminate attractive but unimportant directions, and impute to make
+  the final idea brief feel as clear and intentional as the idea deserves.
 
 ## The session
+
+### 0. Restore useful friction
+
+AI makes building cheap, so implementation effort no longer filters weak ideas.
+Before exploring solutions, ask what judgment the lost friction should force:
+
+- Why does this deserve to exist now?
+- What will a prototype teach that discussion cannot?
+- What evidence would change or kill the direction?
+- What decision will be made after the experiment?
+
+Treat prototypes as thinking tools, not automatic products. Every variant must
+answer a named question. Do not recommend shipping several directions merely
+because all were easy to generate.
 
 ### 1. Frame the real opportunity
 

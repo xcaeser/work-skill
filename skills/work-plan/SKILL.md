@@ -28,6 +28,11 @@ actual user flows before proposing a test. Put the four-line test plan before
 any test implementation assignment, and name tests deliberately omitted when
 no real behavior justifies them.
 
+Confirm that implementation serves a defined user outcome rather than merely
+being cheap to generate. If the plan includes prototypes or variants, require
+each to answer a named question and include the evidence, selection rule, or
+kill criterion that determines what survives.
+
 ```markdown
 ## Work plan
 

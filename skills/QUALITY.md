@@ -18,6 +18,44 @@ Apply this standard to every Work decision, plan, implementation, and review.
    Use simplicity as a craft constraint: remove unnecessary surface area and
    keep the result obvious without hiding failures, tradeoffs, or evidence.
 
+## Empathy, focus, and impute
+
+Apply Mike Markkula's 1977 Apple philosophy as an operating discipline:
+
+- **Empathy.** Understand the user's real needs, context, constraints, and
+  current behavior better than the surface request alone reveals. Listen before
+  proposing, inspect the actual workflow, and distinguish evidence from
+  assumption. Empathy is understanding, not automatic agreement.
+- **Focus.** To do the chosen work exceptionally well, eliminate unimportant
+  opportunities. State the essential outcome and non-goals, protect the few
+  things that matter, and remove features, options, and branches that dilute
+  them. A good idea can still be wrong for this product or this moment.
+- **Impute.** People infer the quality of the whole from every visible detail.
+  Present the product, code, documentation, and handoff with clarity,
+  coherence, and professional care. Names, defaults, errors, layout, and
+  wording must truthfully communicate the quality already present; polish must
+  never conceal unreliable behavior.
+
+## Friction as a feature
+
+Use deliberate creation friction as a filter for judgment, following Emil
+Kowalski's [Friction as a Feature](https://emilkowal.ski/ui/friction-as-a-feature).
+AI makes implementation cheap, so effort no longer filters weak ideas for us.
+Replace that lost constraint with explicit decisions:
+
+- Before building, identify the real user, problem, evidence, essential outcome,
+  non-goals, and why the idea deserves to exist now.
+- Treat prototypes as instruments for thinking. Every variant must answer a
+  named question and have a success signal, selection rule, or kill criterion.
+- Building several options can create evidence; shipping all of them because
+  they were cheap to make is a failure to decide.
+- Do not mistake generated output for design. If no judgment shaped what was
+  built, it merely exists.
+
+Remove friction from routine use when it serves no purpose, but retain or add
+friction where it protects judgment, user intent, safety, reversibility, or an
+important decision. The burden must be proportional and explainable.
+
 ## Engineering discipline
 
 - Choose the simplest implementation that fully meets the current
@@ -131,4 +169,9 @@ Before accepting a result, ask:
 - Is the architecture durable rather than a stopgap?
 - Can a failure be found, fixed, and delivered quickly?
 - Does the result show restraint and coherent human judgment?
+- Did we understand the user's real situation, eliminate unimportant
+  opportunities, and present the result with care that truthfully reflects its
+  quality?
+- Did deliberate friction force the decision and validation that cheap
+  implementation no longer forces naturally?
 - Did we remove obsolete paths instead of preserving them by habit?
