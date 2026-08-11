@@ -16,6 +16,8 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 | `$work` | Default accountable lead for a free-form task |
 | `$work-init` | Start and verify a new project |
 | `$work-ideate` | Brainstorm with a rigorous, question-by-question creative sparring partner |
+| `$work-concern` | Surface evidence-backed concerns in the current implementation without editing |
+| `$work-checklist` | Register a goal and resolve every concern through a verified checklist |
 | `$work-plan` | Build a detailed read-only plan with Sol xhigh |
 | `$work-audit` | Audit risks with Sol xhigh and produce a Luna Max fix plan |
 | `$work-clean` | Analyze code smells with Sol xhigh and produce a Luna Max cleanup plan |
@@ -26,6 +28,8 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 ## Model shorthand
 
 - `Work / Ideate`: interactive conversation; no agents or model selection.
+- `Work / Concern`: lightweight read-only inspection; no agents or fix plan.
+- `Work / Checklist`: parent-led execution with one registered goal; no agents.
 - `Sol xhigh`: read-only planning, audit, and cleanup analysis.
 - `Luna Max`: the default execution target described by those plans.
 - `$work`: automatic routing (Sol Low for ordinary work) unless the user explicitly supplies a count, profile, or effort. Advanced form: `$work [N] [sol|terra|luna|mix] [effort] <task>`.
@@ -41,4 +45,4 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 - Analysts must return concrete artifacts and exact gaps. Adversarial checks and
   another bounded round are preferred to an unsupported “routine” conclusion.
 
-These are separate skills, not subcommands. Their IDs use hyphens (`$work-ideate`, `$work-audit`, `$work-plan`); in the skill picker they appear as `Work / Ideate`, `Work / Audit`, `Work / Plan`, and so on. Some clients render them as `/work ideate`, `/work audit`, and `/work plan`.
+These are separate skills, not subcommands. Their IDs use hyphens (`$work-ideate`, `$work-concern`, `$work-checklist`, `$work-audit`, `$work-plan`); in the skill picker they appear as `Work / Ideate`, `Work / Concern`, `Work / Checklist`, `Work / Audit`, `Work / Plan`, and so on. Some clients render them as `/work ideate`, `/work concern`, `/work checklist`, `/work audit`, and `/work plan`.

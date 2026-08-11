@@ -21,3 +21,5 @@ Read [`skills/QUALITY.md`](skills/QUALITY.md) before changing this project or an
 - Once an agent starts, let it run until it reports `complete`, `blocked`, or needs user input. Never kill it just because a poll, tool call, or arbitrary wall-clock interval elapsed; interrupt only for explicit cancellation/goal change, safety, duplicate ownership, an approved resource limit, or clear repeated no-progress evidence, and record the reason.
 - Use `Work / Quality` when the standard should be passed into a conversation; it never spawns agents or edits files.
 - Use `Work / Ideate` for an interactive, question-by-question sparring session; it does not spawn agents or edit files, and it must end in a sharper decision or test rather than an idea dump.
+- Use `Work / Concern` for a compact, read-only implementation sanity check; it reports only evidence-backed concerns and unknowns, never edits or a full fix plan.
+- Use `Work / Checklist` to convert concerns into one registered robustness goal and resolve or disprove every checklist item with evidence; it does not spawn agents.

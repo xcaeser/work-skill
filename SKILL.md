@@ -19,6 +19,8 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 |---|---|
 | `$work-init` | Guide and verify a minimal new project setup |
 | `$work-ideate` | Challenge assumptions, explore distinct directions, and shape a testable idea |
+| `$work-concern` | Surface concrete implementation concerns without edits or a full audit |
+| `$work-checklist` | Turn concerns into a registered goal and resolve each with evidence |
 | `$work-plan` | Sol xhigh read-only analysis with a detailed Luna Max execution plan |
 | `$work-audit` | Sol xhigh read-only risk audit with a detailed Luna Max fix plan |
 | `$work-clean` | Sol xhigh read-only code-simplification analysis with a detailed Luna Max cleanup plan |
@@ -26,7 +28,7 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 | `$work-status` | Show the current goal and agent state without changing anything |
 | `$work-help` | Show this map |
 
-In the skill picker these appear as `Work / Init`, `Work / Ideate`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Quality`, `Work / Status`, and `Work / Help`.
+In the skill picker these appear as `Work / Init`, `Work / Ideate`, `Work / Concern`, `Work / Checklist`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Quality`, `Work / Status`, and `Work / Help`.
 
 The dedicated mode skills are tracked under `skills/` inside this repository. Codex discovers these nested `SKILL.md` files directly, so do not create duplicate top-level copies beside `work`.
 
@@ -239,4 +241,4 @@ of completion. If the acceptance checks are not met after active agents finish
 and the bounded rounds fit the user's budget, hand back the strongest verified
 result and the precise next question or missing mechanism.
 
-Do not route `plan`, `audit`, `clean`, `init`, `status`, or `help` as subcommands. Use their dedicated skills instead. `$work` owns both ordinary and advanced execution controls.
+Do not route `init`, `ideate`, `concern`, `checklist`, `plan`, `audit`, `clean`, `quality`, `status`, or `help` as subcommands. Use their dedicated skills instead. `$work` owns both ordinary and advanced execution controls.

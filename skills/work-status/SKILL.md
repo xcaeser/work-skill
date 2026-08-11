@@ -1,6 +1,6 @@
 ---
 name: work-status
-description: Show a read-only snapshot of the current Work goal, agents, evidence, blockers, current step, and next parent action. Use when the user asks for Work status.
+description: Show a read-only snapshot of the current Work goal, checklist, agents, evidence, blockers, current step, and next parent action. Use when the user asks for Work status.
 ---
 
 # Work / Status
@@ -12,8 +12,9 @@ Read [../QUALITY.md](../QUALITY.md) when summarizing the quality bar or a compat
 1. Call `get_goal` when available.
 2. Call `list_agents` when available.
 3. Reconcile tool results with launch tables and handoffs already visible in the thread.
-4. Use established call signs; do not invent one from a task ID.
-5. Distinguish unavailable, none, not yet verified, and failed.
+4. Reconcile any visible robustness checklist without changing item states.
+5. Use established call signs; do not invent one from a task ID.
+6. Distinguish unavailable, none, not yet verified, and failed.
 
 Return:
 
@@ -22,6 +23,7 @@ Return:
 
 **Goal:** <objective or "No Work goal in this task">
 **State:** <active, complete, blocked, or unavailable>
+**Checklist:** <resolved>/<total> resolved; <blocked count> blocked, or "None">
 
 | Agent | State | Assignment / approach | Last evidence or blocker |
 |---|---|---|---|

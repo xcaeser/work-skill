@@ -40,6 +40,8 @@ model, effort, and count requests remain under the user's control.
 | `$work` | Implement a task with an accountable parent lead |
 | `$work-init` | Start a project with a minimal verified setup |
 | `$work-ideate` | Brainstorm, challenge assumptions, and shape a testable direction |
+| `$work-concern` | Surface concrete concerns in the current implementation |
+| `$work-checklist` | Register a goal and resolve concerns through a verified checklist |
 | `$work-plan` | Produce a detailed read-only implementation plan |
 | `$work-audit` | Audit code, diffs, or runtime flows |
 | `$work-clean` | Find smells, overengineering, and package opportunities |
