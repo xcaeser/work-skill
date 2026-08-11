@@ -15,7 +15,7 @@ move rather than reporting activity alone.
 1. Call `get_goal` when available.
 2. Call `list_agents` when available.
 3. Reconcile tool results with launch tables and handoffs already visible in the thread.
-4. Reconcile any visible robustness checklist without changing item states.
+4. Reconcile any visible Work checklist without changing item states or mode.
 5. Use established call signs; do not invent one from a task ID.
 6. Distinguish unavailable, none, not yet verified, and failed.
 7. Do not infer progress from elapsed time, activity, or a prior status message;
@@ -28,7 +28,7 @@ Return:
 
 **Goal:** <objective or "No Work goal in this task">
 **State:** <active, complete, blocked, or unavailable>
-**Checklist:** <resolved>/<total> resolved; <blocked count> blocked, or "None">
+**Checklist:** <terminal>/<total> complete or otherwise dispositioned; <blocked count> blocked, or "None">
 
 | Agent | State | Assignment / approach | Last evidence or blocker |
 |---|---|---|---|

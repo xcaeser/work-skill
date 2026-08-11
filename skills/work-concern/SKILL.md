@@ -66,5 +66,6 @@ findings, or a detailed executor-ready remediation plan.
 
 Order concerns by likely impact. Keep the response compact and proportional to
 the evidence. Do not imply the pass was comprehensive when it was not. Use
-`$work-checklist` when the user wants to register a goal and resolve the concerns.
+`$work-checklist` when the user wants to capture the concerns as accountable
+items or register a goal and resolve them.
 Use `$work-test` instead when the only justified action is protecting observed behavior with tests.

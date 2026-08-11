@@ -1,109 +1,135 @@
 ---
 name: work-checklist
-description: Turn the current implementation concerns into a prioritized checklist, register one concrete goal, and work through every item until it has a proven disposition. Use when the user wants to convert concerns into an execution checklist and make the application more robust.
+description: Turn the current conversation into a concise, source-traceable checklist of deliverables, decisions, experiments, guardrails, or concerns, then optionally register one goal and execute every item. Use when the user wants to capture an ideated direction, plan, requirements, discussion, or implementation concerns as an actionable checklist, or wants to work through that checklist to completion.
 ---
 
 # Work / 6. Checklist
 
-Convert concerns into accountable robustness work. Preserve reliability,
-meaningful testing, simplicity, user state, and clean breaks. Never add a
-compatibility layer for an obsolete path.
+Turn conversation into accountable next steps. Preserve reliability, meaningful testing, simplicity, user state, and clean breaks. Do not flatten an idea into a defect list or invent work to make the checklist look complete.
 
-Use concerns already visible in the conversation, especially the latest
-`$work-concern` or `$work-audit` result. If none exist, inspect the smallest
-relevant implementation using the `$work-concern` standard before creating the
-checklist. Never invent concerns to make the list look complete.
+Use the strongest current source, in this order:
 
-Do not spawn agents. The parent owns verification, edits, integration, and
-proof. If the scope genuinely requires orchestration, preserve the checklist
-and hand it unchanged to `$work` rather than silently changing workflows.
+1. The user's latest explicit decisions and constraints.
+2. A `$work-ideate` decision, `$work-plan` output, or named requirements.
+3. A `$work-concern` or `$work-audit` result.
+4. The smallest coherent outcome supported by the current conversation.
 
-## 1. Build the checklist
+Preserve open questions as open questions. Distinguish evidence, assumptions, preferences, commitments, and rejected directions.
 
-Recheck each concern against the current implementation and actual user flow.
-Merge duplicates, discard unsupported concerns with evidence, and order the
-survivors by likely user impact, data or security risk, and dependency order.
+## Choose the mode
+
+- **Capture:** When the user asks to make, save, organize, or turn the conversation into a checklist without asking for execution, return the checklist only. Do not create a goal, inspect unrelated files, or edit anything.
+- **Execute:** When the user asks to implement, do, resolve, go through, or complete the checklist, register one goal and work every item.
+
+If intent is ambiguous, default to Capture and end with the exact command or sentence that would start execution. Do not silently turn planning into implementation.
+
+Do not spawn agents. The parent owns verification, edits, integration, and proof. If execution genuinely requires orchestration, preserve the approved checklist and hand it unchanged to `$work`.
+
+## Build the checklist
+
+Merge duplicates and order items by dependency first, then user value and risk. Use one of these types:
+
+- `deliverable`: something that must exist or change;
+- `decision`: a choice that must be resolved;
+- `experiment`: evidence needed before committing to a direction;
+- `guardrail`: a boundary or non-goal that must remain true;
+- `concern`: a suspected implementation problem to verify and resolve or disprove.
+
+Keep Capture mode to at most 10 items unless the user explicitly asks for an
+exhaustive breakdown. Every item must trace directly to the conversation. Do
+not invent architecture, screens, features, edge cases, research sample sizes,
+success thresholds, or implementation chores. If a necessary detail is
+unknown, create one `decision` item instead of choosing it for the user.
 
 For every item, define:
 
 ```markdown
-- [ ] C<number> — <concise concern>
-  - Evidence: <exact path, symbol, behavior, test, or observation>
-  - Why it matters: <realistic consequence>
-  - Verify: <smallest decisive reproduction or check>
-  - Done when: <observable robust behavior and validation evidence>
+- [ ] I<number> — <one observable outcome>
+  - Type: deliverable / decision / experiment / guardrail / concern
+  - Source: <user decision, requirement, evidence, or exact conversation outcome>
+  - Depends on: <item IDs or "None">
+  - Why it matters: <real consequence or decision enabled>
+  - Done when: <observable completion condition>
+  - Validate: <smallest decisive check or evidence>
 ```
 
-Allowed states are `pending`, `verified`, `resolving`, `resolved`, `disproved`,
-`blocked`, and `accepted risk`. `Accepted risk` requires explicit user approval
-and must remain visible in the final robustness caveats.
+For a concern, include the concrete evidence and smallest reproduction. For a decision or experiment, include the success signal and kill or selection criterion. For a deliverable, name the affected user flow or owned surface when known.
 
-## 2. Register one goal
+Reject vague items such as “research options,” “improve UX,” or “handle edge cases.” Rewrite them as a named question, decision, behavior, or artifact. Do not add speculative features, compatibility work, or generic best-practice chores unsupported by the conversation.
 
-After the checklist is defined and before editing:
+Allowed states are `pending`, `in progress`, `complete`, `disproved`, `rejected`, `blocked`, and `accepted risk`. Use `disproved` only for concerns, `rejected` only for decisions or experiments, and `accepted risk` only with explicit user approval.
 
-- Call `get_goal` when available, then reuse a matching active goal or call
-  `create_goal` with the objective below.
-- Never overwrite an unrelated active goal. Report that conflict before editing.
-- Do not set a token budget unless the user supplied one.
+### Capture return
 
-Use this objective:
-
-```text
-Resolve or conclusively disprove every verified concern in <scope>, validate the
-affected real user flows, and leave no hidden robustness gap in the checklist.
-```
-
-If `create_goal` is unavailable, state the exact objective and say that it could
-not be registered. Do not invent a fallback tool or pretend the goal exists.
-
-## 3. Work every item
-
-Process one item at a time unless independent items can be safely verified in
-parallel without agents or overlapping edits:
-
-1. Reproduce or decisively verify the concern. If it is false, mark it
-   `disproved` with evidence and do not change production code.
-2. Identify the real contract and the smallest durable correction. Do not add a
-   compatibility layer, speculative abstraction, or unrelated cleanup.
-3. Before adding tests, provide the four-line meaningful test plan: behavior,
-   why it matters, test level, and exact observable assertion.
-4. Implement the correction and update all in-scope consumers together.
-5. Run the focused test, relevant regression checks, and the actual user flow
-   when practical. Verify persisted state and side effects when relevant.
-6. Mark the item `resolved` only when its `Done when` evidence exists. Record
-   changed paths, commands, and results immediately.
-
-Do not mark a concern resolved because code changed, a test was written, or the
-implementation looks plausible. A blocked item remains open with the exact
-missing evidence or decision.
-
-## 4. Complete honestly
-
-If a goal was registered, call `update_goal` with `complete` only when every
-checklist item is `resolved`, `disproved`, or explicitly `accepted risk`, and
-all shared validation passes. Do not complete the goal while any item is
-`pending`, `verified`, `resolving`, or `blocked`.
-
-Return:
+In Capture mode, use this exact shape and stop:
 
 ```markdown
 ## Work / 6. Checklist
 
-**Goal:** <registered objective>
-**Scope:** <implementation covered>
+**Mode:** Capture
+**Outcome:** <the conversation outcome being carried forward>
 
-| Item | Concern | Disposition | Change or reason | Evidence |
-|---|---|---|---|---|
-| C1 | <concern> | resolved / disproved / blocked / accepted risk | <change or reason> | <command, test, path, or observation> |
+| Item | Type | Action or outcome | Source | Depends on | Done when / validate |
+|---|---|---|---|---|---|
+| I1 | deliverable / decision / experiment / guardrail / concern | <one observable result> | <exact conversation decision, requirement, or assumption> | <item IDs or "None"> | <observable check> |
 
-**Tests added:** <tests, or "None">
-**Behaviors covered:** <real contracts protected>
-**Tests deliberately not added:** <scope and reason>
-**Actual bugs discovered:** <bugs, or "None">
-**Robustness caveats:** <accepted risks, blockers, or "None">
-**Goal state:** complete / active / blocked
+**Open decisions:** <items or "None">
+**Next action:** Review this checklist, then say “execute this checklist” to register one goal and begin.
+**Checklist state:** ready
 ```
 
-Keep the checklist current throughout the work. The final table must reconcile
-every original concern; silently dropping an item does not count as completion.
+Do not add prose sections, nested sub-checklists, goal state, implementation
+details, or validation claims in Capture mode.
+
+## Register one execution goal
+
+In Execute mode, call `get_goal` when available, then reuse a matching active goal or call `create_goal`. Never overwrite an unrelated active goal. Do not set a token budget unless the user supplied one.
+
+Use this objective:
+
+```text
+Complete every required checklist item for <outcome>, validate each observable
+result, and leave every original item with an explicit evidence-backed disposition.
+```
+
+If `create_goal` is unavailable, state the objective and say it could not be registered. Do not invent a fallback tool or pretend the goal exists.
+
+## Execute every item
+
+Work in dependency order:
+
+1. Recheck the item's source and real contract. If a concern is false, mark it `disproved` with evidence and do not edit production code.
+2. Resolve any decision with the smallest sufficient evidence. Record why alternatives were rejected.
+3. Implement deliverables and verified corrections with the smallest durable change. Update all in-scope consumers and remove obsolete paths.
+4. Before test edits, state the behavior being protected, why it matters, test level, and exact observable assertion.
+5. Run the item's validation and relevant user flow. Verify persisted state and side effects when applicable.
+6. Mark an item `complete` only when its `Done when` evidence exists. Record changed paths, commands, and results immediately.
+
+Do not mark an item complete because code changed, a test exists, or an answer sounds plausible. Keep blocked items open with the exact missing evidence, decision, or authority.
+
+## Complete honestly
+
+If a goal was registered, call `update_goal` with `complete` only when every item is `complete`, `disproved`, `rejected`, or explicitly `accepted risk`, and shared validation passes. Do not complete while any item is `pending`, `in progress`, or `blocked`.
+
+Return this reconciliation in Execute mode:
+
+```markdown
+## Work / 6. Checklist
+
+**Mode:** Execute
+**Outcome:** <the conversation outcome being carried forward>
+**Goal:** <registered objective, "Not registered", or "Not requested">
+
+| Item | Type | Outcome | State | Change or decision | Evidence |
+|---|---|---|---|---|---|
+| I1 | deliverable / decision / experiment / guardrail / concern | <observable result> | <state> | <change, choice, or reason> | <validation or source> |
+
+**Tests added:** <tests, "None", or "Not applicable in Capture mode">
+**Tests deliberately not added:** <scope and reason>
+**Bugs discovered:** <bugs or "None">
+**Open decisions or blockers:** <items or "None">
+**Next action:** <first executable item, `$work` handoff, or "None">
+**Checklist state:** ready / active / complete / blocked
+```
+
+Keep the checklist current throughout execution. Reconcile every original item in the final table; silently dropping or renaming an uncomfortable item does not count as completion.

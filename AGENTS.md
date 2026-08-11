@@ -26,5 +26,5 @@ Read [`skills/QUALITY.md`](skills/QUALITY.md) before changing this project or an
 - Use `Work / 2. Ideate` for an interactive, question-by-question sparring session; it does not spawn agents or edit files, and it must end in a sharper decision or test rather than an idea dump.
 - Use `Work / 4. Test` for direct meaningful-test implementation: inspect real behavior first, publish the four-line test plan, add only justified deterministic tests, and optimize for confidence rather than coverage; it does not spawn agents.
 - Use `Work / 5. Concern` for a compact, read-only implementation sanity check; it reports only evidence-backed concerns and unknowns, never edits or a full fix plan.
-- Use `Work / 6. Checklist` to convert concerns into one registered robustness goal and resolve or disprove every checklist item with evidence; it does not spawn agents.
+- Use `Work / 6. Checklist` to capture an ideated direction, plan, requirements, or concerns as accountable items. Capture mode does not create a goal or edit; Execute mode registers one parent-owned goal and works every item without agents.
 - Use `Work / 9. Quality` when the standard should be passed into a conversation; it never spawns agents or edits files.

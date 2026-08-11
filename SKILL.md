@@ -20,7 +20,7 @@ Use the focused skill that matches the request. These are separate skills, not s
 | `$work-plan` | Produce a read-only, implementation-ready plan |
 | `$work-test` | Add a few justified tests for real behavior |
 | `$work-concern` | Surface concrete concerns without editing |
-| `$work-checklist` | Resolve or disprove concerns through one accountable checklist |
+| `$work-checklist` | Turn conversation into a checklist, then optionally execute it |
 | `$work-audit` | Run an evidence-first read-only risk audit |
 | `$work-clean` | Produce a read-only simplification plan |
 | `$work-quality` | Pass the Work quality standard into the conversation |

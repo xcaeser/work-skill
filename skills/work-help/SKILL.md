@@ -21,7 +21,7 @@ do not resolve or read files outside this skill folder.
 | `3. $work-plan` | Build a detailed read-only plan with Sol xhigh |
 | `4. $work-test` | Inspect real behavior, add justified tests, and report omissions and bugs |
 | `5. $work-concern` | Surface evidence-backed concerns in the current implementation without editing |
-| `6. $work-checklist` | Register a goal and resolve every concern through a verified checklist |
+| `6. $work-checklist` | Capture conversation as a checklist, then optionally execute it |
 | `7. $work-audit` | Audit risks with Sol xhigh and produce an executor-ready fix plan |
 | `8. $work-clean` | Analyze code smells with Sol xhigh and produce an executor-ready cleanup plan |
 | `9. $work-quality` | Pass the Work golden rules directly into the conversation |
@@ -33,7 +33,7 @@ do not resolve or read files outside this skill folder.
 - `Work / 2. Ideate`: interactive conversation; no agents or model selection.
 - `Work / 4. Test`: parent-led test implementation; no agents or coverage target.
 - `Work / 5. Concern`: lightweight read-only inspection; no agents or fix plan.
-- `Work / 6. Checklist`: parent-led execution with one registered goal; no agents.
+- `Work / 6. Checklist`: Capture returns a checklist only; Execute registers one parent-owned goal. No agents.
 - `Work / 3. Plan`, `7. Audit`, and `8. Clean`: one read-only Sol xhigh analyst; no edits.
 - Plans are executor-agnostic and detailed enough for a lower-capability model with no hidden context.
 - Terra Low handles small mechanical chores; Terra Medium handles structured exploration or extraction.

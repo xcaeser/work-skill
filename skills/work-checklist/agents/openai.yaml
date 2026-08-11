@@ -1,6 +1,6 @@
 interface:
   display_name: "Work / 6. Checklist"
-  short_description: "Resolve concerns through a verified checklist"
-  default_prompt: "Use $work-checklist to turn the current concerns into a prioritized checklist, register one concrete goal, verify each concern, resolve or dismiss it with evidence, and complete the goal only after every item has a proven disposition."
+  short_description: "Turn conversation into an actionable checklist"
+  default_prompt: "Use $work-checklist to turn the current conversation, ideated direction, plan, requirements, or concerns into a concise source-traceable checklist. In Capture mode use the exact table, keep at most 10 items, and invent nothing; execute only when requested, then register one goal and give every item an evidence-backed disposition."
 policy:
   allow_implicit_invocation: false

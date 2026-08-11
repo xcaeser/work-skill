@@ -162,8 +162,10 @@ When the user is ready to converge, return:
 **Open decision:** <the next question, if any>
 ```
 
-Label every uncertain statement. If the user wants to build it, hand this decision
-to `$work` or `$work-plan`; do not silently switch from ideation to execution.
+Label every uncertain statement. Hand the decision to `$work-checklist` when the
+user wants actionable next steps, `$work-plan` when implementation needs deeper
+read-only analysis, or `$work` when the task is already clear enough to build.
+Do not silently switch from ideation to execution.
 
 ## Adapt the pace
 

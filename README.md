@@ -48,7 +48,7 @@ an oversized count. Numbering affects picker order only; command IDs stay stable
 | `3. $work-plan` | Produce a detailed read-only implementation plan |
 | `4. $work-test` | Add a few meaningful tests for real observable behavior |
 | `5. $work-concern` | Surface concrete concerns in the current implementation |
-| `6. $work-checklist` | Register a goal and resolve concerns through a verified checklist |
+| `6. $work-checklist` | Turn ideas, plans, requirements, or concerns into an actionable checklist |
 | `7. $work-audit` | Audit code, diffs, or runtime flows |
 | `8. $work-clean` | Find smells, overengineering, and package opportunities |
 | `9. $work-quality` | Pass the Work golden rules into the conversation |
