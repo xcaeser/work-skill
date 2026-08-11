@@ -19,16 +19,17 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 |---|---|
 | `$work-init` | Guide and verify a minimal new project setup |
 | `$work-ideate` | Challenge assumptions, explore distinct directions, and shape a testable idea |
+| `$work-plan` | Sol xhigh read-only analysis with a detailed Luna Max execution plan |
+| `$work-test` | Inspect real behavior and add only justified deterministic tests |
 | `$work-concern` | Surface concrete implementation concerns without edits or a full audit |
 | `$work-checklist` | Turn concerns into a registered goal and resolve each with evidence |
-| `$work-plan` | Sol xhigh read-only analysis with a detailed Luna Max execution plan |
 | `$work-audit` | Sol xhigh read-only risk audit with a detailed Luna Max fix plan |
 | `$work-clean` | Sol xhigh read-only code-simplification analysis with a detailed Luna Max cleanup plan |
 | `$work-quality` | Pass the Work golden rules directly into the conversation without spawning agents |
 | `$work-status` | Show the current goal and agent state without changing anything |
 | `$work-help` | Show this map |
 
-In the skill picker these appear as `Work / Init`, `Work / Ideate`, `Work / Concern`, `Work / Checklist`, `Work / Plan`, `Work / Audit`, `Work / Clean`, `Work / Quality`, `Work / Status`, and `Work / Help`.
+In the skill picker these appear in workflow order as `Work / 1. Init`, `Work / 2. Ideate`, `Work / 3. Plan`, `Work / 4. Test`, `Work / 5. Concern`, `Work / 6. Checklist`, `Work / 7. Audit`, `Work / 8. Clean`, `Work / 9. Quality`, `Work / 10. Status`, and `Work / 11. Help`.
 
 The dedicated mode skills are tracked under `skills/` inside this repository. Codex discovers these nested `SKILL.md` files directly, so do not create duplicate top-level copies beside `work`.
 

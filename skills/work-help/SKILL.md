@@ -3,7 +3,7 @@ name: work-help
 description: Show the separate Work skills and their purpose without running a task. Use when the user wants to remember how Work is organized or asks what Work skills are available.
 ---
 
-# Work / Help
+# Work / 11. Help
 
 Show the Work skill family directly. Do not make the user remember subcommands.
 
@@ -14,22 +14,24 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 | Skill | Use it for |
 |---|---|
 | `$work` | Default accountable lead for a free-form task |
-| `$work-init` | Start and verify a new project |
-| `$work-ideate` | Brainstorm with a rigorous, question-by-question creative sparring partner |
-| `$work-concern` | Surface evidence-backed concerns in the current implementation without editing |
-| `$work-checklist` | Register a goal and resolve every concern through a verified checklist |
-| `$work-plan` | Build a detailed read-only plan with Sol xhigh |
-| `$work-audit` | Audit risks with Sol xhigh and produce a Luna Max fix plan |
-| `$work-clean` | Analyze code smells with Sol xhigh and produce a Luna Max cleanup plan |
-| `$work-quality` | Pass the Work golden rules directly into the conversation |
-| `$work-status` | Show the current goal, agents, evidence, and next action |
-| `$work-help` | Show this map |
+| `1. $work-init` | Start and verify a new project |
+| `2. $work-ideate` | Brainstorm with a rigorous, question-by-question creative sparring partner |
+| `3. $work-plan` | Build a detailed read-only plan with Sol xhigh |
+| `4. $work-test` | Inspect real behavior, add justified tests, and report omissions and bugs |
+| `5. $work-concern` | Surface evidence-backed concerns in the current implementation without editing |
+| `6. $work-checklist` | Register a goal and resolve every concern through a verified checklist |
+| `7. $work-audit` | Audit risks with Sol xhigh and produce a Luna Max fix plan |
+| `8. $work-clean` | Analyze code smells with Sol xhigh and produce a Luna Max cleanup plan |
+| `9. $work-quality` | Pass the Work golden rules directly into the conversation |
+| `10. $work-status` | Show the current goal, agents, evidence, and next action |
+| `11. $work-help` | Show this map |
 
 ## Model shorthand
 
-- `Work / Ideate`: interactive conversation; no agents or model selection.
-- `Work / Concern`: lightweight read-only inspection; no agents or fix plan.
-- `Work / Checklist`: parent-led execution with one registered goal; no agents.
+- `Work / 2. Ideate`: interactive conversation; no agents or model selection.
+- `Work / 4. Test`: parent-led test implementation; no agents or coverage target.
+- `Work / 5. Concern`: lightweight read-only inspection; no agents or fix plan.
+- `Work / 6. Checklist`: parent-led execution with one registered goal; no agents.
 - `Sol xhigh`: read-only planning, audit, and cleanup analysis.
 - `Luna Max`: the default execution target described by those plans.
 - `$work`: automatic routing (Sol Low for ordinary work) unless the user explicitly supplies a count, profile, or effort. Advanced form: `$work [N] [sol|terra|luna|mix] [effort] <task>`.
@@ -45,4 +47,4 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 - Analysts must return concrete artifacts and exact gaps. Adversarial checks and
   another bounded round are preferred to an unsupported “routine” conclusion.
 
-These are separate skills, not subcommands. Their IDs use hyphens (`$work-ideate`, `$work-concern`, `$work-checklist`, `$work-audit`, `$work-plan`); in the skill picker they appear as `Work / Ideate`, `Work / Concern`, `Work / Checklist`, `Work / Audit`, `Work / Plan`, and so on. Some clients render them as `/work ideate`, `/work concern`, `/work checklist`, `/work audit`, and `/work plan`.
+These are separate skills, not subcommands. Their stable IDs use hyphens (`$work-ideate`, `$work-plan`, `$work-test`, `$work-concern`, `$work-checklist`, `$work-audit`); the skill picker adds numeric workflow labels such as `Work / 2. Ideate`, `Work / 3. Plan`, and `Work / 4. Test`. Some clients render the stable IDs as `/work ideate`, `/work plan`, and `/work test`.

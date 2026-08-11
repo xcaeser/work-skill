@@ -1,5 +1,5 @@
 interface:
-  display_name: "Work / Status"
+  display_name: "Work / 10. Status"
   short_description: "Show the current Work goal and agent state"
   default_prompt: "Use $work-status to show the current Work goal, agents, and next action."
 policy:

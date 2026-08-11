@@ -3,7 +3,7 @@ name: work-audit
 description: Evidence-first, read-only audits that always use one gpt-5.6-sol xhigh analyst and return a detailed Luna Max fix plan. Use when the user asks to audit code, a diff, a branch, an artifact, or a runtime flow.
 ---
 
-# Work / Audit
+# Work / 7. Audit
 
 Audit without changing source files. Keep the parent orchestrator accountable for scope, verification, decisions, and any later edits.
 

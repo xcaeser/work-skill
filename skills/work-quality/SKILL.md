@@ -3,7 +3,7 @@ name: work-quality
 description: Pass the Work golden rules directly into the current conversation without spawning agents, editing files, or changing project state. Use when the user asks for the quality bar, taste principles, or a ready-to-paste software standard.
 ---
 
-# Work / Quality — Golden Rules
+# Work / 9. Quality — Golden Rules
 
 `$work-quality` is the Work golden-rules pass. Return the full standard directly
 so it applies to the current conversation. Do not inspect the repository, spawn

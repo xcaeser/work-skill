@@ -19,7 +19,8 @@ Read [`skills/QUALITY.md`](skills/QUALITY.md) before changing this project or an
 - For test work, inspect implementation, existing tests, public APIs, and actual user flows before writing anything. Add only deterministic tests for observed behavior, provide the four-line test plan first, and report tests deliberately omitted and any real bug discovered.
 - For parallel investigation, diversify by approach family, preserve independent hypotheses early, track evidence and blockers, and challenge exact contracts and failure boundaries. Reopen blocked routes only for a materially new mechanism, within the user's scope and token budget.
 - Once an agent starts, let it run until it reports `complete`, `blocked`, or needs user input. Never kill it just because a poll, tool call, or arbitrary wall-clock interval elapsed; interrupt only for explicit cancellation/goal change, safety, duplicate ownership, an approved resource limit, or clear repeated no-progress evidence, and record the reason.
-- Use `Work / Quality` when the standard should be passed into a conversation; it never spawns agents or edits files.
-- Use `Work / Ideate` for an interactive, question-by-question sparring session; it does not spawn agents or edit files, and it must end in a sharper decision or test rather than an idea dump.
-- Use `Work / Concern` for a compact, read-only implementation sanity check; it reports only evidence-backed concerns and unknowns, never edits or a full fix plan.
-- Use `Work / Checklist` to convert concerns into one registered robustness goal and resolve or disprove every checklist item with evidence; it does not spawn agents.
+- Use `Work / 2. Ideate` for an interactive, question-by-question sparring session; it does not spawn agents or edit files, and it must end in a sharper decision or test rather than an idea dump.
+- Use `Work / 4. Test` for direct meaningful-test implementation: inspect real behavior first, publish the four-line test plan, add only justified deterministic tests, and optimize for confidence rather than coverage; it does not spawn agents.
+- Use `Work / 5. Concern` for a compact, read-only implementation sanity check; it reports only evidence-backed concerns and unknowns, never edits or a full fix plan.
+- Use `Work / 6. Checklist` to convert concerns into one registered robustness goal and resolve or disprove every checklist item with evidence; it does not spawn agents.
+- Use `Work / 9. Quality` when the standard should be passed into a conversation; it never spawns agents or edits files.

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Work / Quality"
+  display_name: "Work / 9. Quality"
   short_description: "Pass the quality standard into a conversation"
   default_prompt: "Use $work-quality to add the Work quality standard to this conversation."
 policy:

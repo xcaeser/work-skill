@@ -4,14 +4,15 @@
   "groupings": [
     {
       "title": "Agent workflows",
-      "description": "Quality-first ideation, implementation review, robustness checklists, planning, orchestration, auditing, cleanup, and project setup for coding agents.",
+      "description": "Quality-first ideation, implementation review, robustness checklists, meaningful testing, planning, orchestration, auditing, cleanup, and project setup for coding agents.",
       "skills": [
         "work",
         "work-init",
         "work-ideate",
+        "work-plan",
+        "work-test",
         "work-concern",
         "work-checklist",
-        "work-plan",
         "work-audit",
         "work-clean",
         "work-quality",

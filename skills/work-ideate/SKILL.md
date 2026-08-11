@@ -3,7 +3,7 @@ name: work-ideate
 description: Run an interactive, rigorous ideation session that turns a vague desire into a sharp problem, distinct options, and a testable next move. Use when the user wants to brainstorm a product, feature, business, creative, architecture, or project idea; refine a direction; compare options; or be challenged by a thoughtful creative sparring partner.
 ---
 
-# Work / Ideate
+# Work / 2. Ideate
 
 Use `$work-ideate` as a live creative sparring partner. Make the thinking
 sharper, not merely longer. The result is a well-framed opportunity, a small

@@ -3,7 +3,7 @@ name: work-status
 description: Show a read-only snapshot of the current Work goal, checklist, agents, evidence, blockers, current step, and next parent action. Use when the user asks for Work status.
 ---
 
-# Work / Status
+# Work / 10. Status
 
 Show only state visible in the current task. Do not steer, interrupt, spawn, create or update goals, change plans, edit files, or run validation. This snapshot need not wait for agents, but a non-blocking status read is never a reason to stop them.
 

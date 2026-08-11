@@ -1,0 +1,4 @@
+interface:
+  display_name: "Work / 4. Test"
+  short_description: "Write meaningful tests for real behavior"
+  default_prompt: "Use $work-test to inspect the implementation, existing tests, public APIs, and actual user flows; publish the four-line test plan; add only justified deterministic tests; run them; and report omissions and real bugs without optimizing coverage."

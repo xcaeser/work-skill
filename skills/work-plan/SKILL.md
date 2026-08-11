@@ -3,7 +3,7 @@ name: work-plan
 description: Turn a task into a detailed, read-only execution plan by always launching one gpt-5.6-sol xhigh analyst and addressing the handoff to gpt-5.6-luna max. Use when the user wants a plan before implementation.
 ---
 
-# Work / Plan
+# Work / 3. Plan
 
 Produce an implementation-ready plan without changing source files.
 

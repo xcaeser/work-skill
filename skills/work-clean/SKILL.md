@@ -3,7 +3,7 @@ name: work-clean
 description: Read-only code-simplification analysis that always uses one gpt-5.6-sol xhigh analyst and returns a detailed Luna Max cleanup plan. Use when the user asks to clean code, remove smells, reduce overengineering, refactor helpers, or assess package choices.
 ---
 
-# Work / Clean
+# Work / 8. Clean
 
 Find defensible simplifications without letting an agent edit. The parent orchestrator owns the final decision and is the sole writer if cleanup is approved.
 

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Work / Help"
+  display_name: "Work / 11. Help"
   short_description: "Show the focused Work skills and how to use them"
   default_prompt: "Use $work-help to see the separate Work skills and their roles."
 policy:

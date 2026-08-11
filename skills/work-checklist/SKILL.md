@@ -3,7 +3,7 @@ name: work-checklist
 description: Turn the current implementation concerns into a prioritized checklist, register one concrete goal, and work through every item until it has a proven disposition. Use when the user wants to convert concerns into an execution checklist and make the application more robust.
 ---
 
-# Work / Checklist
+# Work / 6. Checklist
 
 Convert concerns into accountable robustness work. Read
 [../QUALITY.md](../QUALITY.md) first and preserve its reliability, meaningful

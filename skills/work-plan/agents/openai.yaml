@@ -1,5 +1,5 @@
 interface:
-  display_name: "Work / Plan"
+  display_name: "Work / 3. Plan"
   short_description: "Sol xhigh analysis with a Luna Max execution plan"
   default_prompt: "Use $work-plan with Sol xhigh to create a detailed read-only execution plan."
 policy:

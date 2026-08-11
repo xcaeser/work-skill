@@ -38,16 +38,17 @@ model, effort, and count requests remain under the user's control.
 | Skill | Purpose |
 | --- | --- |
 | `$work` | Implement a task with an accountable parent lead |
-| `$work-init` | Start a project with a minimal verified setup |
-| `$work-ideate` | Brainstorm, challenge assumptions, and shape a testable direction |
-| `$work-concern` | Surface concrete concerns in the current implementation |
-| `$work-checklist` | Register a goal and resolve concerns through a verified checklist |
-| `$work-plan` | Produce a detailed read-only implementation plan |
-| `$work-audit` | Audit code, diffs, or runtime flows |
-| `$work-clean` | Find smells, overengineering, and package opportunities |
-| `$work-quality` | Pass the Work golden rules into the conversation |
-| `$work-status` | Show the current goal, agents, evidence, and blockers |
-| `$work-help` | Show the available Work skills |
+| `1. $work-init` | Start a project with a minimal verified setup |
+| `2. $work-ideate` | Brainstorm, challenge assumptions, and shape a testable direction |
+| `3. $work-plan` | Produce a detailed read-only implementation plan |
+| `4. $work-test` | Add a few meaningful tests for real observable behavior |
+| `5. $work-concern` | Surface concrete concerns in the current implementation |
+| `6. $work-checklist` | Register a goal and resolve concerns through a verified checklist |
+| `7. $work-audit` | Audit code, diffs, or runtime flows |
+| `8. $work-clean` | Find smells, overengineering, and package opportunities |
+| `9. $work-quality` | Pass the Work golden rules into the conversation |
+| `10. $work-status` | Show the current goal, agents, evidence, and blockers |
+| `11. $work-help` | Show the available Work skills |
 
 ## Workflow
 

@@ -3,7 +3,7 @@ name: work-init
 description: Guide and verify a minimal new project setup by asking only essential questions about project type, language, runtime, platforms, packages, and validation. Use when the user wants to start a new project.
 ---
 
-# Work / Init
+# Work / 1. Init
 
 Create the smallest useful project foundation through a short guided flow.
 

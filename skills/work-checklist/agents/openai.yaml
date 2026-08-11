@@ -1,4 +1,4 @@
 interface:
-  display_name: "Work / Checklist"
+  display_name: "Work / 6. Checklist"
   short_description: "Resolve concerns through a verified checklist"
   default_prompt: "Use $work-checklist to turn the current concerns into a prioritized checklist, register one concrete goal, verify each concern, resolve or dismiss it with evidence, and complete the goal only after every item has a proven disposition."

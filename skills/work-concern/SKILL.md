@@ -3,7 +3,7 @@ name: work-concern
 description: Inspect the current implementation and surface a short list of concrete, evidence-backed concerns without editing or producing a full audit or fix plan. Use when the user asks what gives you pause, what might be wrong, or wants a lightweight implementation sanity check.
 ---
 
-# Work / Concern
+# Work / 5. Concern
 
 Answer this question:
 
@@ -46,7 +46,7 @@ severity-ranked findings, or a Luna Max remediation plan.
 ## Return
 
 ```markdown
-## Work / Concern
+## Work / 5. Concern
 
 **Scope:** <implementation inspected>
 **Question:** What about this implementation gives us pause?
