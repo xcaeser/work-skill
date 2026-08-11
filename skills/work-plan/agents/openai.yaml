@@ -1,6 +1,6 @@
 interface:
   display_name: "Work / 3. Plan"
-  short_description: "Sol xhigh analysis with a Luna Max execution plan"
-  default_prompt: "Use $work-plan with Sol xhigh to create a detailed read-only execution plan."
+  short_description: "Sol xhigh analysis with an executor-ready plan"
+  default_prompt: "Use $work-plan with Sol xhigh to create a self-contained read-only plan detailed enough for a lower-capability executor with no hidden context."
 policy:
   allow_implicit_invocation: false

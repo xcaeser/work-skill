@@ -1,6 +1,6 @@
 interface:
   display_name: "Work / 8. Clean"
   short_description: "Read-only Sol xhigh cleanup plans for simpler code"
-  default_prompt: "Use $work-clean with Sol xhigh to find code smells and produce a detailed Luna Max cleanup plan."
+  default_prompt: "Use $work-clean with Sol xhigh to find code smells and produce a self-contained cleanup plan detailed enough for a lower-capability executor with no hidden context."
 policy:
   allow_implicit_invocation: false

@@ -19,12 +19,12 @@ Use the separate skill that matches the user's intent. Do not make the user reme
 |---|---|
 | `$work-init` | Guide and verify a minimal new project setup |
 | `$work-ideate` | Challenge assumptions, explore distinct directions, and shape a testable idea |
-| `$work-plan` | Sol xhigh read-only analysis with a detailed Luna Max execution plan |
+| `$work-plan` | Sol xhigh read-only analysis with a detailed implementation-ready plan |
 | `$work-test` | Inspect real behavior and add only justified deterministic tests |
 | `$work-concern` | Surface concrete implementation concerns without edits or a full audit |
 | `$work-checklist` | Turn concerns into a registered goal and resolve each with evidence |
-| `$work-audit` | Sol xhigh read-only risk audit with a detailed Luna Max fix plan |
-| `$work-clean` | Sol xhigh read-only code-simplification analysis with a detailed Luna Max cleanup plan |
+| `$work-audit` | Sol xhigh read-only risk audit with a detailed executor-ready fix plan |
+| `$work-clean` | Sol xhigh read-only code-simplification analysis with a detailed executor-ready cleanup plan |
 | `$work-quality` | Pass the Work golden rules directly into the conversation without spawning agents |
 | `$work-status` | Show the current goal and agent state without changing anything |
 | `$work-help` | Show this map |
@@ -188,7 +188,7 @@ Automatic routing:
 - An unreproduced bug: Sol Medium until a concrete reproduction narrows it.
 - Architecture, difficult debugging, auth, permissions, migrations, or security: Sol xhigh.
 - Critical or repeatedly unresolved failures: Sol Max.
-- Approved, clearly scoped implementation, tests, docs, or mechanical refactor: Luna Max.
+- Approved, clearly scoped implementation, tests, docs, or mechanical refactor: Sol Low unless the user selects another profile.
 - Exploration or structured extraction: Luna High.
 - Never silently substitute a model or effort when the requested setup is unavailable.
 

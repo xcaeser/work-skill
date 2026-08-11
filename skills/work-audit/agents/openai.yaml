@@ -1,6 +1,6 @@
 interface:
   display_name: "Work / 7. Audit"
-  short_description: "Evidence-first Sol xhigh audits with Luna Max fix plans"
-  default_prompt: "Use $work-audit with Sol xhigh to audit a target and produce a detailed Luna Max fix plan."
+  short_description: "Evidence-first Sol xhigh audits with executor-ready plans"
+  default_prompt: "Use $work-audit with Sol xhigh to audit a target and produce a self-contained fix plan detailed enough for a lower-capability executor with no hidden context."
 policy:
   allow_implicit_invocation: false

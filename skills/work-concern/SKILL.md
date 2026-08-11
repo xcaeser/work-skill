@@ -14,7 +14,7 @@ Answer this question:
 Read [../QUALITY.md](../QUALITY.md) first. This is a lightweight, read-only
 judgment pass. Do not spawn agents, create goals, edit files, commit, deploy, or
 produce a full fix plan. Use `$work-audit` when the user wants exhaustive review,
-severity-ranked findings, or a Luna Max remediation plan.
+severity-ranked findings, or a detailed executor-ready remediation plan.
 
 ## Inspect
 

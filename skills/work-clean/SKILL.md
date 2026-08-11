@@ -1,6 +1,6 @@
 ---
 name: work-clean
-description: Read-only code-simplification analysis that always uses one gpt-5.6-sol xhigh analyst and returns a detailed Luna Max cleanup plan. Use when the user asks to clean code, remove smells, reduce overengineering, refactor helpers, or assess package choices.
+description: Read-only code-simplification analysis that always uses one gpt-5.6-sol xhigh analyst and returns a self-contained cleanup plan suitable for a lower-capability execution model. Use when the user asks to clean code, remove smells, reduce overengineering, refactor helpers, or assess package choices.
 ---
 
 # Work / 8. Clean
@@ -32,7 +32,7 @@ Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, remove obsolet
 
 ## Handoff
 
-Return a detailed plan addressed to `gpt-5.6-luna` at `max` effort:
+Return a detailed, executor-agnostic cleanup plan:
 
 ```markdown
 ## Clean plan
@@ -52,7 +52,7 @@ Return a detailed plan addressed to `gpt-5.6-luna` at `max` effort:
 **Alternatives rejected**
 - <approach and concrete reason, or "None">
 
-**Luna Max assignments**
+**Executor assignments**
 - <call sign> — working on <assignment>; Goal: <goal>; Ownership: <scope>
 
 **Order:** <dependency-aware steps>
@@ -69,4 +69,4 @@ Return a detailed plan addressed to `gpt-5.6-luna` at `max` effort:
 - **Tests deliberately not added or removed:** <scope and reason>
 ```
 
-The parent orchestrator verifies the plan and is the only permitted writer. A smaller diff is not automatically a better result: reject cleanups that only move complexity, weaken behavior, or preserve obsolete paths through a new wrapper. If the route is blocked, state the exact gap and require a materially new mechanism before another round. Do not launch Luna Max or edit files from this skill. For execution, hand the verified plan to `work`.
+Assume the plan may be executed by a lower-capability model with no hidden context. Spell out exact files and symbols, ordered transformations, behavior to preserve, obsolete paths to remove, package decisions, validation commands, expected evidence, and choices the executor must not reinterpret. The parent orchestrator verifies the plan and is the only permitted writer. A smaller diff is not automatically a better result: reject cleanups that only move complexity, weaken behavior, or preserve obsolete paths through a new wrapper. If the route is blocked, state the exact gap and require a materially new mechanism before another round. Do not launch an executor or edit files from this skill. For execution, hand the verified plan to `work`.

@@ -20,8 +20,8 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 | `4. $work-test` | Inspect real behavior, add justified tests, and report omissions and bugs |
 | `5. $work-concern` | Surface evidence-backed concerns in the current implementation without editing |
 | `6. $work-checklist` | Register a goal and resolve every concern through a verified checklist |
-| `7. $work-audit` | Audit risks with Sol xhigh and produce a Luna Max fix plan |
-| `8. $work-clean` | Analyze code smells with Sol xhigh and produce a Luna Max cleanup plan |
+| `7. $work-audit` | Audit risks with Sol xhigh and produce an executor-ready fix plan |
+| `8. $work-clean` | Analyze code smells with Sol xhigh and produce an executor-ready cleanup plan |
 | `9. $work-quality` | Pass the Work golden rules directly into the conversation |
 | `10. $work-status` | Show the current goal, agents, evidence, and next action |
 | `11. $work-help` | Show this map |
@@ -33,7 +33,7 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 - `Work / 5. Concern`: lightweight read-only inspection; no agents or fix plan.
 - `Work / 6. Checklist`: parent-led execution with one registered goal; no agents.
 - `Sol xhigh`: read-only planning, audit, and cleanup analysis.
-- `Luna Max`: the default execution target described by those plans.
+- Plans are executor-agnostic and detailed enough for a lower-capability model with no hidden context.
 - `$work`: automatic routing (Sol Low for ordinary work) unless the user explicitly supplies a count, profile, or effort. Advanced form: `$work [N] [sol|terra|luna|mix] [effort] <task>`.
 
 ## Orchestration shorthand

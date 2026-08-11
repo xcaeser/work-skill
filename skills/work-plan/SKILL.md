@@ -1,6 +1,6 @@
 ---
 name: work-plan
-description: Turn a task into a detailed, read-only execution plan by always launching one gpt-5.6-sol xhigh analyst and addressing the handoff to gpt-5.6-luna max. Use when the user wants a plan before implementation.
+description: Turn a task into a detailed, read-only execution plan by always launching one gpt-5.6-sol xhigh analyst and producing a self-contained handoff suitable for a lower-capability execution model. Use when the user wants a plan before implementation.
 ---
 
 # Work / 3. Plan
@@ -62,7 +62,7 @@ trend-following as the entire rationale.
 **Alternatives rejected**
 - <approach and concrete reason, or "None">
 
-**Luna Max assignments**
+**Executor assignments**
 - <call sign> — working on <assignment>; Goal: <goal>; Ownership: <scope>
 
 **Order**
@@ -84,4 +84,4 @@ trend-following as the entire rationale.
 **Ready:** Yes | No — <reason>
 ```
 
-Address the plan to `gpt-5.6-luna` at `max` effort. A plan is not ready when it is only a reduction to an unproved assumption, omits a required acceptance check, or reports progress without evidence. If a route is blocked, state the exact gap and only propose a new round when there is a materially new mechanism. Do not launch Luna Max or edit files from this skill. For execution, hand the verified plan to `work`.
+Assume the plan may be executed by a lower-capability model with no access to hidden context. Make it self-contained and unusually explicit: name exact files and symbols, ordered edits, existing patterns to follow, invariants to preserve, edge and failure cases, acceptance evidence, and commands with expected results. Resolve judgment-heavy decisions in the plan instead of delegating them to the executor. A plan is not ready when it is only a reduction to an unproved assumption, omits a required acceptance check, or reports progress without evidence. If a route is blocked, state the exact gap and only propose a new round when there is a materially new mechanism. Do not launch an executor or edit files from this skill. For execution, hand the verified plan to `work`.
