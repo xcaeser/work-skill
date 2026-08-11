@@ -7,20 +7,21 @@
 Quality-first orchestration for coding agents.
 
 Work turns a request into one exact goal, gives specialists complete bounded
-briefs, and keeps the parent responsible for integration and proof. It is a
-portable Agent Skill for Codex and other compatible coding agents.
+task packets, and keeps the parent responsible for integration and proof. It is
+designed for Codex and requires its goal and multi-agent tools for orchestrated
+modes. Conversation-only focused skills may still load in other compatible clients.
 
 ## Install
 
 ```bash
-npx skills add xcaeser/work-skill --skill work --agent codex --global --yes
+npx skills add xcaeser/work-skill --skill '*' --agent codex --global --yes --full-depth
 ```
 
-Install one focused mode by pointing the CLI at its folder:
+This installs `$work` and all numbered focused skills. Install only one when desired:
 
 ```bash
-npx skills add https://github.com/xcaeser/work-skill/tree/main/skills/work-plan \
-  --agent codex --global --yes
+npx skills add xcaeser/work-skill --skill work-plan \
+  --agent codex --global --yes --full-depth
 ```
 
 ## Use
@@ -30,8 +31,11 @@ $work Fix the intermittent login failure and ship the smallest verified repair.
 $work 2 sol xhigh Investigate the data-loss report and implement the durable fix.
 ```
 
-If no team size is given, Work chooses the smallest useful team. Explicit
-model, effort, and count requests remain under the user's control.
+If no team size is given, Work chooses the smallest useful team and defaults
+ordinary work to Sol Low. Explicit model, effort, and count requests remain
+under the user's control: Work explains its recommendation and waits for
+confirmation before launch. It will not invent duplicate assignments to satisfy
+an oversized count. Numbering affects picker order only; command IDs stay stable.
 
 ## Skills
 
@@ -53,13 +57,14 @@ model, effort, and count requests remain under the user's control.
 ## Workflow
 
 1. Define one goal, ownership boundary, done criteria, and validation path.
-2. Launch the smallest useful team with complete executor briefs.
+2. Launch the smallest useful team with complete, disjoint task packets.
+   Executors receive `fork_turns: none` and inspect only owned paths and direct consumers.
 3. Keep materially different approaches independent until their real strengths
    and gaps are visible; track the approach families explicitly.
 4. Require concrete changes, tests, lemmas, or other evidence—not status or
    optimism. Agents work until they finish or report a real blocker.
-5. Use adversarial checks, then have the parent integrate, verify, and report
-   remaining gaps. Reopen a blocked route only with a genuinely new mechanism.
+5. Have the parent integrate and verify independently. Report exact remaining
+   gaps and reopen a blocked route only for a genuinely new mechanism.
 
 These principles are informed by [OpenAI's proof prompt](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf): diverse exploration, explicit route tracking, adversarial review, concrete evidence, and no premature return. Work applies that discipline to coding tasks; the PDF is not a Work API or model-pricing specification.
 
@@ -110,8 +115,14 @@ npx skills add . --list --full-depth
 git diff --check
 ```
 
-Each skill is a portable directory with `SKILL.md` frontmatter. The package
-has no runtime dependencies or bundled services.
+Discovery is structural proof, not behavioral proof. After changing a workflow,
+forward-test that skill in a disposable task using a realistic user request and
+inspect its raw launch, goal, handoff, and no-edit behavior as applicable. Routing,
+fixed-analyst, or goal-lifecycle changes require representative `$work`,
+`$work-plan`, and `$work-checklist` smoke tests before release.
+
+Each skill uses a standard `SKILL.md` directory with no runtime dependencies or
+bundled services. Orchestrated behavior still depends on Codex goal and agent tools.
 
 ## License
 

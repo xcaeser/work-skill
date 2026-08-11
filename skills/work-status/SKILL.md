@@ -15,11 +15,13 @@ Read [../QUALITY.md](../QUALITY.md) when summarizing the quality bar or a compat
 4. Reconcile any visible robustness checklist without changing item states.
 5. Use established call signs; do not invent one from a task ID.
 6. Distinguish unavailable, none, not yet verified, and failed.
+7. Do not infer progress from elapsed time, activity, or a prior status message;
+   report only the latest concrete evidence visible to this task.
 
 Return:
 
 ```markdown
-## Work status
+## Work / 10. Status
 
 **Goal:** <objective or "No Work goal in this task">
 **State:** <active, complete, blocked, or unavailable>
@@ -30,5 +32,6 @@ Return:
 | <call sign (`task_id`)> | <state> | <assignment> | <concise evidence> |
 
 **Current step:** <visible in-progress step or "Unavailable">
+**Blocking decision or evidence gap:** <exact blocker or "None">
 **Next parent action:** <one concrete action or "None">
 ```

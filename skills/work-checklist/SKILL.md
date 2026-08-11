@@ -40,11 +40,11 @@ and must remain visible in the final robustness caveats.
 
 ## 2. Register one goal
 
-After the checklist is defined and before editing, call the available goal tool:
+After the checklist is defined and before editing:
 
-- Prefer `create_goal`; use `define_goal` only when that is the client-provided
-  equivalent.
-- Reuse a matching active goal. Never overwrite an unrelated active goal.
+- Call `get_goal` when available, then reuse a matching active goal or call
+  `create_goal` with the objective below.
+- Never overwrite an unrelated active goal. Report that conflict before editing.
 - Do not set a token budget unless the user supplied one.
 
 Use this objective:
@@ -54,8 +54,8 @@ Resolve or conclusively disprove every verified concern in <scope>, validate the
 affected real user flows, and leave no hidden robustness gap in the checklist.
 ```
 
-If no goal tool is available, state the exact objective and say that it could
-not be registered. Do not pretend the goal exists.
+If `create_goal` is unavailable, state the exact objective and say that it could
+not be registered. Do not invent a fallback tool or pretend the goal exists.
 
 ## 3. Work every item
 
@@ -80,15 +80,15 @@ missing evidence or decision.
 
 ## 4. Complete honestly
 
-Call `update_goal` with `complete` only when every checklist item is `resolved`,
-`disproved`, or explicitly `accepted risk`, and all shared validation passes.
-Do not complete the goal while any item is `pending`, `verified`, `resolving`,
-or `blocked`.
+If a goal was registered, call `update_goal` with `complete` only when every
+checklist item is `resolved`, `disproved`, or explicitly `accepted risk`, and
+all shared validation passes. Do not complete the goal while any item is
+`pending`, `verified`, `resolving`, or `blocked`.
 
 Return:
 
 ```markdown
-## Robustness checklist
+## Work / 6. Checklist
 
 **Goal:** <registered objective>
 **Scope:** <implementation covered>

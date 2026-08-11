@@ -1,45 +1,55 @@
 ---
 name: work-init
-description: Guide and verify a minimal new project setup by asking only essential questions about project type, language, runtime, platforms, packages, and validation. Use when the user wants to start a new project.
+description: Guide and verify the smallest useful new-project foundation by resolving essential product, platform, toolchain, dependency, and validation choices. Use when the user wants to initialize, scaffold, or start a project.
 ---
 
 # Work / 1. Init
 
-Create the smallest useful project foundation through a short guided flow.
+Create the smallest project foundation that builds and runs. Read [../QUALITY.md](../QUALITY.md) first. Do not add product features, speculative packages, compatibility scaffolding, or infrastructure the foundation does not yet need.
 
-Read [../QUALITY.md](../QUALITY.md) first. Keep the scaffold focused, reliable at real boundaries, and free of compatibility scaffolding. Define proof before adding surface area.
+## Resolve only essential choices
 
-## Ask first
+Inspect the destination and conversation before asking anything. Reuse answers already given. If the request is sufficient, proceed without an interview.
 
-Ask no more than three setup questions at a time, progressively:
+Ask no more than three short questions at a time, in this order:
 
-1. Project name, destination, type, language/runtime, target platform, and minimum version.
-2. Required packages, services, storage, authentication, and integrations.
-3. Preferred test, lint, format, build, and run commands.
+1. What is being built, where should it live, and which platform must it run on?
+2. Which language, runtime or toolchain, and minimum supported version are required?
+3. Which packages, services, storage, authentication, and quality commands are genuinely required now?
 
-Use sensible defaults when the answer is discoverable from the workspace. Do not add speculative packages or infrastructure.
+Offer sensible defaults when local conventions or the ecosystem make them clear. Explain only choices with a meaningful tradeoff.
 
-Before writing, state the exact foundation goal, source of truth, what “ready” means,
-and what does not count (for example, an empty scaffold that has never built or
-run). Keep the first setup intentionally narrow; defer product features until
-the foundation proves itself. Grow in working layers: start with the smallest
-end-to-end version and add each capability only after the product already works.
-Never trade a working foundation for unfinished complexity.
+Before writing, state:
 
-If setup includes tests, inspect the implementation, existing tests, public
-APIs, and actual user flows before writing them. State the four-line meaningful
-test plan from [QUALITY.md](../QUALITY.md#meaningful-testing), use the native
-framework and conventions, and add only tests that protect observed behavior.
+- **Foundation goal:** one end-to-end capability the scaffold must prove.
+- **Ready when:** build, run, and relevant quality checks succeed.
+- **Does not count:** an empty or unexecuted scaffold.
+- **Deferred:** product features and infrastructure intentionally excluded.
 
-## Build and verify
+## Build in working layers
 
-1. Inspect the destination and local instructions before creating files.
-2. Create a minimal, idiomatic scaffold with native project metadata and one obvious entry point.
-3. Install only approved dependencies.
-4. Run formatting or linting, focused tests, and a clean build or equivalent.
+1. Read local instructions and inspect the destination for unrelated files.
+2. Create an idiomatic scaffold with native metadata and one obvious entry point.
+3. Add only approved dependencies; prefer platform and existing workspace tooling.
+4. Format or lint, run focused tests when behavior exists, and perform a clean build.
 5. Start the project locally when safe and useful.
-6. Exercise the real boundary that the scaffold establishes: invalid configuration,
-   missing dependencies, interrupted commands, or another relevant failure mode.
-7. Inspect generated files and lockfiles, preserve unrelated files, and report exact commands and evidence. Do not call setup complete from a status message alone.
+6. Exercise one relevant failure boundary, such as invalid configuration or a missing required dependency.
+7. Inspect generated files and lockfiles. Report exact commands and evidence.
 
-Do not launch agents for the setup interview. If the project becomes a substantial implementation, hand the scoped work to `work`.
+Do not invent tests for an empty entry point. When the scaffold establishes real behavior, use the four-line meaningful-test plan in [QUALITY.md](../QUALITY.md#meaningful-testing) before test edits.
+
+Do not spawn agents for the setup interview. If the work expands into product implementation, stop at the verified foundation and hand the scoped task to `$work`.
+
+## Return
+
+```markdown
+## Work / 1. Init
+
+**Goal:** <proved end-to-end capability>
+**Created:** <important paths and dependencies>
+**Run:** <command>
+**Validation:** <commands and exact results>
+**Failure boundary checked:** <check and result>
+**Deferred:** <intentional non-goals>
+**State:** complete / partial / blocked
+```

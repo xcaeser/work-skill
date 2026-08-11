@@ -42,6 +42,9 @@ severity-ranked findings, or a detailed executor-ready remediation plan.
   inspection, say so and name the limits of the review.
 - Keep remediation to one smallest next check. Do not redesign or prescribe a
   full solution unless the user asks.
+- Use `high` confidence for directly reproduced or contract-proven concerns,
+  `medium` for strongly supported code-path risks, and `low` only for an
+  important unknown with a decisive next check. Do not pad the table with low-confidence items.
 
 ## Return
 
@@ -56,9 +59,11 @@ severity-ranked findings, or a detailed executor-ready remediation plan.
 | <concise concern> | <realistic consequence> | <exact location or behavior> | high / medium / low | <smallest decisive check> |
 
 **Unknowns:** <important unresolved facts, or "None">
+**Review limit:** <what was not inspected or proved>
 **Bottom line:** <one candid sentence, including "No material concerns found" when appropriate>
 ```
 
 Order concerns by likely impact. Keep the response compact and proportional to
 the evidence. Do not imply the pass was comprehensive when it was not. Use
 `$work-checklist` when the user wants to register a goal and resolve the concerns.
+Use `$work-test` instead when the only justified action is protecting observed behavior with tests.

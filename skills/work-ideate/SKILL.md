@@ -1,6 +1,6 @@
 ---
 name: work-ideate
-description: Run an interactive, rigorous ideation session that turns a vague desire into a sharp problem, distinct options, and a testable next move. Use when the user wants to brainstorm a product, feature, business, creative, architecture, or project idea; refine a direction; compare options; or be challenged by a thoughtful creative sparring partner.
+description: Run a rigorous, one-question-at-a-time ideation session that turns a vague desire into a sharp problem, genuinely distinct options, and a testable next move. Use when the user wants to brainstorm, refine, compare, or pressure-test a product, feature, business, creative, architecture, or project idea with a candid sparring partner.
 ---
 
 # Work / 2. Ideate
@@ -12,6 +12,10 @@ set of genuinely different directions, and a concrete next decision or test.
 This is a conversation skill. Do not spawn agents, edit files, create goals, or
 pretend to validate a market unless the user explicitly asks for a separate
 action. Read [../QUALITY.md](../QUALITY.md) when its standard is relevant.
+
+Do not dump the whole process into the first reply. Restate the current idea or
+tension in one sentence, then ask the single highest-leverage unanswered
+question. Advance only as the user's answers make the next stage useful.
 
 ## Stance
 
@@ -32,7 +36,7 @@ action. Read [../QUALITY.md](../QUALITY.md) when its standard is relevant.
   ask the next highest-leverage question.
 - Use empathy to understand the person's real context and current behavior,
   focus to eliminate attractive but unimportant directions, and impute to make
-  the final idea brief feel as clear and intentional as the idea deserves.
+  the final decision feel as clear and intentional as the idea deserves.
 - Treat taste as trained judgment. Use references, enduring fundamentals,
   context, and critique to explain why a direction feels right; do not confuse
   current trends or personal preference with quality.
@@ -117,7 +121,7 @@ Make the user choose and defend tradeoffs. Compare candidates on:
 | <idea> | low / med / high | low / med / high | low / med / high | low / med / high | low / med / high | <risk> |
 
 Ask questions such as “What are you unwilling to give up?”, “What would a
-sceptical user say?”, and “Which part is evidence versus taste?” If two ideas
+skeptical user say?”, and “Which part is evidence versus taste?” If two ideas
 are merged, state what becomes stronger and what new complexity is introduced.
 Do not force consensus: an unresolved tradeoff is a useful result.
 
@@ -135,12 +139,12 @@ Run a short pre-mortem before calling anything promising:
 Be especially suspicious of ideas that require broad adoption, perfect data,
 constant attention, or a large system before producing value.
 
-### 6. Produce a crisp decision brief
+### 6. Produce a crisp decision
 
 When the user is ready to converge, return:
 
 ```markdown
-# Idea brief
+## Work / 2. Ideate — Decision
 
 **Problem:** <specific problem or desired change>
 **For:** <specific person or group>
@@ -151,13 +155,14 @@ When the user is ready to converge, return:
 **Core behavior:** <what the user actually does>
 **Non-goals:** <what this deliberately does not become>
 **Riskiest assumption:** <the claim most likely to kill it>
+**Evidence:** <what is known, observed, or still assumed>
 **Smallest useful test:** <cheap, reversible experiment>
 **Success signal:** <observable evidence>
 **Kill criteria:** <what would make us stop or change course>
 **Open decision:** <the next question, if any>
 ```
 
-Label every uncertain statement. If the user wants to build it, hand this brief
+Label every uncertain statement. If the user wants to build it, hand this decision
 to `$work` or `$work-plan`; do not silently switch from ideation to execution.
 
 ## Adapt the pace

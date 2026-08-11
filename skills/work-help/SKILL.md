@@ -5,7 +5,8 @@ description: Show the separate Work skills and their purpose without running a t
 
 # Work / 11. Help
 
-Show the Work skill family directly. Do not make the user remember subcommands.
+Show the Work skill family directly. Do not inspect the repository, spawn
+agents, create goals, or run a task. Do not make the user remember subcommands.
 
 Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 
@@ -13,7 +14,7 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 
 | Skill | Use it for |
 |---|---|
-| `$work` | Default accountable lead for a free-form task |
+| `$work` | Delegate and integrate a free-form implementation task |
 | `1. $work-init` | Start and verify a new project |
 | `2. $work-ideate` | Brainstorm with a rigorous, question-by-question creative sparring partner |
 | `3. $work-plan` | Build a detailed read-only plan with Sol xhigh |
@@ -32,9 +33,12 @@ Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
 - `Work / 4. Test`: parent-led test implementation; no agents or coverage target.
 - `Work / 5. Concern`: lightweight read-only inspection; no agents or fix plan.
 - `Work / 6. Checklist`: parent-led execution with one registered goal; no agents.
-- `Sol xhigh`: read-only planning, audit, and cleanup analysis.
+- `Work / 3. Plan`, `7. Audit`, and `8. Clean`: one read-only Sol xhigh analyst; no edits.
 - Plans are executor-agnostic and detailed enough for a lower-capability model with no hidden context.
-- `$work`: automatic routing (Sol Low for ordinary work) unless the user explicitly supplies a count, profile, or effort. Advanced form: `$work [N] [sol|terra|luna|mix] [effort] <task>`.
+- Terra Low handles small mechanical chores; Terra Medium handles structured exploration or extraction.
+- `mix` lets the parent choose Sol or Terra per assignment and explain the split before launch.
+- Executors use `fork_turns: none`, narrow ownership, and compact artifact-first handoffs to control token use.
+- `$work`: automatic routing (Sol Low for ordinary work) unless the user proposes a count, profile, or effort. Advanced form: `$work [N] [sol|terra|mix] [effort] <task>`. Work explains its recommendation and waits for confirmation; it never invents assignments to satisfy an oversized count.
 
 ## Orchestration shorthand
 

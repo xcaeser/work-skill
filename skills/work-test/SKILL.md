@@ -50,7 +50,7 @@ Use the repository's existing test framework, conventions, helpers, fixtures, an
 
 Do not modify production code to satisfy an artificial test. If real behavior is difficult to test, explain the smallest justified production change before making it. Pause for user direction if that change alters public behavior or expands the requested scope.
 
-When a justified test exposes a production bug, preserve and report the evidence. Fix it only when the request clearly includes the repair; otherwise do not silently broaden test work into product changes.
+When a justified test exposes a production bug, preserve and report the evidence. Fix it only when the request clearly includes the repair. Otherwise do not silently broaden test work into product changes or leave the repository with an unexplained failing test; report the exact regression test that should accompany the eventual fix.
 
 ## Validate
 
@@ -80,4 +80,4 @@ Use this compact handoff:
 **Remaining gap:** <none or the precise unproved boundary>
 ```
 
-Say `complete`, `partial`, or `blocked` plainly. Completion means the justified tests were implemented and the reported validation actually ran.
+Say `complete`, `partial`, or `blocked` plainly. Completion means every justified test was implemented and the reported validation ran. A no-change result may also be complete when inspection proves that no meaningful test is justified; say that explicitly instead of creating coverage work.

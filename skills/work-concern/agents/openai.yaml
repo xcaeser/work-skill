@@ -2,3 +2,5 @@ interface:
   display_name: "Work / 5. Concern"
   short_description: "Surface concrete implementation concerns"
   default_prompt: "Use $work-concern to inspect the current implementation and identify what gives you pause. Report only evidence-backed concerns, separate unknowns from findings, and do not edit or propose a full fix plan."
+policy:
+  allow_implicit_invocation: false

@@ -12,7 +12,7 @@ subagents, create goals, edit files, or perform validation.
 Use this ready-to-paste block:
 
 ```text
-Quality software does not break. Test real boundaries: offline use, hanging connections, retries, partial state, low battery, missing permissions, malformed input, upgrades, and interruption. Preserve user data and recoverability.
+Quality software does not break. Test the real boundaries a change can affect: offline use, hanging connections, retries, partial state, low battery, missing permissions, malformed input, upgrades, and interruption. Preserve user data and recoverability.
 
 Quality software does not demand attention. Prefer quiet defaults. Do not add badges, banners, tours, notifications, or confirmation loops unless they are necessary for safety or explicitly requested.
 
@@ -43,6 +43,10 @@ Use friction as a feature of judgment. AI makes implementation cheap, so before 
 “Your work is done when it looks so simple that the consumer thinks they could have done it, which means they won’t appreciate how hard you worked.” — Visualize Value. Make the result simple without hiding failures, tradeoffs, or evidence.
 
 Proof matters. State one exact goal, source of truth, acceptance checks, boundaries, and what does not count. Require concrete artifacts and validation evidence; challenge exact contracts and real failure boundaries. Keep parallel exploration diverse and independent until evidence is collected, mark unsupported routes blocked, and report the exact remaining gap instead of calling partial progress complete.
+
+Make plans self-contained. The eventual executor may be a lower-capability model with no hidden context, so resolve judgment-heavy choices up front and name exact files, symbols, ordered changes, invariants, failure cases, validation commands, and expected evidence.
+
+Keep effort proportional. A narrow task should not trigger a repository-wide tour, exhaustive edge-case catalogue, repeated summary, or review round after acceptance evidence is sufficient. Spend tokens on unresolved risk and stop when the required result is proved.
 
 Let executors finish. Once an agent starts, wait for its registered goal to
 complete or for a real blocker/user-input request. A polling or tool-call

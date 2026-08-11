@@ -4,7 +4,7 @@ Apply this standard to every Work decision, plan, implementation, and review.
 
 ## The bar
 
-1. **Do not break.** Exercise the real boundaries: offline use, hanging connections, retries, partial state, low battery, missing permissions, malformed input, upgrades, and interrupted work. Preserve user data and recoverability. A polished surface cannot compensate for unreliable behavior.
+1. **Do not break.** Exercise the real boundaries the change can affect: offline use, hanging connections, retries, partial state, low battery, missing permissions, malformed input, upgrades, and interrupted work. Preserve user data and recoverability. A polished surface cannot compensate for unreliable behavior.
 2. **Do not demand attention.** Prefer quiet, calm defaults. Do not add badges, banners, tours, notifications, or confirmation loops unless the user asked for them or the product cannot be safe without them.
 3. **Know the limits.** Keep the purpose, surface area, dependencies, bundle size, and scope narrow. Resist agentic feature creep, speculative abstractions, and slop created merely because production is easy.
 4. **Fix fast.** Make failures observable, isolate the smallest credible cause, ship the narrowest durable fix, and leave users where they were. Updates should do their work without ceremony or needless re-onboarding.
@@ -155,6 +155,16 @@ does not count before work begins. Completion requires concrete artifacts and
 validation evidence; a progress report, elegant reduction, or “routine” claim
 is not proof.
 
+Make plans self-contained. The eventual executor may be a lower-capability
+model with no hidden context, so resolve judgment-heavy choices up front and
+name exact files, symbols, ordered changes, invariants, failure cases,
+validation commands, and expected evidence.
+
+Keep effort proportional. A narrow task should not trigger a repository-wide
+tour, exhaustive edge-case catalogue, repeated summary, or review round after
+the acceptance evidence is sufficient. Spend tokens on unresolved risk and
+stop when the required result is proved.
+
 When parallel investigation is justified, keep the first round diverse by
 approach family, preserve independent hypotheses until they have evidence, and
 track each route's state, evidence, blocker, and next move. Challenge results
@@ -182,23 +192,12 @@ Do not confuse compatibility with safety: preserve user data, recoverability, se
 
 Before accepting a result, ask:
 
-- Does it keep working when the happy path disappears?
-- Does it leave the user alone when nothing needs attention?
-- Is every surface, dependency, and abstraction earning its cost?
-- Does the consumer experience the result as simple because complexity was
-  removed, not merely moved or hidden?
-- Is this the simplest implementation that fully meets the current requirements?
-- Does each new layer sit on top of a product that already works?
-- Are the boundaries modular, and did we check existing dependencies,
-  documentation, and types before adding or reimplementing functionality?
-- Is the architecture durable rather than a stopgap?
-- Can a failure be found, fixed, and delivered quickly?
-- Does the result show restraint and coherent human judgment?
-- Is qualitative judgment grounded in fundamentals, references, critique, and
-  context rather than personal preference or novelty alone?
-- Did we understand the user's real situation, eliminate unimportant
-  opportunities, and present the result with care that truthfully reflects its
-  quality?
-- Did deliberate friction force the decision and validation that cheap
-  implementation no longer forces naturally?
-- Did we remove obsolete paths instead of preserving them by habit?
+- Does it survive the relevant non-happy paths and preserve user state?
+- Does it stay quiet when the user needs no attention?
+- Is every surface, dependency, abstraction, and layer earning its cost?
+- Was complexity removed rather than moved, hidden, or wrapped for compatibility?
+- Are boundaries modular, dependencies understood, and architecture durable?
+- Is qualitative judgment grounded in the real user, enduring principles,
+  references, and explicit tradeoffs?
+- Did deliberate friction produce a decision, validation signal, or kill criterion?
+- Do concrete artifacts and checks prove the result, including any remaining gap?
