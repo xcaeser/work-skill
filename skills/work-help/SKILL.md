@@ -8,7 +8,8 @@ description: Show the separate Work skills and their purpose without running a t
 Show the Work skill family directly. Do not inspect the repository, spawn
 agents, create goals, or run a task. Do not make the user remember subcommands.
 
-Read [../QUALITY.md](../QUALITY.md) when explaining the shared Work standard.
+When explaining the shared standard, use the `$work-quality` description below;
+do not resolve or read files outside this skill folder.
 
 ## Work skills
 

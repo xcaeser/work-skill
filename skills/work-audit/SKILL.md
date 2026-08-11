@@ -7,7 +7,9 @@ description: Evidence-first, read-only audits that always use one gpt-5.6-sol xh
 
 Audit without changing source files. Keep the parent orchestrator accountable for scope, verification, decisions, and any later edits.
 
-Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, never preserve backwards compatibility, and treat concrete evidence as the handoff requirement.
+Apply reliability, restraint, simplicity, meaningful testing, user-state safety,
+and proof over status. Never preserve backwards compatibility; update current
+consumers and remove obsolete paths. Treat concrete evidence as the handoff requirement.
 
 ## Fixed route
 

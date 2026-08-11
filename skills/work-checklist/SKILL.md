@@ -5,9 +5,9 @@ description: Turn the current implementation concerns into a prioritized checkli
 
 # Work / 6. Checklist
 
-Convert concerns into accountable robustness work. Read
-[../QUALITY.md](../QUALITY.md) first and preserve its reliability, meaningful
-testing, simplicity, and clean-break rules.
+Convert concerns into accountable robustness work. Preserve reliability,
+meaningful testing, simplicity, user state, and clean breaks. Never add a
+compatibility layer for an obsolete path.
 
 Use concerns already visible in the conversation, especially the latest
 `$work-concern` or `$work-audit` result. If none exist, inspect the smallest

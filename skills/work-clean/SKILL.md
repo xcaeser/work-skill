@@ -7,7 +7,9 @@ description: Read-only code-simplification analysis that always uses one gpt-5.6
 
 Find defensible simplifications without editing. The Sol xhigh analyst remains read-only; the parent owns every cleanup decision and any later execution route.
 
-Read [../QUALITY.md](../QUALITY.md) first. Apply its quality bar, remove obsolete paths instead of preserving compatibility, keep user data safe, and require evidence for every deletion or abstraction change.
+Preserve reliability, restraint, user data, meaningful tests, and the simplest
+complete implementation. Remove obsolete paths instead of preserving
+compatibility, and require evidence for every deletion or abstraction change.
 
 ## Fixed route
 

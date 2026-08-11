@@ -7,7 +7,10 @@ description: Turn a task into a detailed, read-only execution plan by always lau
 
 Produce an implementation-ready plan without changing source files.
 
-Read [../QUALITY.md](../QUALITY.md) first. Make the plan protect reliability, restraint, modular boundaries, the simplest complete implementation, human authorship, clean breaks over obsolete compatibility, meaningful tests, and proof over status reports. Prefer existing dependencies and durable architecture over speculative packages or stopgaps.
+Make the plan protect reliability, restraint, modular boundaries, the simplest
+complete implementation, human authorship, clean breaks over obsolete
+compatibility, meaningful tests, and proof over status reports. Prefer existing
+dependencies and durable architecture over speculative packages or stopgaps.
 
 ## Fixed route
 

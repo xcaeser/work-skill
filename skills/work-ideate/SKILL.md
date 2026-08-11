@@ -11,7 +11,7 @@ set of genuinely different directions, and a concrete next decision or test.
 
 This is a conversation skill. Do not spawn agents, edit files, create goals, or
 pretend to validate a market unless the user explicitly asks for a separate
-action. Read [../QUALITY.md](../QUALITY.md) when its standard is relevant.
+action. Keep the result focused, restrained, evidence-aware, and human-owned.
 
 Do not dump the whole process into the first reply. Restate the current idea or
 tension in one sentence, then ask the single highest-leverage unanswered

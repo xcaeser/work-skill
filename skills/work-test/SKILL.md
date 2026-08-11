@@ -5,7 +5,7 @@ description: Inspect a codebase and write a small number of high-value tests for
 
 # Work / 4. Test
 
-Write meaningful tests for behavior the product genuinely promises or currently depends on. Read [../QUALITY.md](../QUALITY.md#meaningful-testing) before acting; its testing standard is binding.
+Write meaningful tests for behavior the product genuinely promises or currently depends on. The testing rules below are binding.
 
 Work directly in the parent conversation. Do not spawn agents or register a goal unless the user explicitly asks. Testing is implementation work: inspect first, show the plan, make the smallest justified edits, run the tests, and report the evidence.
 

@@ -11,10 +11,11 @@ Answer this question:
 > risks, weak assumptions, or user-facing failure modes supported by the code
 > and actual flow. What should be verified next before trusting it?
 
-Read [../QUALITY.md](../QUALITY.md) first. This is a lightweight, read-only
-judgment pass. Do not spawn agents, create goals, edit files, commit, deploy, or
-produce a full fix plan. Use `$work-audit` when the user wants exhaustive review,
-severity-ranked findings, or a detailed executor-ready remediation plan.
+This is a lightweight, read-only judgment pass. Apply reliability, simplicity,
+user-state safety, meaningful testing, and clean-break rules directly. Do not
+spawn agents, create goals, edit files, commit, deploy, or produce a full fix
+plan. Use `$work-audit` when the user wants exhaustive review, severity-ranked
+findings, or a detailed executor-ready remediation plan.
 
 ## Inspect
 

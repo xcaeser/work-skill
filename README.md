@@ -17,7 +17,8 @@ modes. Conversation-only focused skills may still load in other compatible clien
 npx skills add xcaeser/work-skill --skill '*' --agent codex --global --yes --full-depth
 ```
 
-This installs `$work` and all numbered focused skills. Install only one when desired:
+This installs `$work` and all numbered focused skills. Each focused skill is
+self-contained, so installing only one is also supported:
 
 ```bash
 npx skills add xcaeser/work-skill --skill work-plan \

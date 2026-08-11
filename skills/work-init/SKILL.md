@@ -5,7 +5,10 @@ description: Guide and verify the smallest useful new-project foundation by reso
 
 # Work / 1. Init
 
-Create the smallest project foundation that builds and runs. Read [../QUALITY.md](../QUALITY.md) first. Do not add product features, speculative packages, compatibility scaffolding, or infrastructure the foundation does not yet need.
+Create the smallest project foundation that builds and runs. Preserve
+reliability, user state, simplicity, and clean breaks. Do not add product
+features, speculative packages, compatibility scaffolding, or infrastructure
+the foundation does not yet need.
 
 ## Resolve only essential choices
 
@@ -36,7 +39,9 @@ Before writing, state:
 6. Exercise one relevant failure boundary, such as invalid configuration or a missing required dependency.
 7. Inspect generated files and lockfiles. Report exact commands and evidence.
 
-Do not invent tests for an empty entry point. When the scaffold establishes real behavior, use the four-line meaningful-test plan in [QUALITY.md](../QUALITY.md#meaningful-testing) before test edits.
+Do not invent tests for an empty entry point. When the scaffold establishes real
+behavior, state the behavior being protected, why it matters, the test level,
+and the exact observable assertion before test edits.
 
 Do not spawn agents for the setup interview. If the work expands into product implementation, stop at the verified foundation and hand the scoped task to `$work`.
 

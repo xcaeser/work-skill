@@ -7,7 +7,10 @@ description: Show a read-only snapshot of the current Work goal, checklist, agen
 
 Show only state visible in the current task. Do not steer, interrupt, spawn, create or update goals, change plans, edit files, or run validation. This snapshot need not wait for agents, but a non-blocking status read is never a reason to stop them.
 
-Read [../QUALITY.md](../QUALITY.md) when summarizing the quality bar or a compatibility decision. If parallel work exists, reconcile each route by approach family, evidence, blocker, and next move rather than reporting activity alone.
+When summarizing quality or compatibility, preserve reliability, user state,
+truthful evidence, and clean breaks over obsolete paths. If parallel work
+exists, reconcile each route by approach family, evidence, blocker, and next
+move rather than reporting activity alone.
 
 1. Call `get_goal` when available.
 2. Call `list_agents` when available.
